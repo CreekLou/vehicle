@@ -197,4 +197,22 @@ public class BoardManageController extends BaseController {
 				+ comment.getTopic().getTopicId() + ".html";
 		return "redirect:"+targetUrl;
 	}
+
+	@RequestMapping(value = "/company")
+	public String introCompany() {
+		System.out.println("-----------introduceCompany----------");
+		return "forward:/library/test/company.htm";
+	}
+
+	@RequestMapping(value = "/service")
+	public String introService() {
+		System.out.println("-----------introService----------");
+		return "forward:/library/test/service.htm";
+	}
+
+	@RequestMapping(value = "/showcar")
+	public String introShowcar() {
+		System.out.println("-----------introShowcar----------");
+		return "forward:/library/test/showcar.htm";
+	}
 }

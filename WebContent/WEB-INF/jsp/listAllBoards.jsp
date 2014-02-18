@@ -69,22 +69,15 @@
 				 <img src="<c:url value="/public/images/icon/video.png"/>">
 						<h1>视频</h1>
 				</a></li>
-				<!--  <li><a href="/vehicle/video2-funny.html" rel="external"> 
-				 <img src="<c:url value="/public/images/icon/video.png"/>">
-						<h1>视频2</h1>
-				</a></li>-->
 				<li><a href="/voice-comic.html" rel="external"> 
 				 <img src="<c:url value="/public/images/icon/voice.png"/>">
 						<h1>音频</h1>
 				</a></li>
-				<!-- <li><a href="NewsServlet?id=toutiao" rel="external"> 
-				   <img src="<c:url value="/public/images/icon/news.png"/>">
-						<h1>资讯</h1>
-				</a></li>		
-				<li><a href="shop_feedback.jsp" rel="external"> 
-				 <img src="<c:url value="/public/images/icon/advice.png"/>">
-						<h1>本车</h1>
-				</a></li> -->
+				<li><a href="/company.html" rel="external"> 
+				 <img src="<c:url value="/public/images/icon/voice.png"/>">
+						<h1>公司简介</h1>
+				</a>
+				</li>
 			</ul>
 		</div>
 		
