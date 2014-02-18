@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping >
+	<class name="com.vehicle.domain.Topic" table="t_topic">
+		<id name="topicId" column="topic_id">
+			<generator class="identity" />
+		</id>
+		<property name="topicTitle" column="topic_title" />
+		<property name="views" column="topic_views" />
+		<property name="replies" column="topic_replies"/>
+        <property name="boardId" column="board_id"/>
+        <property name="city" column="topic_city"/>
+        <property name="summary" column="topic_summary"/>
+        <property name="rank" column="topic_rank"/>
+        <property name="recommend" column="topic_recommend"/>
+        <property name="consume" column="topic_consume"/>
+        <property name="ticket" column="topic_ticket"/>
+        <property name="tel" column="topic_tel"/>
+        <property name="address" column="topic_address"/>
+        <property name="route" column="topic_route"/>
+	</class>
+</hibernate-mapping>
