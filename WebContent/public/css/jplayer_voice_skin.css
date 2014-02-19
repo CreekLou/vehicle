@@ -155,11 +155,11 @@ div.jp-progress {
 }
 div.jp-audio div.jp-progress {
 	position: absolute;
-	top:22px;
+	top:25px;
 	height:15px;
 }
 div.jp-audio div.jp-type-single div.jp-progress {
-	left:110px;
+	left:80px; /*使进度条靠左移动 modified by khzliu 2014-2-17 10:21:04 */
 	width:186px;
 }
 div.jp-audio div.jp-type-playlist div.jp-progress {
@@ -196,10 +196,10 @@ div.jp-seeking-bg {
 
 div.jp-audio div.jp-time-holder {
 	position:absolute;
-	top:50px;
+	top:40px;
 }
 div.jp-audio div.jp-type-single div.jp-time-holder {
-	left:110px;
+	left:80px; /*使时间靠左移动 modified by khzliu 2014-2-17 10:21:04 */
 	width:186px;
 }
 div.jp-audio div.jp-type-playlist div.jp-time-holder {

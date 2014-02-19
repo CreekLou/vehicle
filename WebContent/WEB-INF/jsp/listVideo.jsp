@@ -26,6 +26,7 @@
 <script src="<c:url value="/public/js/menu.js"/>" type="text/javascript"> </script>
 <script src="<c:url value="/public/js/jquery.mobile-1.3.2.js"/>" type="text/javascript"> </script>
 <script src="<c:url value="/public/js/jquery.flexslider.js"/>"></script>
+<!-- start -->
 <script>
 $(document).ready(function(){
 	$('#${type}').attr("class","ui-btn-active ui-btn ui-btn-up-a ui-btn-inline");
@@ -61,6 +62,7 @@ $(document).ready(function(){
 		timer = setInterval("CountDown()",1000);   
 		//--> 
 </script>
+<!-- end -->
 </head>
 <body>
   <div data-role="page" data-theme="a" id="demo-page" class="my-page" >
@@ -89,11 +91,13 @@ $(document).ready(function(){
       	</div>
 	</div>
       <!--container for everything-->
+      <!-- start -->
       <div id="ad" class="jp-video jp-video-360p">
 	<!--<p id="timer" style="color:red; font-size:14px; font-family:Arial;">距离结束还有 10 秒</p>-->
 	  <span id="timer" style="position: absolute; font-size: 11px;font-weight: bold; margin-top: -.95em; padding: .2em .5em; top:5%; right: 10px; -webkit-border-radius: 0em; border-radius: 0em; border: 0px solid #ccc;color:red; font-size:14px; font-family:Arial;">距离结束还有 10 秒</span>
       <img id="adimg" class="jp-jplayer" style="width: 100%;" src="data/videos/images/baoma.jpg">
       </div>
+      <!-- end -->
         <div id="jp_container_1" class="jp-video jp-video-360p">
 
             <!--container in which our video will be played-->
@@ -150,6 +154,8 @@ $(document).ready(function(){
         </div><!--end jp_container_1-->
         <script>
             var myVideolist = [];
+            var playingId = ${videos[0].id}; 
+            var videoType = ${videos[0].type};
         </script>
 	<div data-role="content">
             <ul data-role="listview" id="headline" data-inset="true" data-theme="a" data-dividertheme="a" data-icon="">
@@ -175,6 +181,6 @@ $(document).ready(function(){
      </c:forEach>   	
             </ul>
         </div>
-        <div data-role="footer" data-theme="none"></div>
+        <div data-role="footer" data-theme="none" data-tap-toggle="false"></div>
    </div>
 </body>

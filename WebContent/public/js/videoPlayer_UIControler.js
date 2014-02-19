@@ -1,5 +1,8 @@
 var myPlaylist;
 var loadingObj;
+var videoType; //视频表示类型 modified by khzliu 2014年2月17日14:07:52
+var playingId; //正在播放记录 modified by khzliu 2014年2月17日14:07:52
+var playingFlag = 0; //记录播放状态 modified by khzliu 2014年2月17日14:07:52
 $(document).ready(function(){
     //设置播放列表
         var totalWidth = $("body").width();
@@ -8,7 +11,7 @@ $(document).ready(function(){
         cssSelectorAncestor: "#jp_container_1"
         }, myVideolist, {
         playlistOptions: {
-        enableRemoveControls: true
+        	enableRemoveControls: true
         },
         size: {
 	            width: "100%",
@@ -23,10 +26,9 @@ $(document).ready(function(){
         keyEnabled: true,
         audioFullScreen: true // Allows the audio poster to go full screen via keyboard
     });
-        
-    
     myPlaylist.select(0);
     $('#x-'+0).attr("class","ui-link-inherit ui-btn-active");
+    playingId = 
     //设置声音条码
     setPrecessBar();
     
@@ -94,10 +96,11 @@ $(document).ready(function(){
     });
     //暂停显示播放图标
     $("#jquery_jplayer_1").bind($.jPlayer.event.pause, function(event) { // Using ".jp-repeat" namespace so we can easily remove this event
-        $("div.jp-video-360p div.jp-video-play").css("display","block");
+        $("div.jp-video-360p div.jp-video-play").css({"display":"block"});
     });
     $("#jquery_jplayer_1").bind($.jPlayer.event.play, function(event) { // Using ".jp-repeat" namespace so we can easily remove this event
-        $("div.jp-video-360p div.jp-video-play").css("display","none");
+        $("div.jp-video-360p div.jp-video-play").css({"display":"none"});
+        updateClick();
     });
     
     $("#jquery_jplayer_1").bind($.jPlayer.event.emptied, function(event) { // Using ".jp-repeat" namespace so we can easily remove this event
@@ -116,8 +119,7 @@ $(document).ready(function(){
     $("#jquery_jplayer_1").bind($.jPlayer.event.playing, function(event) { // Using ".jp-repeat" namespace so we can easily remove this event
         loadingHide();
     });
-    console.log("xxxxx");
-    console.log("container = "+document.getElementById("jp_container_1").offsetHeight+"px");
+    
    
 });
 
@@ -126,7 +128,7 @@ function setPrecessBar(){
         precessBarWidth = totalWidth - 210;
         $("div.jp-progress").css("width",precessBarWidth+"px");
 }
-var maxtimes =10;
+
 function setJPlayer(id,type,videoId,size){
     //设置声音条码
     setPrecessBar();
@@ -141,23 +143,18 @@ function setJPlayer(id,type,videoId,size){
     	$('#x-'+i).attr("class","ui-link-inherit");
     }
     $('#x-'+id).attr("class","ui-link-inherit ui-btn-active");
-    //增加点击次数
-    console.log("--------------------");
-    addClicks(type,videoId);
+    //增加标记，记录选定的项 modified by khzliu 2014年2月19日14:15:38
+    videoType = type;
+    playingId = videoId;
+    playingFlag = 0;
+    
     $("#jp_container_1").hide();
 	$("#ad").show();
-//	console.log("jplayer = "+document.getElementById("jquery_jplayer_1").offsetHeight+"px");
-//	var adheight = document.getElementById("jquery_jplayer_1").offsetHeight+49;
-//	var adclass="width: 100%; height: "+adheight+"px";
-//	console.log("adclass = "+adclass);
-//	$('#ad').attr("class",adclass);
-	//var maxtime = 10 ;
-	console.log("zzzzzzzzzzzzzzzzzz2222");
 	timer = setInterval("CountDownS()",1000);
 	maxtimes = 10;
-	console.log("zzzzzzzzzzzzzzzzzz3333");
-}
+}    
 
+//----start-----
 function CountDownS()
 {   console.log("maxtimes -----=="+maxtimes);
 	if(maxtimes>=0)
@@ -181,6 +178,22 @@ function CountDownS()
 		//alert("时间到，结束!");   
 	}   
 }  
+//----end-----
+
+    //增加点击次数
+    //console.log("--------------------");
+function updateClick()
+{
+	if(playingFlag == 0)
+	{
+		addClicks(videoType,playingId); //modified by khzliu 2014年2月17日14:07:52
+		playingFlag = 1;
+	}
+	
+}
+    
+
+
 function setPlayIcon(){
     var jplayerHeight = $("#jquery_jplayer_1").height();
     $("div.jp-video-360p div.jp-video-play").css("width","100%");
@@ -191,11 +204,13 @@ function setPlayIcon(){
 }
 
 //显示加载状态图标
-function loadingShow(){     
+function loadingShow(){
+	$("canvas#canvas").css({"display":"block"}); //点击显示canvas modified by khzliu 2014年2月19日15:12:26
     loadingObj.show();
 }
 //隐藏加载状态图标
-function loadingHide(){     
+function loadingHide(){
+	$("canvas#canvas").css({"display":"none"}); //点击隐藏canvas modified by khzliu 2014年2月19日15:12:26
     loadingObj.hide();
 }
 function loading(canvas,options){   
@@ -257,5 +272,4 @@ function loading(canvas,options){
             if(ctx)ctx.clearRect(0,0,canvas.width,canvas.height);   
           }   
         };   
- 
-		
+

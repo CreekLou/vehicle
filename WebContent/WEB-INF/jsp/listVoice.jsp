@@ -60,24 +60,28 @@ $(document).ready(function(){
       	</div>
 	</div>
  <!--container for everything-->
-	<div id="jp_container_1" class="jp-audio" data-role="footer" data-position="fixed">
+	<div id="jp_container_1" class="jp-audio" data-role="footer" data-position="fixed" data-tap-toggle="false">
             <div id="jquery_jplayer_1" class="jp-jplayer"></div>
             <div class="jp-type-single">
-		<div class="jp-gui jp-interface">
-                    <ul class="jp-controls">
-			<li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
-			<li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
-			<li><a href="javascript:;" class="jp-stop" tabindex="1">stop</a></li>
+            <div class="jp-title">  <!--修改界面，是title靠上显示 modified by khzliu 2014年2月17日10:44:56-->
+                    <ul>
+			<li>该栏目无内容...</li>
                     </ul>
-                    <div class="jp-progress">
-			<div class="jp-seek-bar">
-                            <div class="jp-play-bar"></div>
 			</div>
-                    </div>
-                    <div class="jp-time-holder">
-			<div class="jp-current-time"></div>
-			<div class="jp-duration"></div>
-                    </div>
+		<div class="jp-gui jp-interface">
+            <ul class="jp-controls">
+				<li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
+				<li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
+            </ul>
+            <div class="jp-progress">
+				<div class="jp-seek-bar">
+                     <div class="jp-play-bar"></div>
+				</div>
+            </div>
+            <div class="jp-time-holder">
+				<div class="jp-current-time"></div>
+				<div class="jp-duration"></div>
+            </div>
 		</div>
 		
                 <div class="jp-playlist" style="display: none">
@@ -86,12 +90,7 @@ $(document).ready(function(){
                         <li></li>
                     </ul>
                 </div>
-                
-                <div class="jp-title">
-                    <ul>
-			<li>该栏目无内容...</li>
-                    </ul>
-		</div>
+
 		<div class="jp-no-solution">
                     <span>Update Required</span>
 			To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
@@ -101,6 +100,8 @@ $(document).ready(function(){
         </div><!--end jp_container_1-->
         <script>
             var myVoicelist = [];
+            var playingId = ${voices[0].id}; 
+            var voiceType = ${voices[0].type};
         </script>
 	<div data-role="content">
             <ul data-role="listview" id="headline" data-inset="true" data-theme="a" data-dividertheme="a" data-icon="">
@@ -126,6 +127,5 @@ $(document).ready(function(){
      </c:forEach>   	
             </ul>
         </div>
-        <div data-role="footer" data-theme="none"></div>
    </div>
 </body>

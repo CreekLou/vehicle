@@ -10,7 +10,7 @@
 }
 .jp-video-360p {
 	width:100%;
-	margin: 20px auto;
+	margin: 0 auto;
 }
 .jp-video-full {
 	width:100%;
@@ -127,7 +127,7 @@ a.jp-pause {
 }
 
 .jp-seek-bar {
-        verflow:hidden;
+    verflow:hidden;
 	width:0px;
 	height:100%;
 	cursor: pointer;
@@ -145,7 +145,7 @@ a.jp-pause {
 	width:0px;
 	height:10px;
 	position:relative;
-	z-index: 9999;
+	z-index: 999;  /* 修改该界面，使播放进度条显示不覆盖navbar modified by khzliu 2014年2月17日10:47:26*/
 	
 	-webkit-border-radius:5px;
 	-moz-border-radius:5px;
