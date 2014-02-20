@@ -63,7 +63,7 @@
 			<a href="/vehicle/index.html" data-icon="home" rel="external"
 				data-role="button" class="ui-btn-right">首页</a>
 		</div>
-		<div data-role="content">
+		<div data-role="content" class="my-page">
 		<div class="flexslider">
 				<ul class="slides">
 					<li><img src="/data/images/post/1_1.jpg" /></li>
@@ -71,8 +71,7 @@
 					<li><img src="/data/images/post/1_3.jpg" /></li>
 				</ul>
 			</div>
-			<h4 style="margin-top: 10px; margin-bottom: 10px;">旅遊出行信息</h4>
-			<div class="my-page">
+			<h3 style="margin-top: 10px; margin-bottom: 10px;">旅游出行信息</h3>
 				<div class="ui-grid-solo">
 						<ul data-role="listview" data-inset="true">
 							<c:forEach var="board" items="${boards}">
@@ -84,14 +83,12 @@
 								</a></li>
 							</c:forEach>
 							<li><a href="/company.html" rel="external"> <img
-									src="<c:url value="/public/images/icon/voice.png"/>">
+									src="<c:url value="/public/images/icon/company.png"/>">
 									<h1>公司简介</h1>
 							</a></li>
 						</ul>
 				</div>
-			</div>
-			<h4 style="margin-top: 260px; margin-bottom: 10px;">多媒体娱乐</h4>
-			<div class="my-page">
+			<h3 style="margin-top: 260px; margin-bottom: 10px;">多媒体娱乐</h3>
 				<div class="ui-grid-solo">
 					<ul data-role="listview" data-inset="true">
 						<li><a href="/video-funny.html" rel="external"> <img
@@ -102,10 +99,17 @@
 								src="<c:url value="/public/images/icon/voice.png"/>">
 								<h1>音频</h1>
 						</a></li>
+						<li><a href="/voice-comic.html" rel="external"> <img
+								src="<c:url value="/public/images/icon/games.png"/>">
+								<h1>游戏室</h1>
+						</a></li>
+						<li><a href="/voice-comic.html" rel="external"> <img
+								src="<c:url value="/public/images/icon/chating.jpg"/>">
+								<h1>聊天室</h1>
+						</a></li>
 					</ul>
 				</div>
 			</div>
 		</div>
-	</div>
 </body>
 </html>

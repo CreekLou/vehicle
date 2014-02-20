@@ -95,7 +95,7 @@ $(document).ready(function(){
       <div id="ad" class="jp-video jp-video-360p">
 	<!--<p id="timer" style="color:red; font-size:14px; font-family:Arial;">距离结束还有 10 秒</p>-->
 	  <span id="timer" style="position: absolute; font-size: 11px;font-weight: bold; margin-top: -.95em; padding: .2em .5em; top:5%; right: 10px; -webkit-border-radius: 0em; border-radius: 0em; border: 0px solid #ccc;color:red; font-size:14px; font-family:Arial;">距离结束还有 10 秒</span>
-      <img id="adimg" class="jp-jplayer" style="width: 100%;" src="data/videos/images/baoma.jpg">
+      <img id="adimg" class="jp-jplayer" style="width: 100%;" src="data/videoad/baoma.jpg">
       </div>
       <!-- end -->
         <div id="jp_container_1" class="jp-video jp-video-360p">
