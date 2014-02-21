@@ -149,7 +149,7 @@ $(document).ready(function(){
 });
 </script>
 <style>
-#goTopBtn {position: fixed;line-height:36px;width:36px;bottom:60px;height:36px;cursor:pointer;display:none;
+#goTopBtn {position: fixed;line-height:36px;width:36px;right:10px;bottom:60px;height:36px;cursor:pointer;display:none;z-index:1;
 background:url(/public/css/images/back_to_top_white.gif);}
 </style>
 </head>
@@ -240,7 +240,7 @@ background:url(/public/css/images/back_to_top_white.gif);}
 		  	
 	  $("#goTopBtn").click(function(){
 		  var sc=$(window).scrollTop();
-		 $('body,html').animate({scrollTop:0},500);
+		 $('body,html').animate({scrollTop:0},"fast");
 		  });
 			
 </script>

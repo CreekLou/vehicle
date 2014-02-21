@@ -147,14 +147,16 @@ function setJPlayer(id,type,videoId,size){
     videoType = type;
     playingId = videoId;
     playingFlag = 0;
-    
+    //----start-----louxue----
     $("#jp_container_1").hide();
 	$("#ad").show();
+	clearInterval(timer);//每次进入时，先清洗掉之前的广告时间
+	maxtimes = 9;
 	timer = setInterval("CountDownS()",1000);
-	maxtimes = 10;
+	//----start-----louxue----
 }    
 
-//----start-----
+//----start-----louxue----
 function CountDownS()
 {   console.log("maxtimes -----=="+maxtimes);
 	if(maxtimes>=0)
@@ -172,16 +174,13 @@ function CountDownS()
 	{   
 		console.log("time 22222");
 		clearInterval(timer);
-		console.log("time 33333");
 		 $("#ad").hide();
 		 $("#jp_container_1").show();
 		//alert("时间到，结束!");   
 	}   
 }  
-//----end-----
+//----end-----louxue----
 
-    //增加点击次数
-    //console.log("--------------------");
 function updateClick()
 {
 	if(playingFlag == 0)
