@@ -28,7 +28,6 @@ $(document).ready(function(){
     });
     myPlaylist.select(0);
     $('#x-'+0).attr("class","ui-link-inherit ui-btn-active");
-    playingId = 
     //设置声音条码
     setPrecessBar();
     
