@@ -45,7 +45,7 @@ function setJPlayer(id,vTitle,type,voiceId,size){
     setPrecessBar();
     $(".jp-title li").text(vTitle);
     $(".jp-title").css("display","inline");
-    window.scrollTo(0,0);
+    //window.scrollTo(0,0); 去掉列表选中 播放页面置顶
     for(var i=0;i<size;i++){
     	$('#x-'+i).attr("class","ui-link-inherit");
     }
