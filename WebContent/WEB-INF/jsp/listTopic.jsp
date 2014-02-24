@@ -168,9 +168,7 @@ function toggleDot(curSlide){
 			    <c:if test="${topic.boardId==3}">
 			    	<li data-icon="false"><a><img src="<c:url value="/public/images/icon/title/rank.png"/>" class="ui-li-icon">${topic.rank}</a></li>
 			    </c:if>
-			   <%-- <c:if test="${topic.boardId!=3}">--%> 
                 	<li><a href="#my_summary" data-transition="slide"><img src="<c:url value="/public/images/icon/title/summary.png"/>" class="ui-li-icon ui-corner-none">简介</a></li>
-               <%--</c:if> --%> 
                 <c:if test="${topic.boardId==1}">
                 	<li data-icon="arrow-d" id="li_1" onclick="listview_onclick(1)"><a href="#"><img src="<c:url value="/public/images/icon/title/ticket.png"/>" class="ui-li-icon">门票</a></li>
                 	<li id="field_1" style="display:none; font-weight:normal"> <c:out value="${topic.ticket}" escapeXml="false"/></li>
@@ -188,7 +186,8 @@ function toggleDot(curSlide){
     			</c:if>
     			<c:if test="${topic.boardId!=2}">
                 <li data-icon="false"><a href="#"><img src="<c:url value="/public/images/icon/title/tel.png"/>" class="ui-li-icon"><c:out value="${topic.tel}"/></a></li>
-                <li data-icon="false"><a href="#"><img src="<c:url value="/public/images/icon/title/address.png"/>" class="ui-li-icon">${topic.address}</a></li>
+                <li data-icon="arrow-d" id="li_3" onclick="listview_onclick(3)"><a href="#"><img src="<c:url value="/public/images/icon/title/address.png"/>" class="ui-li-icon">地址信息</a></li>
+                <li id="field_3" style="display:none; font-weight:normal"> <c:out value="${topic.address}" escapeXml="false"/></li>
                 <c:if test="${topic.boardId!=3&&topic.boardId!=4}">
                 <li data-icon="arrow-d" id="li_2" onclick="listview_onclick(2)"><a href="#"><img src="<c:url value="/public/images/icon/title/traffic.png"/>" class="ui-li-icon">交通信息</a></li>
                 <li id="field_2" style="display:none; font-weight:normal"> <c:out value="${topic.route}" escapeXml="false"/></li>
