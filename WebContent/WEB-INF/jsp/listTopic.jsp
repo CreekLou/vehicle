@@ -60,7 +60,6 @@
             }
         </script>
 <script type="text/javascript" charset="utf-8">
-//console.log("init0 = "+init0);
     $(window).load(function() {
     	var init0=5;
     	console.log("init0 = "+init0);
