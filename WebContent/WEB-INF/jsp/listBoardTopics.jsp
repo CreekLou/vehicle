@@ -212,15 +212,6 @@ background:url(/public/css/images/back_to_top_white.gif);}
 			<option value="tianjin">天津</option>
 			</select>
 		</div>
-		<%--<a href="#cityMenu" data-rel="popup" data-role="button" data-inline="true" data-transition="slideup" data-icon="gear" data-theme="e">城市</a>
-			<div data-role="popup" id="cityMenu" data-theme="d">
-	        <ul data-role="listview" data-inset="true"  data-theme="d">
-	            <li data-role="divider" data-theme="e">选择城市</li>
-	            <li><a href="#">全部</a></li>
-	            <li><a href="#">北京</a></li>
-	            <li><a href="#">天津</a></li>
-	        </ul>
-		</div>--%>
 		 <%--<vehicle:PageBar
 			   pageUrl="/board/listBoardTopics-${board.boardId}.html"
 			   pageAttrKey="pagedTopic"/>	
