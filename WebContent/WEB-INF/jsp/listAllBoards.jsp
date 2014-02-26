@@ -57,6 +57,10 @@
 							rel="external">视频</a></li>
 						<li><a href="<c:url value="/voice-comic.html"/>"
 							rel="external">音频</a></li>
+						<li><a href="<c:url value="http://www.letu.com:3002"/>"
+							rel="external">游戏</a></li>
+						<li><a href="<c:url value="http://www.letu.com:3300"/>"
+							rel="external">聊天</a></li>
 					</ul></li>
 			</ul>
 			<h1 style="margin-top: 10px; margin-bottom: -5px">首页</h1>
@@ -99,11 +103,11 @@
 								src="<c:url value="/public/images/icon/voice.png"/>">
 								<h1>音频</h1>
 						</a></li>
-						<li><a href="/voice-comic.html" rel="external"> <img
+						<li><a href="http://www.letu.com:3002" rel="external"> <img
 								src="<c:url value="/public/images/icon/games.png"/>">
 								<h1>游戏室</h1>
 						</a></li>
-						<li><a href="/voice-comic.html" rel="external"> <img
+						<li><a href="http://www.letu.com:3002" rel="external"> <img
 								src="<c:url value="/public/images/icon/chating.jpg"/>">
 								<h1>聊天室</h1>
 						</a></li>

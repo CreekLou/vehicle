@@ -166,6 +166,8 @@ background:url(/public/css/images/back_to_top_white.gif);}
 					<li><a href="<c:url value="/board/listBoardTopics-4.html"/>" rel="external">美食</a></li>
 					<li><a href="<c:url value="/video-funny.html"/>" rel="external">视频</a></li>
 					<li><a href="<c:url value="/voice-comic.html"/>" rel="external">音频</a></li>
+					<li><a href="<c:url value="http://www.letu.com:3002"/>" rel="external">游戏</a></li>
+					<li><a href="<c:url value="http://www.letu.com:3300"/>" rel="external">聊天</a></li>
 	              </ul>
 	         </li>
 		</ul>    
