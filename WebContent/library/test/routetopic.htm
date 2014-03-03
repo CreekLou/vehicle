@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>线路推荐</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/public/css/jquery.mobile-1.3.2.css" type="text/css">
+	<link rel="stylesheet" href="/public/css/grid-listview.css" type="text/css">
+	<link rel="stylesheet" href="/public/css/menu.css" type="text/css">
+	<script src="/public/js/jquery.js" type="text/javascript"></script>
+	<script src="/public/js/menu.js" type="text/javascript"></script>
+	<script src="/public/js/jquery.mobile-1.3.2.js" type="text/javascript"></script>
+</head>
+<body>
+	 <div data-role="page" data-theme="a" id="demo-page"  >
+	   <div id="header" data-role="header" data-position="fixed" data-tap-toggle="false">
+			<ul id="menu-left" data-role="menu" style="margin-top: 5px;padding: 0;">
+			     <li>
+		            <span data-role="button" data-icon="gear" class="ui-btn-left" data-iconpos="left">导航</span>
+		              <ul data-role="listview" data-inset="true" data-theme="c" style="left: 10px; top: 30px;">
+		               <li><a data-ajax="false" href="/board/listBoardTopics-1.html" rel="external">风景</a></li>
+						<li><a href="/board/listBoardTopics-2.html" rel="external">特产 </a></li>
+						<li><a href="/board/listBoardTopics-3.html" rel="external">酒店</a></li>
+						<li><a href="/board/listBoardTopics-4.html" rel="external">美食</a></li>
+						<li><a href="/video-funny.html" rel="external">视频</a></li>
+						<li><a href="/voice-comic.html" rel="external">音频</a></li>
+		              </ul>
+		         </li>
+			</ul>    
+				<h1 style="margin-top: 10px;margin-bottom:-5px">线路推荐</h1>
+				<a href="/vehicle/index.html" data-icon="home" rel="external" data-role="button" class="ui-btn-right">首页</a>
+       </div>
+       <div data-role="content">
+       		<ul data-role="listview"  data-inset="true">
+			    <li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-bar-b ui-first-child">北京</li>
+			    <li><a href="/bj1day.html">休闲一日游</a></li>
+			    <li><a href="/bj2day.html">好汉二日游</a></li>
+			    <li><a href="/bj3day.html">文艺三日游</a></li>
+			    <li><a href="/bjdeep.html">老北京深度游</a></li>
+			    <li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-bar-b ui-first-child">天津</li>
+			    <li><a href="/tj1day.html">天津一日游</a></li>
+			    <li><a href="/tj2day.html">滨海两日游</a></li>
+			    <li><a href="/tjdeep.html">津门深度游</a></li>
+			    
+			</ul>
+		</div>
+      
+     </div>
+</body> 
+</html>
