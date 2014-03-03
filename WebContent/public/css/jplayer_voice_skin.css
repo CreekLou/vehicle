@@ -45,7 +45,7 @@ div.jp-interface {
 }
 
 div.jp-audio div.jp-type-single div.jp-interface {
-	height:60px;  /* 调整控制栏宽度*/
+	height:45px;  /* 调整控制栏宽度*/
 }
 div.jp-audio div.jp-type-single {
         background-color:#555;
@@ -248,12 +248,12 @@ div.jp-type-single div.jp-playlist {
 div.jp-title ul {
 	list-style-type:none;
 	margin:0;
-	padding:0 20px;
-	font-size:.72em;
+	padding:0 10px;
+	font-size:1.20em;
 }
 
 div.jp-title li {
-	padding:5px 0;
+	padding:2px 0;
 	font-weight:bold;
         color:#5599ff;
 }
