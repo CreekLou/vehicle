@@ -82,10 +82,15 @@
 										<h1>${board.boardName}</h1>
 								</a></li>
 							</c:forEach>
+							<li><a href="/routetopic.html" rel="external"> <img
+									src="<c:url value="/public/images/icon/route.png"/>">
+									<h1>线路推荐</h1>
+							</a></li>
 							<li><a href="/company.html" rel="external"> <img
 									src="<c:url value="/public/images/icon/company.png"/>">
 									<h1>公司简介</h1>
 							</a></li>
+							
 						</ul>
 				</div>
 			<h3 style="margin-top: 260px; margin-bottom: 10px;">多媒体娱乐</h3>
