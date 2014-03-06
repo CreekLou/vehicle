@@ -43,6 +43,12 @@ public class BoardManageController extends BaseController {
 	 */
 	@RequestMapping(value = "/board/listBoardTopics-{boardId}", method = RequestMethod.GET)
 	public ModelAndView listBoardTopics(@PathVariable Integer boardId,@RequestParam(value = "pageNo", required = false) Integer pageNo) {
+		/*
+		 * String countId = null; switch (boardId) { case 1: countId =
+		 * "fengjing"; break; case 2: countId = "techan"; break; case 3: countId
+		 * = "jiudian"; break; case 4: countId = "meishi"; break; }
+		 * vehicleService.updateCountNum(countId);
+		 */
 		ModelAndView view =new ModelAndView();
 		Board board = vehicleService.getBoardById(boardId);
 		pageNo = pageNo==null?1:pageNo;
@@ -109,17 +115,6 @@ public class BoardManageController extends BaseController {
 		modelMap.put("pagedTopic", pagedTopic);
 		return modelMap;
 	}
-	/*
-	 * @RequestMapping(value = "/board/listBoardCityTopics", method =
-	 * RequestMethod.POST)
-	 * 
-	 * @ResponseBody public Map<String, Object> listBoardCityTopics(@RequestBody
-	 * Infor infor) { System.out.println("进来了 aaa 加载information");
-	 * System.out.println(infor.getBoardId());
-	 * System.out.println(infor.getCity()); Map<String, Object> modelMap = new
-	 * HashMap<String, Object>(); modelMap.put("city", infor.getCity());
-	 * modelMap.put("boardId", infor.getBoardId()); return modelMap; }
-	 */
 
 	@RequestMapping("/board/testJson2")
 	@ResponseBody
@@ -214,5 +209,53 @@ public class BoardManageController extends BaseController {
 	public String introShowcar() {
 		System.out.println("-----------introShowcar----------");
 		return "forward:/library/test/showcar.htm";
+	}
+
+	@RequestMapping(value = "/routetopic")
+	public String routeTopic() {
+		System.out.println("-----------routetopic----------");
+		return "forward:/library/test/routetopic.htm";
+	}
+
+	@RequestMapping(value = "/bj1day")
+	public String bj1day() {
+		System.out.println("-----------bj1day----------");
+		return "forward:/library/test/bj1day.htm";
+	}
+
+	@RequestMapping(value = "/bj2day")
+	public String bj2day() {
+		System.out.println("-----------bj2day----------");
+		return "forward:/library/test/bj2day.htm";
+	}
+
+	@RequestMapping(value = "/bj3day")
+	public String bj3day() {
+		System.out.println("-----------bj3day----------");
+		return "forward:/library/test/bj3day.htm";
+	}
+
+	@RequestMapping(value = "/bjdeep")
+	public String bjDeep() {
+		System.out.println("-----------bjdeep----------");
+		return "forward:/library/test/bjdeep.htm";
+	}
+
+	@RequestMapping(value = "/tj1day")
+	public String tj1day() {
+		System.out.println("-----------tj1day----------");
+		return "forward:/library/test/tj1day.htm";
+	}
+
+	@RequestMapping(value = "/tj2day")
+	public String tj2day() {
+		System.out.println("-----------tj2day----------");
+		return "forward:/library/test/tj2day.htm";
+	}
+
+	@RequestMapping(value = "/tjdeep")
+	public String tjDeep() {
+		System.out.println("-----------tjdeep----------");
+		return "forward:/library/test/tjdeep.htm";
 	}
 }

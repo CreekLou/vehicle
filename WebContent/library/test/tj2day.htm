@@ -15,30 +15,50 @@
 <body>
 	 <div data-role="page" data-theme="a" id="demo-page"  >
 	   <div id="header" data-role="header" data-position="fixed" data-tap-toggle="false">
-			<ul id="menu-left" data-role="menu" style="margin-top: 5px;padding: 0;">
-			     <li>
-		            <span data-role="button" data-icon="gear" class="ui-btn-left" data-iconpos="left">导航</span>
-		              <ul data-role="listview" data-inset="true" data-theme="c" style="left: 10px; top: 30px;">
-		               <li><a data-ajax="false" href="/board/listBoardTopics-1.html" rel="external">风景</a></li>
-						<li><a href="/board/listBoardTopics-2.html" rel="external">特产 </a></li>
-						<li><a href="/board/listBoardTopics-3.html" rel="external">酒店</a></li>
-						<li><a href="/board/listBoardTopics-4.html" rel="external">美食</a></li>
-						<li><a href="/video-funny.html" rel="external">视频</a></li>
-						<li><a href="/voice-comic.html" rel="external">音频</a></li>
-		              </ul>
-		         </li>
-			</ul>    
+			<ul id="menu-left" data-role="menu"
+				style="margin-top: 5px; padding: 0;">
+				<li><span data-role="button" data-icon="gear"
+					class="ui-btn-left" data-iconpos="left">导航</span>
+					<ul data-role="listview" data-inset="true" data-theme="c"
+						style="left: 10px; top: 30px;">
+						<li><a data-ajax="false"
+							href="/board/listBoardTopics-1.html"
+							rel="external">风景</a></li>
+						<li><a href="/board/listBoardTopics-2.html"
+							rel="external">特产 </a></li>
+						<li><a href="/board/listBoardTopics-3.html"
+							rel="external">酒店</a></li>
+						<li><a href="/board/listBoardTopics-4.html"
+							rel="external">美食</a></li>
+						<li><a href="/routetopic.html" rel="external"> 线路推荐</a></li>
+						<li><a href="/company.html" rel="external"> 公司简介 </a></li>
+						<li><a href="/video-funny.html"
+							rel="external">视频</a></li>
+						<li><a href="/voice-comic.html"
+							rel="external">音频</a></li>
+						<li><a href="http://www.letu.com:3002"
+							rel="external">游戏</a></li>
+						<li><a href="http://www.letu.com:3300"
+							rel="external">聊天</a></li>
+					</ul></li>
+			</ul>      
 				<h1 style="margin-top: 10px;margin-bottom:-5px">线路推荐</h1>
 				<a href="/vehicle/index.html" data-icon="home" rel="external" data-role="button" class="ui-btn-right">首页</a>
 		</div>
 		<div data-role="content">
-        <div class="subline-line-tit"><h3 class="fl">滨海二日游</h3><span class="info-start fl"><span class="info-end"><font color="green">行程亮点：<em class="path-keywords">风情 大海</em></font></span></span></div>
+        <div class="subline-line-tit"><h3 class="fl">滨海二日游</h3><span class="info-start fl"><img src="/public/images/icon/star.png" /><span class="info-end"><b> 行程亮点：<em class="path-keywords">风情 大海</em></b></span></span></div>
         <p>两天的时间除了可以在市内游玩之外，还可以去塘沽欣赏渤海海景。</p>
 		<div>
 			    <em>DAY1:</em>
-				<a href=""  title="世纪钟广场"> 世纪钟广场 </a>
+				<a href="#popupBasic" data-rel="popup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" style="color:#2489ce" data-transition="pop" ><b>世纪钟广场</b></a>
+					<div data-role="popup" id="popupBasic">
+						<p>暂无信息！</p>
+					</div>
 				<span ><img src="/data/images/post/arrow1.png" /></span>
-				<a href=""  title="海河风景线"> 海河风景线 </a>
+				<a href="#popupBasic" data-rel="popup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" style="color:#2489ce" data-transition="pop" ><b>海河风景线</b></a>
+					<div data-role="popup" id="popupBasic">
+						<p>暂无信息！</p>
+					</div>
 				<span ><img src="/data/images/post/arrow1.png" /></span>
 				<a href="/board/listTopic-16.html" data-ajax="false" title="意式风情街"> 意式风情街</a>
 				<span ><img src="/data/images/post/arrow1.png" /></span>
@@ -46,15 +66,27 @@
 				<span ><img src="/data/images/post/arrow1.png" /></span>
 				<a href="/board/listTopic-11.html" data-ajax="false" title="古文化街"> 古文化街</a>
 				<span ><img src="/data/images/post/arrow1.png" /></span>
-				<a href=""  title="鼓楼"> 鼓楼</a>
+				<a href="#popupBasic" data-rel="popup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" style="color:#2489ce" data-transition="pop" ><b>鼓楼</b></a>
+					<div data-role="popup" id="popupBasic">
+						<p>暂无信息！</p>
+					</div>
 				<span ><img src="/data/images/post/arrow1.png" /></span>
-				<a href=""  title="南市食品街"> 南市食品街</a>
+				<a href="#popupBasic" data-rel="popup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" style="color:#2489ce" data-transition="pop" ><b>南市食品街</b></a>
+					<div data-role="popup" id="popupBasic">
+						<p>暂无信息！</p>
+					</div>
 				<span ><img src="/data/images/post/arrow1.png" /></span>
 				<a href="/board/listTopic-12.html" data-ajax="false" title="五大道"> 五大道</a>
 				<span ><img src="/data/images/post/arrow1.png" /></span>
-				<a href=""  title="西开教堂"> 西开教堂</a>
+				<a href="#popupBasic" data-rel="popup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" style="color:#2489ce" data-transition="pop" ><b>西开教堂</b></a>
+					<div data-role="popup" id="popupBasic">
+						<p>暂无信息！</p>
+					</div>
 				<span ><img src="/data/images/post/arrow1.png" /></span>
-				<a href=""  title="滨江道"> 滨江道</a>
+				<a href="#popupBasic" data-rel="popup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" style="color:#2489ce" data-transition="pop" ><b>滨江道</b></a>
+					<div data-role="popup" id="popupBasic">
+						<p>暂无信息！</p>
+					</div>
 			</div>
 	        <p >出了火车站你就能看到海河对面的欧式建筑了，向右一转头你就能看到巨大的世纪钟了，巨大的铜座上满是齿轮和链条，告诉每一个来到天津的人，天津是中国近代工业的发源地。沿着海河一路走下去，你就能欣赏到孕育天津的这条母亲河的风貌了，海河上共有 座桥。近代的天津租借文化繁荣，意大利风情街就坐落在海河沿岸，漫步清幽的意式建筑中可以些许领略不一样的欧洲风情。顺着海河再往下走，你就可以看到亚洲最大的水上摩天轮天津之眼了。坐上摩天轮，你就能在高空中俯瞰海河这条蜿蜒的碧蓝的丝带了。过了天津之眼从任何一座海河上的桥去到对岸，你都可以走到“津门故里”古文化街了，这里有各种古玩店、旧书店、民俗文化店，还有娘娘庙可以参观。
                                                        中午，从古文化街可以直接坐公交到南市食品街品尝各种天津地方特色美食，麻花、包子、火锅应有尽有。饱餐过后可以来到附近的鼓楼商业区，这里基本上也是古玩店、玉器店、家具店比较多，如果您有收藏爱好，这个地方可是不能错过的。
@@ -62,11 +94,17 @@
 			             晚上，就直接到天津最大的商业中心滨江道-和平路来逛吧。一定不要忘了滨江道正对着天津最大的天主教堂-西开教堂。如果周末的白天过来，也许你还有机会参加一场教堂婚礼哦。</p>
         <div>
 		    <em>DAY2:</em>
-			<a href=""  title="洋货市场"> 洋货市场 </a>
+			<a href="#popupBasic" data-rel="popup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" style="color:#2489ce" data-transition="pop" ><b>洋货市场</b></a>
+					<div data-role="popup" id="popupBasic">
+						<p>暂无信息！</p>
+					</div>
 			<span ><img src="/data/images/post/arrow1.png" /></span>
 			<a href="/board/listTopic-11.html" data-ajax="false" title="塘沽"> 塘沽</a>
 			<span ><img src="/data/images/post/arrow1.png" /></span>
-			<a href=""  title="塘沽航母主题乐园"> 塘沽航母主题乐园</a>
+			<a href="#popupBasic" data-rel="popup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" style="color:#2489ce" data-transition="pop" ><b>塘沽航母主题乐园</b></a>
+					<div data-role="popup" id="popupBasic">
+						<p>暂无信息！</p>
+					</div>
 			
 		</div>
 		<p>在天津市区经十一路地铁站可以直接乘坐津滨轻轨到达塘沽，下了轻轨就是塘沽著名的洋货市场了。这里主要出售各种手表、箱包、电子产品等小商品。从洋货市场乘公交可以直达外滩公园，虽然离真正的海还比较远，但是沿河的风景非常美，公园的建筑和著名的”东方公主”游轮都不可错过。

@@ -13,6 +13,14 @@
 <script src="public/js/jquery.mobile-1.3.2.js"></script>
 <script src="public/js/jquery.slides.js"></script>
 </head>
+<% 
+    String url = (String)request.getAttribute("javax.servlet.forward.request_uri"); 
+	if(url.indexOf("list.html")>0){
+		response.setStatus(200);
+	}
+
+ %>
 <script>
 window.location.href="http://www.letu.com";
 </script>
+

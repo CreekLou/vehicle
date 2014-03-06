@@ -20,19 +20,33 @@
 <body>
 <div data-role="page" data-theme="a" id="demo-page" >
 	<div id="header" data-role="header" data-position="fixed">
-		<ul id="menu-left" data-role="menu" style="margin-top: 5px;padding: 0;">
-		     <li>
-	            <span data-role="button" data-icon="gear" class="ui-btn-left" data-iconpos="left">导航</span>
-	              <ul data-role="listview" data-inset="true" data-theme="c" style="left: 10px; top: 30px;">
-	               <li><a data-ajax="false" href="menu_drink.jsp" rel="external">风景</a></li>
-					<li><a href="discount.jsp" rel="external">特产 </a></li>
-					<li><a href="shop_tips.jsp" rel="external">酒店</a></li>
-					<li><a href="NewsServlet?id=toutiao" rel="external">资讯</a></li>
-					<li><a href="VideoServlet?id=funny" rel="external">多媒体</a></li>
-					<li><a href="shop_feedback.jsp" rel="external">本车</a></li>
-	              </ul>
-	         </li>
-		</ul>    
+		<ul id="menu-left" data-role="menu"
+				style="margin-top: 5px; padding: 0;">
+				<li><span data-role="button" data-icon="gear"
+					class="ui-btn-left" data-iconpos="left">导航</span>
+					<ul data-role="listview" data-inset="true" data-theme="c"
+						style="left: 10px; top: 30px;">
+						<li><a data-ajax="false"
+							href="<c:url value="/board/listBoardTopics-1.html"/>"
+							rel="external">风景</a></li>
+						<li><a href="<c:url value="/board/listBoardTopics-2.html"/>"
+							rel="external">特产 </a></li>
+						<li><a href="<c:url value="/board/listBoardTopics-3.html"/>"
+							rel="external">酒店</a></li>
+						<li><a href="<c:url value="/board/listBoardTopics-4.html"/>"
+							rel="external">美食</a></li>
+						<li><a href="/routetopic.html" rel="external"> 线路推荐</a></li>
+						<li><a href="/company.html" rel="external"> 公司简介 </a></li>
+						<li><a href="<c:url value="/video-funny.html"/>"
+							rel="external">视频</a></li>
+						<li><a href="<c:url value="/voice-comic.html"/>"
+							rel="external">音频</a></li>
+						<li><a href="<c:url value="http://www.letu.com:3002"/>"
+							rel="external">游戏</a></li>
+						<li><a href="<c:url value="http://www.letu.com:3300"/>"
+							rel="external">聊天</a></li>
+					</ul></li>
+			</ul>   
 			<h1 style="margin-top: 10px;margin-bottom:-5px">${topic.topicTitle}</h1>
 	</div>
 	<div data-role="content" class="my-page">

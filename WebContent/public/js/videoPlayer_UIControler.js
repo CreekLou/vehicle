@@ -3,6 +3,7 @@ var loadingObj;
 var videoType; //视频表示类型 modified by khzliu 2014年2月17日14:07:52
 var playingId; //正在播放记录 modified by khzliu 2014年2月17日14:07:52
 var playingFlag = 0; //记录播放状态 modified by khzliu 2014年2月17日14:07:52
+var videoSize; //video的个数
 $(document).ready(function(){
     //设置播放列表
         var totalWidth = $("body").width();
@@ -25,8 +26,9 @@ $(document).ready(function(){
         smoothPlayBar: true,
         keyEnabled: true,
         audioFullScreen: true // Allows the audio poster to go full screen via keyboard
+        
     });
-    myPlaylist.select(0);
+    $.jPlayer.timeFormat.showHour = true; //设置时间为小时 分钟 秒 的格式
     $('#x-'+0).attr("class","ui-link-inherit ui-btn-active");
     //设置声音条码
     setPrecessBar();
@@ -36,6 +38,7 @@ $(document).ready(function(){
     
     //设置loading图标
     loadingObj = new loading(document.getElementById('canvas'),{radius:40,circleLineWidth:15});
+    
     //设置全屏处理   
     $(".jp-fullScreen").click(function() {
 	if($("#jquery_jplayer_1").jPlayer("option","fullScreen")==false)
@@ -101,7 +104,7 @@ $(document).ready(function(){
         $("div.jp-video-360p div.jp-video-play").css({"display":"none"});
         updateClick();
     });
-    
+    /* 去除一些不必要的状态
     $("#jquery_jplayer_1").bind($.jPlayer.event.emptied, function(event) { // Using ".jp-repeat" namespace so we can easily remove this event
         $("div.jp-video-360p div.jp-video-play").css("display","none");
         loadingShow();
@@ -111,7 +114,7 @@ $(document).ready(function(){
         loadingHide();
         $("div.jp-video-360p div.jp-video-play").css("display","block");
     });
-   
+   */ 
     $("#jquery_jplayer_1").bind($.jPlayer.event.waiting, function(event) { // Using ".jp-repeat" namespace so we can easily remove this event
         loadingShow();
     }); 
@@ -119,6 +122,7 @@ $(document).ready(function(){
         loadingHide();
     });
     
+    setJPlayer(0,videoType,playingId,videoSize);
    
 });
 
@@ -133,7 +137,7 @@ function setJPlayer(id,type,videoId,size){
     setPrecessBar();
     //设置播放图标
     setPlayIcon();
-    myPlaylist.select(id);
+    
     window.scrollTo(0,0);
     console.log("videoId = "+videoId);
     console.log("播放ID = "+id);
@@ -153,6 +157,8 @@ function setJPlayer(id,type,videoId,size){
 	maxtimes = 9;
 	timer = setInterval("CountDownS()",1000);
 	//----start-----louxue----
+	
+	myPlaylist.select(id); //更改为播完广告后再加载视频
 }    
 
 //----start-----louxue----
