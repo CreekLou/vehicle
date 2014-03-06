@@ -169,7 +169,7 @@ background:url(/public/css/images/back_to_top_white.gif);}
 					<li><a href="<c:url value="http://www.letu.com:3001"/>" rel="external">游戏</a></li>
 					<li><a href="<c:url value="http://www.letu.com:3300"/>" rel="external">聊天</a></li>
 	              </ul>
-	         </li>
+	         </li>/
 		</ul>    
 			<h1 style="margin-top: 10px;margin-bottom:-5px">${board.boardName}</h1>
 			<a href="/vehicle/index.html" data-icon="home" rel="external" data-role="button" class="ui-btn-right">首页</a>

@@ -159,6 +159,7 @@ $(document).ready(function(){
             var myVideolist = [];
             var playingId = ${videos[0].id}; 
             var videoType = ${videos[0].type};
+            var videoSize = ${fn:length(videos)};
         </script>
 	<div data-role="content">
             <ul data-role="listview" id="headline" data-inset="true" data-theme="a" data-dividertheme="a" data-icon="">
