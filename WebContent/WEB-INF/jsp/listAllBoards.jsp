@@ -34,6 +34,16 @@
 		$('.flexslider').flexslider();
 	});
 </script>
+<script type="text/javascript" charset="utf-8">
+$(document).ready(function(){
+	//$('#li').attr("class","ui-btn-active ui-btn ui-btn-up-a ui-btn-inline");
+	var high = 2*document.getElementById("li").offsetHeight+70;
+	//$('#li').attr("class","");
+	console.log(high);
+	$('#xman').attr("style",'height:'+high+'px');
+	console.log($('#xman').attr("style"));
+});
+</script>
 </head>
 <body>
 	<div data-role="page" data-theme="a" id="demo-page">
@@ -53,6 +63,11 @@
 							rel="external">酒店</a></li>
 						<li><a href="<c:url value="/board/listBoardTopics-4.html"/>"
 							rel="external">美食</a></li>
+						<li><a href="/routetopic.html" rel="external">
+							线路推荐</a></li>
+						<li><a href="/company.html" rel="external">
+						公司简介
+						</a></li>	
 						<li><a href="<c:url value="/video-funny.html"/>"
 							rel="external">视频</a></li>
 						<li><a href="<c:url value="/voice-comic.html"/>"
@@ -75,9 +90,9 @@
 					<li><img src="/data/images/post/1_3.jpg" /></li>
 				</ul>
 			</div>
-			<h3 style="margin-top: 10px; margin-bottom: 10px;">旅游出行信息</h3>
-				<div class="ui-grid-solo">
-						<ul data-role="listview" data-inset="true">
+				<div id ="xman" class="ui-grid-solo">
+				<h3 style="margin-top: 10px; margin-bottom: 10px;">旅游出行信息</h3>
+						<ul data-role="listview" data-inset="true" >
 							<c:forEach var="board" items="${boards}">
 								<li><a
 									href="<c:url value="/board/listBoardTopics-${board.boardId}.html"/>"
@@ -96,11 +111,11 @@
 							</a></li>
 							
 						</ul>
-				</div>
-			<h3 style="margin-top: 260px; margin-bottom: 10px;">多媒体娱乐</h3>
-				<div class="ui-grid-solo">
+			</div>
+				<div class="ui-grid-solo" style="position: relative;">
+				<h3 style="margin-top: 10px; margin-bottom: 10px;">多媒体娱乐</h3>
 					<ul data-role="listview" data-inset="true">
-						<li><a href="/video-funny.html" rel="external"> <img
+						<li id="li"><a href="/video-funny.html" rel="external"> <img
 								src="<c:url value="/public/images/icon/video.png"/>">
 								<h1>视频</h1>
 						</a></li>
@@ -113,7 +128,7 @@
 								<h1>游戏室</h1>
 						</a></li>
 						<li><a href="http://www.letu.com:3300" rel="external"> <img
-								src="<c:url value="/public/images/icon/chating.jpg"/>">
+								src="<c:url value="/public/images/icon/iconating.jpg"/>">
 								<h1>聊天室</h1>
 						</a></li>
 					</ul>
