@@ -15,7 +15,6 @@
 <title>车载系统</title>
 <link rel="stylesheet" href="<c:url value="/public/css/jquery.mobile-1.3.2.css"/>" type="text/css">
 <link rel="stylesheet" href="<c:url value="/public/css/menu.css" />" type="text/css">
-<link rel="stylesheet" href="<c:url value="/public/css/media_menu.css" />" type="text/css">
 <link rel="stylesheet" href="<c:url value="/public/css/jplayer_video_skin.css" />" type="text/css">
 <link rel="stylesheet" href="<c:url value="/public/css/flexslider.css" />" type="text/css">
 <script src="<c:url value="/public/js/jquery.js"/>" type="text/javascript"> </script>
@@ -67,33 +66,7 @@ $(document).ready(function(){
 <body>
   <div data-role="page" data-theme="a" id="demo-page" class="my-page" >
    <div id="header" data-role="header" data-position="fixed" data-tap-toggle="false">
-		<ul id="menu-left" data-role="menu"
-				style="margin-top: 5px; padding: 0;">
-				<li><span data-role="button" data-icon="gear"
-					class="ui-btn-left" data-iconpos="left">导航</span>
-					<ul data-role="listview" data-inset="true" data-theme="c"
-						style="left: 10px; top: 30px;">
-						<li><a data-ajax="false"
-							href="<c:url value="/board/listBoardTopics-1.html"/>"
-							rel="external">风景</a></li>
-						<li><a href="<c:url value="/board/listBoardTopics-2.html"/>"
-							rel="external">特产 </a></li>
-						<li><a href="<c:url value="/board/listBoardTopics-3.html"/>"
-							rel="external">酒店</a></li>
-						<li><a href="<c:url value="/board/listBoardTopics-4.html"/>"
-							rel="external">美食</a></li>
-						<li><a href="/routetopic.html" rel="external"> 线路推荐</a></li>
-						<li><a href="/company.html" rel="external"> 公司简介 </a></li>
-						<li><a href="<c:url value="/video-funny.html"/>"
-							rel="external">视频</a></li>
-						<li><a href="<c:url value="/voice-comic.html"/>"
-							rel="external">音频</a></li>
-						<li><a href="<c:url value="http://www.letu.com:3002"/>"
-							rel="external">游戏</a></li>
-						<li><a href="<c:url value="http://www.letu.com:3300"/>"
-							rel="external">聊天</a></li>
-					</ul></li>
-			</ul>   
+		<%@ include file="menu.jsp" %>   
 			<h1 style="margin-top: 10px;margin-bottom:-5px">视频</h1>
 			<a href="/vehicle/index.html" data-icon="home" rel="external" data-role="button" class="ui-btn-right">首页</a>
 		<div data-role="navbar" data-id="foo1">

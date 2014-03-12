@@ -14,7 +14,9 @@
     margin-top: 0px; /* Bring menu closer to button; not needed on mobile */
 }
 #header ul ul li {
-    width: 150px; /* Fixed width menu items*/
+	opacity:0.90;
+	filter:alpha(opacity=90);
+    width: 120px; /* Fixed width menu items*/
     display: block; /* JQM makes a inline-blocks... reset it to block */
 }
 #header ul ul li a {
