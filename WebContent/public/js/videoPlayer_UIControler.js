@@ -22,7 +22,7 @@ $(document).ready(function(){
         swfPath: "js",
         supplied: "m4v",
         free:true,
-        preload: "auto",
+        preload: "metadata",
         smoothPlayBar: true,
         keyEnabled: true,
         audioFullScreen: true // Allows the audio poster to go full screen via keyboard
@@ -84,7 +84,7 @@ $(document).ready(function(){
 	            height: (totalWidth-160)+"px",
 	            cssClass: "jp-video-360p"
 	        }});
-      setPrecessBar();
+      setPrecessBar(); 
       //设置播放图标
       setPlayIcon();
     });
@@ -121,44 +121,78 @@ $(document).ready(function(){
     $("#jquery_jplayer_1").bind($.jPlayer.event.playing, function(event) { // Using ".jp-repeat" namespace so we can easily remove this event
         loadingHide();
     });
-    
-    setJPlayer(0,videoType,playingId,videoSize);
+ 
+	setJPlayer(0,"videos",playingId,videoSize);
+
    
 });
 
 function setPrecessBar(){
         var totalWidth = $("body").width();
-        precessBarWidth = totalWidth - 210;
+        precessBarWidth = totalWidth - 220;
         $("div.jp-progress").css("width",precessBarWidth+"px");
 }
 
 function setJPlayer(id,type,videoId,size){
-    //设置声音条码
+	//设置声音条码
     setPrecessBar();
     //设置播放图标
     setPlayIcon();
     
-    window.scrollTo(0,0);
-    console.log("videoId = "+videoId);
-    console.log("播放ID = "+id);
-   // setPlayActive(id,size);
-    for(var i=0;i<size;i++){
-    	$('#x-'+i).attr("class","ui-link-inherit");
-    }
-    $('#x-'+id).attr("class","ui-link-inherit ui-btn-active");
-    //增加标记，记录选定的项 modified by khzliu 2014年2月19日14:15:38
-    videoType = type;
-    playingId = videoId;
-    playingFlag = 0;
-    //----start-----louxue----
-    $("#jp_container_1").hide();
-	$("#ad").show();
-	clearInterval(timer);//每次进入时，先清洗掉之前的广告时间
-	maxtimes = 9;
-	timer = setInterval("CountDownS()",1000);
-	//----start-----louxue----
-	
-	myPlaylist.select(id); //更改为播完广告后再加载视频
+	var sUserAgent= navigator.userAgent.toLowerCase();
+	  
+    var bIsIpad = (sUserAgent.indexOf("ipad") > -1);
+    
+    var bIsIphoneOs = (sUserAgent.indexOf("iphone os") > -1);
+    
+	if (bIsIpad || bIsIphoneOs) {
+	    window.scrollTo(0,0);
+	    console.log("videoId = "+videoId);
+	    console.log("播放ID = "+id);
+	   // setPlayActive(id,size);
+	    for(var i=0;i<size;i++){
+	    	$('#x-'+i).attr("class","ui-link-inherit");
+	    }
+	    $('#x-'+id).attr("class","ui-link-inherit ui-btn-active");
+	    //增加标记，记录选定的项 modified by khzliu 2014年2月19日14:15:38
+	    videoType = type;
+	    playingId = videoId;
+	    playingFlag = 0;
+	    //----start-----louxue----
+	    $("#jp_container_1").hide();
+		$("#ad").show();
+		clearInterval(timer);//每次进入时，先清洗掉之前的广告时间
+		maxtimes = 9;
+		timer = setInterval("CountDownS()",1000);
+		//----start-----louxue----
+		myPlaylist.select(id);
+		
+    } else {
+    	
+    	myPlaylist.select(id);
+    	
+        window.scrollTo(0,0);
+        console.log("videoId = "+videoId);
+        console.log("播放ID = "+id);
+       // setPlayActive(id,size);
+        for(var i=0;i<size;i++){
+        	$('#x-'+i).attr("class","ui-link-inherit");
+        }
+        $('#x-'+id).attr("class","ui-link-inherit ui-btn-active");
+        //增加标记，记录选定的项 modified by khzliu 2014年2月19日14:15:38
+        videoType = type;
+        playingId = videoId;
+        playingFlag = 0;
+        //----start-----louxue----
+        $("#jp_container_1").hide();
+    	$("#ad").show();
+    	clearInterval(timer);//每次进入时，先清洗掉之前的广告时间
+    	maxtimes = 9;
+    	timer = setInterval("CountDownS()",1000);
+    	//----start-----louxue----
+		
+    } 
+    
 }    
 
 //----start-----louxue----

@@ -115,7 +115,7 @@ $(document).ready(function(){
         <script>
             var myVoicelist = [];
             var playingId = ${voices[0].id}; 
-            var voiceType = ${voices[0].type};
+            var voiceType = "voice";
         </script>
 	<div data-role="content">
             <ul data-role="listview" id="headline" data-inset="true" data-theme="a" data-dividertheme="a" data-icon="">

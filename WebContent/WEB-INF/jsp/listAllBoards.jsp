@@ -127,7 +127,7 @@ $(document).ready(function(){
 								src="<c:url value="/public/images/icon/games.png"/>">
 								<h1>游戏室</h1>
 						</a></li>
-						<li><a href="http://www.letu.com:3300" rel="external"> <img
+						<li><a href="http://www.letu.com:3300" rel="external" target="_blank"> <img
 								src="<c:url value="/public/images/icon/iconating.jpg"/>">
 								<h1>聊天室</h1>
 						</a></li>
