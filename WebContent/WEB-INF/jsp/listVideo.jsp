@@ -143,7 +143,7 @@ $(document).ready(function(){
         <script>
             var myVideolist = [];
             var playingId = ${videos[0].id}; 
-            var videoType = ${videos[0].type};
+            var videoType = "videos";
             var videoSize = ${fn:length(videos)};
         </script>
 	<div data-role="content">
