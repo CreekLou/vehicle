@@ -20,7 +20,7 @@
         padding:10px;
         margin:auto;
         margin-top: -0.6em;
-        height:40px;
+        height:180px;
     }
      p{
          text-indent: 2em; /*em是相对单位，2em即现在一个字大小的两倍*/
@@ -80,7 +80,7 @@
             $('#dot'+curSlide).toggle();
             this.curSlide = curSlide;
             
-            $('#dot'+curSlide).css("height","80px");
+            $('#dot'+curSlide).css("height","180px");
             $('#dot'+curSlide).dotdotdot({
                 after: 'a.more'
             });
@@ -113,7 +113,7 @@ function toggleDot(curSlide){
     }else{
         //alert(2);
         $('#moreless'+curSlide).text(" 更多 »");
-        $('#dot'+curSlide).css("height","80px");
+        $('#dot'+curSlide).css("height","180px");
         $('#dot'+curSlide).dotdotdot({
             after: 'a.more'
         });
@@ -130,44 +130,30 @@ function toggleDot(curSlide){
 					class="ui-btn-left" data-iconpos="left">导航</span>
 					<ul data-role="listview" data-inset="true" data-theme="c"
 						style="left: 10px; top: 30px;">
-						<li><a data-ajax="false"
-							href="/board/listBoardTopics-1.html"
-							rel="external">风景</a></li>
-						<li><a href="/board/listBoardTopics-2.html"
-							rel="external">特产 </a></li>
-						<li><a href="/board/listBoardTopics-3.html"
-							rel="external">酒店</a></li>
-						<li><a href="/board/listBoardTopics-4.html"
-							rel="external">美食</a></li>
 						<li><a style="padding-right: 10px;"
-						 href="/routetopic.html" rel="external">
-							线路推荐</a></li>
-						<li><a style="padding-right: 10px;"
-						 href="/company.html" rel="external">
-						公司简介
-						</a></li>
-						</ul>
-		              
-		              <ul data-role="listview" data-inset="true" data-theme="c" style="left: 135px; top: 30px;">	
+							href="/company.html"
+							rel="external">公司介绍</a></li>
+						<li><a href="/beijing.html"
+							rel="external">北京 </a></li>
+						<li><a href="/tianjin.html"
+							rel="external">天津</a></li>
 						<li><a href="/video-funny.html"
 							rel="external">视频</a></li>
 						<li><a href="/voice-comic.html"
-							rel="external">音频</a></li>
+							rel="external">音乐</a></li>
 						<li><a style="padding-right: 10px;"
 						 href="http://www.letu.com:3001"
 							rel="external">游戏室</a></li>
-						<li><a style="padding-right: 10px;"
-						 href="http://www.letu.com:3300"
-							rel="external">聊天室</a></li>
-					</ul></li>
+					</ul>
 			</ul>      
 			<h1 style="margin-top: 10px;margin-bottom:-5px">介绍</h1>
 			<a href="/vehicle/index.html" data-icon="home" rel="external" data-role="button" class="ui-btn-right">首页</a>
 		<div data-role="navbar" data-id="foo1">
 			<ul id="nav_id">
-		         <li><a href="/company.html" rel="external" id="funny" class="ui-btn-active ui-btn ui-btn-up-a ui-btn-inline">公司简介</a></li>
+		         <li><a href="/company.html" rel="external" id="funny" class="ui-btn-active ui-btn ui-btn-up-a ui-btn-inline">关于我们</a></li>
 		         <li><a href="/service.html" rel="external" id="movie">车次时刻</a></li>
-		         <li><a href="/showcar.html" rel="external" id="mv">车型展现</a></li>
+		         <li><a href="/coach.html" rel="external" id="mv" >旅游巴士</a></li>
+				 <li><a href="/carrental.html" rel="external" id="movie">汽车租赁</a></li>
 			</ul>
       	</div>
 		</div>
@@ -176,7 +162,8 @@ function toggleDot(curSlide){
 			<div
 				style="width: 98%; margin: auto; border-style: solid; border-width: 2px; border-radius: 6px; border-color: #B6B7B9;">
 				<div id="dot0" class="dotDes">
-					北京易通恒日汽车租赁有限公司是一家专业从事汽车租赁服务的公司，公司自成立以来，凭借本公司广阔的资源和完善的服务体系在短间内迅速发展，逐渐形成自己独特的经营模式，一直为广大顾客提供安全、方便、捷、舒适、超值的服务，公司本着以顾客为尊、诚信经营的服务原则，时刻为您提供一种体贴入微的优质服务！北京恒日汽车租赁有限公司属北京易通恒日旗下子公司，注册资金：500万；主要租赁大中型班车为主，为北京中外企事业单位、社会团体、政府机构等提供各种档次的班车接送和旅游服务，车型有：（金龙、中通、宇通、福田欧V、申龙、安凯、考斯特、福特全顺等）（17-51座）。经国家认证工商注册号（10108014769452），公司具备北京市运输管理局许可《北京市汽车租赁经营备案》（京交管赁字000578号）。是北京市汽车租赁行业考评合格企业，全新配置、设施齐全。公司目前所有车辆均为近2年内购置的车辆，车内具有；中央空调、豪华座椅、DVD、液晶显示器、麦克风等配置一应俱全。公司车辆具有交通强制险、车辆损失险、第三者责任险、乘客险等。车辆全部在北京市运输管理局及市公安局公共交通分局备案，并全部安装GPS全球卫星定位系统。我们相信，通过我们的不断努力和追求，一定能够实现与大中小企业的互利共赢！
+					北京XXX客运有限公司原为北京市交通局下属全民企业，成立于1993年，是专门为各企事业单位、机关学校、旅游公司等提供用车服务的专业汽车公司。1999年改制为XX出租有限公司。2000年企业重组改为北京XX运输有限公司第5分公司。2009年更名为北京XXX客运有限公司。在此期间曾被北京市出租管理局表彰为安全服务先进集体；北京市交通局三产系统先进；2次被银建总公司评为标杆集体；并多次被行业管理部门公开表扬。2011年参加全国道路客运“海格智慧”科技助力活动被交通部评为先进企业，公司有3名驾驶员被交通部评为全国节能驾驶能手。该企业是一个安全服务信得过的单位，是一个管理严格、遵法守纪的企业。现企业有省际运营班线16条；运营车高、
+中级大客车38部；有职工65名；管理干部9名；高级管理人员2名。企业信誉好，企业经济效益和社会效益都名列行业榜首，是一个很有发展潜力的具有二级资质的客运企业。
 					<a
 						style="white-space: nowrap; text-decoration: underline; color: #01ffff"
 						class="more" id="moreless0"></a>
@@ -187,13 +174,12 @@ function toggleDot(curSlide){
 		<p>
 		<br>
 		电话：010-82793575 <br>
+		电话：010-82793576 <br>
 		传真：010-82793575 <br>
 		手机：13718987805<br>
-		手机：13161351769<br>
-		手机：13269588828<br>
-		网址：http://www.hrzuche.com <br>
-		邮箱：hrzuche@163.com <br>
-		北京班车租赁服务热线:13911728944<br>
+		网址：www.jlxhky.com <br>
+		邮箱：jiulongxianghe@126.com <br>
+		地址：北京市丰台区新发地长途客运站内<br> 
 		</p>
 		</div>	
   </div>

@@ -12,9 +12,19 @@
 <script src="/public/js/jquery.js" type="text/javascript"></script>
 <script src="/public/js/menu.js" type="text/javascript"></script>
 <script src="/public/js/jquery.mobile-1.3.2.js" type="text/javascript"></script>
-<style type="text/css">#yddContainer{display:block;font-family:Microsoft YaHei;position:relative;width:100%;height:100%;top:-4px;left:-4px;font-size:12px;border:1px solid}#yddTop{display:block;height:22px}#yddTopBorderlr{display:block;position:static;height:17px;padding:2px 28px;line-height:17px;font-size:12px;color:#5079bb;font-weight:bold;border-style:none solid;border-width:1px}#yddTopBorderlr .ydd-sp{position:absolute;top:2px;height:0;overflow:hidden}.ydd-icon{left:5px;width:17px;padding:0px 0px 0px 0px;padding-top:17px;background-position:-16px -44px}.ydd-close{right:5px;width:16px;padding-top:16px;background-position:left -44px}#yddKeyTitle{float:left;text-decoration:none}#yddMiddle{display:block;margin-bottom:10px}.ydd-tabs{display:block;margin:5px 0;padding:0 5px;height:18px;border-bottom:1px solid}.ydd-tab{display:block;float:left;height:18px;margin:0 5px -1px 0;padding:0 4px;line-height:18px;border:1px solid;border-bottom:none}.ydd-trans-container{display:block;line-height:160%}.ydd-trans-container a{text-decoration:none;}#yddBottom{position:absolute;bottom:0;left:0;width:100%;height:22px;line-height:22px;overflow:hidden;background-position:left -22px}.ydd-padding010{padding:0 10px}#yddWrapper{color:#252525;z-index:10001;background:url(chrome-extension://eopjamdnofihpioajgfdikhhbobonhbb/ab20.png);}#yddContainer{background:#fff;border-color:#4b7598}#yddTopBorderlr{border-color:#f0f8fc}#yddWrapper .ydd-sp{background-image:url(chrome-extension://eopjamdnofihpioajgfdikhhbobonhbb/ydd-sprite.png)}#yddWrapper a,#yddWrapper a:hover,#yddWrapper a:visited{color:#50799b}#yddWrapper .ydd-tabs{color:#959595}.ydd-tabs,.ydd-tab{background:#fff;border-color:#d5e7f3}#yddBottom{color:#363636}#yddWrapper{min-width:250px;max-width:400px;}</style>
+<style type="text/css">#yddContainer{display:block;font-family:Microsoft YaHei;position:relative;width:100%;height:100%;top:-4px;left:-4px;font-size:12px;border:1px solid}#yddTop{display:block;height:22px}#yddTopBorderlr{display:block;position:static;height:17px;padding:2px 28px;line-height:17px;font-size:12px;color:#5079bb;font-weight:bold;border-style:none solid;border-width:1px}#yddTopBorderlr .ydd-sp{position:absolute;top:2px;height:0;overflow:hidden}.ydd-icon{left:5px;width:17px;padding:0px 0px 0px 0px;padding-top:17px;background-position:-16px -44px}.ydd-close{right:5px;width:16px;padding-top:16px;background-position:left -44px}#yddKeyTitle{float:left;text-decoration:none}#yddMiddle{display:block;margin-bottom:10px}.ydd-tabs{display:block;margin:5px 0;padding:0 5px;height:18px;border-bottom:1px solid}.ydd-tab{display:block;float:left;height:18px;margin:0 5px -1px 0;padding:0 4px;line-height:18px;border:1px solid;border-bottom:none}.ydd-trans-container{display:block;line-height:160%}.ydd-trans-container a{text-decoration:none;}#yddBottom{position:absolute;bottom:0;left:0;width:100%;height:22px;line-height:22px;overflow:hidden;background-position:left -22px}.ydd-padding010{padding:0 10px}#yddWrapper{color:#252525;z-index:10001;background:url(chrome-extension://eopjamdnofihpioajgfdikhhbobonhbb/ab20.png);}#yddContainer{background:#fff;border-color:#4b7598}#yddTopBorderlr{border-color:#f0f8fc}#yddWrapper .ydd-sp{background-image:url(chrome-extension://eopjamdnofihpioajgfdikhhbobonhbb/ydd-sprite.png)}#yddWrapper a,#yddWrapper a:hover,#yddWrapper a:visited{color:#50799b}#yddWrapper .ydd-tabs{color:#959595}.ydd-tabs,.ydd-tab{background:#fff;border-color:#d5e7f3}#yddBottom{color:#363636}#yddWrapper{min-width:250px;max-width:400px;}
+	.aa{table-layout:fixed;}
+	td{
+	
+	height:22px;
+	}
+	p{
+	height:6px;
+	}
+</style>
 </head>
 <body>
+
   <div data-role="page" data-theme="a" id="demo-page"  >
    <div id="header" data-role="header" data-position="fixed" data-tap-toggle="false">
 		<ul id="menu-left" data-role="menu"
@@ -23,236 +33,487 @@
 					class="ui-btn-left" data-iconpos="left">导航</span>
 					<ul data-role="listview" data-inset="true" data-theme="c"
 						style="left: 10px; top: 30px;">
-						<li><a data-ajax="false"
-							href="/board/listBoardTopics-1.html"
-							rel="external">风景</a></li>
-						<li><a href="/board/listBoardTopics-2.html"
-							rel="external">特产 </a></li>
-						<li><a href="/board/listBoardTopics-3.html"
-							rel="external">酒店</a></li>
-						<li><a href="/board/listBoardTopics-4.html"
-							rel="external">美食</a></li>
 						<li><a style="padding-right: 10px;"
-						 href="/routetopic.html" rel="external">
-							线路推荐</a></li>
-						<li><a style="padding-right: 10px;"
-						 href="/company.html" rel="external">
-						公司简介
-						</a></li>
-						</ul>
-		              
-		              <ul data-role="listview" data-inset="true" data-theme="c" style="left: 135px; top: 30px;">	
+							href="/company.html"
+							rel="external">公司介绍</a></li>
+						<li><a href="/showCity-beijing-1-1.html"
+							rel="external">北京 </a></li>
+						<li><a href="/showCity-tianjin-1-1.html"
+							rel="external">天津</a></li>
 						<li><a href="/video-funny.html"
 							rel="external">视频</a></li>
 						<li><a href="/voice-comic.html"
-							rel="external">音频</a></li>
+							rel="external">音乐</a></li>
 						<li><a style="padding-right: 10px;"
 						 href="http://www.letu.com:3001"
 							rel="external">游戏室</a></li>
-						<li><a style="padding-right: 10px;"
-						 href="http://www.letu.com:3300"
-							rel="external">聊天室</a></li>
 					</ul></li>
 			</ul>     
 			<h1 style="margin-top: 10px;margin-bottom:-5px">介绍</h1>
 			<a href="/vehicle/index.html" data-icon="home" rel="external" data-role="button" class="ui-btn-right">首页</a>
 		<div data-role="navbar" data-id="foo1">
 			<ul id="nav_id">
-		         <li><a href="/company.html" rel="external" id="funny">公司简介</a></li>
+		         <li><a href="/company.html" rel="external" id="funny">关于我们</a></li>
 		         <li><a href="/service.html" rel="external" id="movie" class="ui-btn-active ui-btn ui-btn-up-a ui-btn-inline">车次时刻</a></li>
-		         <li><a href="/showcar.html" rel="external" id="mv">车型展现</a></li>
+		         <li><a href="/coach.html" rel="external" id="mv" >旅游巴士</a></li>
+				 <li><a href="/carrental.html" rel="external" id="movie">汽车租赁</a></li>
 			</ul>
       	</div>
 		</div>
     <div data-role="content">
 		<div>
+		<table cellspacing="0" cellpadding="0" width="80%" align="center"  class="aa">
+		<tr>
+			<td width="100px" align="center" >
+			始发城市
+			</td>
+			<td>
+			<select name="select-start" id="select-start" >
+		     <option value="buxian">不限</option>
+		      <option value="beijing">北京</option>
+		      <option value="tianjin">天津</option>
+		      <option value="shijiazhuang">石家庄</option>
+		      </select>
+			</td>
+		
+		</tr>
+		
+		<tr>
+			<td width="100px" align="center" >
+			到达城市
+			</td>
+			<td>
+			<select name="select-end" id="select-end" >
+		     <option value="buxian">不限</option>
+		      <option value="beijing">北京</option>
+		      <option value="tianjin">天津</option>
+		      <option value="shijiazhuang">石家庄</option>
+		      </select>
+			</td>
+		
+		</tr>
+		
+		</table>
+		</div>
+		
 		<div class="bus_s">
-            	<table width="100%" cellpadding="0" cellspacing="0" name="tbl" id="tbl">
-                <tbody><tr>
-                    	<th width="12%" align="center">始发站</th>
-                        <th width="11%" align="center">到达站</th>
-                        <th width="11%" align="center">发车时间</th>
-                        <th width="11%" align="center">票价（元）</th>
-                    </tr>
-                	
-                   <tr>
-                    	<td width="24%" align="center" class="c004fb1">北京祥龙赵公口客运站</td>
-                        <td width="12%" align="center">汉沽区</td>
-                        <td width="12%" align="center" class="cf60">16:30</td>
-                        <td width="12%" align="center" class="cf60">32</td>
-                  </tr>
-                  
-                   <tr class="bf0f6ff">
-                    	<td width="24%" align="center" class="c004fb1">北京祥龙赵公口客运站</td>
-                        <td width="12%" align="center">汉沽区</td>
-                        <td width="12%" align="center" class="cf60">14:30</td>
-                        <td width="12%" align="center" class="cf60">32</td>
-                  </tr>
-                  
-                   <tr>
-                    	<td width="24%" align="center" class="c004fb1">北京祥龙赵公口客运站</td>
-                        <td width="12%" align="center">汉沽区</td>
-                        <td width="12%" align="center" class="cf60">13:00</td>
-                        <td width="12%" align="center" class="cf60">32</td>
-                  </tr>
-                  
-                   <tr class="bf0f6ff">
-                    	<td width="24%" align="center" class="c004fb1">北京祥龙赵公口客运站</td>
-                        <td width="12%" align="center">汉沽区</td>
-                        <td width="12%" align="center" class="cf60">11:15</td>
-                        <td width="12%" align="center" class="cf60">32</td>
-                  </tr>
-                  
-                   <tr>
-                    	<td width="24%" align="center" class="c004fb1">赵公口长途客运汽车站</td>
-                        <td width="12%" align="center">汉沽区</td>
-                        <td width="12%" align="center" class="cf60">16:30</td>
-                        <td width="12%" align="center" class="cf60">40</td>
-                  </tr>
-                  
-                   <tr class="bf0f6ff">
-                    	<td width="24%" align="center" class="c004fb1">赵公口长途客运汽车站</td>
-                        <td width="12%" align="center">汉沽区</td>
-                        <td width="12%" align="center" class="cf60">14:30</td>
-                        <td width="12%" align="center" class="cf60">40</td>
-                  </tr>
-                  
-                   <tr>
-                    	<td width="24%" align="center" class="c004fb1">赵公口长途客运汽车站</td>
-                        <td width="12%" align="center">汉沽区</td>
-                        <td width="12%" align="center" class="cf60">13:00</td>
-                        <td width="12%" align="center" class="cf60">40</td>
-                  </tr>
-                  
-                   <tr class="bf0f6ff">
-                    	<td width="24%" align="center" class="c004fb1">赵公口长途客运汽车站</td>
-                        <td width="12%" align="center">汉沽区</td>
-                        <td width="12%" align="center" class="cf60">11:15</td>
-                        <td width="12%" align="center" class="cf60">40</td>
-                  </tr>
-                  
-                   <tr>
-                    	<td width="24%" align="center" class="c004fb1">赵公口长途客运汽车站</td>
-                        <td width="12%" align="center">汉沽区</td>
-                        <td width="12%" align="center" class="cf60">8:00</td>
-                        <td width="12%" align="center" class="cf60">40</td>
-                  </tr>
-                  
-                   <tr class="bf0f6ff">
-                    	<td width="24%" align="center" class="c004fb1">北京祥龙赵公口客运站</td>
-                        <td width="12%" align="center">武清区</td>
-                        <td width="12%" align="center" class="cf60">15:50</td>
-                        <td width="12%" align="center" class="cf60">12</td>
-                  </tr>
-                  
-                   <tr>
-                    	<td width="24%" align="center" class="c004fb1">北京祥龙赵公口客运站</td>
-                        <td width="12%" align="center">武清区</td>
-                        <td width="12%" align="center" class="cf60">14:50</td>
-                        <td width="12%" align="center" class="cf60">12</td>
-                  </tr>
-                  
-                   <tr class="bf0f6ff">
-                    	<td width="24%" align="center" class="c004fb1">北京祥龙赵公口客运站</td>
-                        <td width="12%" align="center">武清区</td>
-                        <td width="12%" align="center" class="cf60">13:00</td>
-                        <td width="12%" align="center" class="cf60">12</td>
-                  </tr>
-                  
-                   <tr>
-                    	<td width="24%" align="center" class="c004fb1">北京祥龙赵公口客运站</td>
-                        <td width="12%" align="center">武清区</td>
-                        <td width="12%" align="center" class="cf60">12:50</td>
-                        <td width="12%" align="center" class="cf60">18</td>
-                  </tr>
-                  
-                   <tr class="bf0f6ff">
-                    	<td width="24%" align="center" class="c004fb1">北京祥龙赵公口客运站</td>
-                        <td width="12%" align="center">武清区</td>
-                        <td width="12%" align="center" class="cf60">12:10</td>
-                        <td width="12%" align="center" class="cf60">18</td>
-                  </tr>
-                  
-                   <tr>
-                    	<td width="24%" align="center" class="c004fb1">北京祥龙赵公口客运站</td>
-                        <td width="12%" align="center">武清区</td>
-                        <td width="12%" align="center" class="cf60">10:50</td>
-                        <td width="12%" align="center" class="cf60">18</td>
-                  </tr>
-                  
-                   <tr class="bf0f6ff">
-                    	<td width="24%" align="center" class="c004fb1">北京祥龙赵公口客运站</td>
-                        <td width="12%" align="center">武清区</td>
-                        <td width="12%" align="center" class="cf60">09:50</td>
-                        <td width="12%" align="center" class="cf60">18</td>
-                  </tr>
-                  
-                   <tr>
-                    	<td width="24%" align="center" class="c004fb1">北京祥龙赵公口客运站</td>
-                        <td width="12%" align="center">武清区</td>
-                        <td width="12%" align="center" class="cf60">08:50</td>
-                        <td width="12%" align="center" class="cf60">18</td>
-                  </tr>
-                  
-                   <tr class="bf0f6ff">
-                    	<td width="24%" align="center" class="c004fb1">北京祥龙赵公口客运站</td>
-                        <td width="12%" align="center">武清区</td>
-                        <td width="12%" align="center" class="cf60">08:00</td>
-                        <td width="12%" align="center" class="cf60">18</td>
-                  </tr>
-                  
-                   <tr>
-                    	<td width="24%" align="center" class="c004fb1">赵公口长途客运汽车站</td>
-                        <td width="12%" align="center">武清区</td>
-                        <td width="12%" align="center" class="cf60">14:50</td>
-                        <td width="12%" align="center" class="cf60">20</td>
-                  </tr>
-                  
-                   <tr class="bf0f6ff">
-                    	<td width="24%" align="center" class="c004fb1">赵公口长途客运汽车站</td>
-                        <td width="12%" align="center">武清区</td>
-                        <td width="12%" align="center" class="cf60">12:50</td>
-                        <td width="12%" align="center" class="cf60">20</td>
-                  </tr>
-                  
-                   <tr>
-                    	<td width="24%" align="center" class="c004fb1">赵公口长途客运汽车站</td>
-                        <td width="12%" align="center">武清区</td>
-                        <td width="12%" align="center" class="cf60">12:10</td>
-                        <td width="12%" align="center" class="cf60">20</td>
-                  </tr>
-                  
-                   <tr class="bf0f6ff">
-                    	<td width="24%" align="center" class="c004fb1">赵公口长途客运汽车站</td>
-                        <td width="12%" align="center">武清区</td>
-                        <td width="12%" align="center" class="cf60">10:50</td>
-                        <td width="12%" align="center" class="cf60">20</td>
-                  </tr>
-                  
-                   <tr>
-                    	<td width="24%" align="center" class="c004fb1">北京祥龙赵公口客运站</td>
-                        <td width="12%" align="center">静海县</td>
-                        <td width="12%" align="center" class="cf60">14:00</td>
-                        <td width="12%" align="center" class="cf60">31</td>
-                  </tr>
-                  
-                   <tr class="bf0f6ff">
-                    	<td width="24%" align="center" class="c004fb1">赵公口长途客运汽车站</td>
-                        <td width="12%" align="center">静海县</td>
-                        <td width="12%" align="center" class="cf60">14:00</td>
-                        <td width="12%" align="center" class="cf60">40</td>
-                  </tr>
-                  
-                   <tr>
-                    	<td width="24%" align="center" class="c004fb1">四惠长途汽车站</td>
-                        <td width="12%" align="center">蓟县</td>
-                        <td width="12%" align="center" class="cf60">19:30</td>
-                        <td width="12%" align="center" class="cf60">19</td>
-                  </tr>
-                </tbody></table>
+            	<table cellspacing="0" cellpadding="0" width="100%" align="center" border="1" class="aa" >
+				<tbody >
+				<tr>
+					<td valign="top" width="20%">
+					<p align="center">线 路</p></td>
+					<td valign="top" width="30%">
+					<p align="center">发/到站</p></td>
+					<td valign="top" width="24%">
+					<p align="center">票价</p></td>
+					<td valign="top" width="26%">
+					<p align="center">发/到时间</p></td>
+				</tr>
+				
+				<tr id="1">
+					<td valign="top" width="20%" >
+						<p id="1_s" align="left" >北京</p>
+						<p id="1_e" align="right">天津</p>
+					</td>
+					<td valign="top" width="30%" >
+						<p align="left" >六里桥</p>
+						<p align="right" >汉沽区</p>
+					</td>
+					<td valign="top" width="24%" >
+						<p align="center" >30元（座）</p>
+					</td>
+					<td valign="top" width="26%"  >
+					    <p align="left">9:50</p>
+						<p align="right">12:00</p>	
+					</td>
+				</tr>
+				<tr id="2">
+					<td valign="top" width="20%" >
+						<p id="2_s" align="left" >北京</p>
+						<p id="2_e" align="right">天津</p>
+					</td>
+					<td valign="top" width="30%" >
+						<p align="left" >四惠</p>
+						<p align="right" >汉沽区</p>
+					</td>
+					<td valign="top" width="24%" >
+						<p align="center" >30元（座）</p>
+					</td>
+					<td valign="top" width="26%" >
+					    <p align="left">10:20</p>
+						<p align="right">12:30</p>	
+					</td>
+				</tr>
+				<tr id="3">
+					<td valign="top" width="20%" >
+						<p id="3_s" align="left" >北京</p>
+						<p id="3_e"align="right">天津</p>
+					</td>
+					<td valign="top" width="30%" >
+						<p align="left" >四惠</p>
+						<p align="right" >汉沽区</p>
+					</td>
+					<td valign="top" width="24%" >
+						<p align="center" >45元（卧）</p>
+					</td>
+					<td valign="top" width="26%" >
+					    <p align="left">10:20</p>
+						<p align="right">12:30</p>	
+					</td>
+				</tr>
+				
+				
+				<tr id="4" >
+					<td valign="top" width="20%" >
+						<p id="4_s" align="left" >北京</p>
+						<p id="4_e" align="right">天津</p>
+					</td>
+					<td valign="top" width="30%" >
+						<p align="left" >六里桥</p>
+						<p align="right" >汉沽区</p>
+					</td>
+					<td valign="top" width="24%" >
+						<p align="center" >45元（卧）</p>
+					</td>
+					<td valign="top" width="26%" >
+					    <p align="left">10:50</p>
+						<p align="right">13:00</p>	
+					</td>
+				</tr>
+				
+				
+		
+				<tr id="5">
+					<td valign="top" width="20%" >
+						<p id="5_s" align="left" >北京</p>
+						<p id="5_e" align="right">天津</p>
+					</td>
+					<td valign="top" width="30%" >
+						<p align="left" >六里桥</p>
+						<p align="right" >武清区</p>
+					</td>
+					<td valign="top" width="24%" >
+						<p align="center" >45元（卧）</p>
+					</td>
+					<td valign="top" width="26%" >
+					    <p align="left">10:50</p>
+						<p align="right">13:00</p>	
+					</td>
+				</tr>
+				
+				
+				
+				
+				<tr id="6">
+					<td valign="top" width="20%" >
+						<p id="6_s" align="left" >北京</p>
+						<p id="6_e" align="right">天津</p>
+					</td>
+					<td valign="top" width="30%" >
+						<p align="left" >六里桥</p>
+						<p align="right" >汉沽区</p>
+					</td>
+					<td valign="top" width="24%" >
+						<p align="center" >30元（座）</p>
+					</td>
+					<td valign="top" width="26%" >
+					    <p align="left">13:50</p>
+						<p align="right">15:00</p>	
+					</td>
+				</tr>
+				
+				
+				<tr id="7">
+					<td valign="top" width="20%" >
+						<p id="7_s" align="left" >北京</p>
+						<p id="7_e" align="right">天津</p>
+					</td>
+					<td valign="top" width="30%" >
+						<p align="left" >六里桥</p>
+						<p align="right" >汉沽区</p>
+					</td>
+					<td valign="top" width="24%" >
+						<p align="center" >45元（卧）</p>
+					</td>
+					<td valign="top" width="26%" >
+					    <p align="left">15:50</p>
+						<p align="right">17:00</p>	
+					</td>
+				</tr>
+				
+				
+				
+				<tr id="8">
+					<td valign="top" width="20%" >
+						<p id="8_s" align="left" >天津</p>
+						<p id="8_e" align="right">北京</p>
+					</td>
+					<td valign="top" width="30%" >
+						<p  align="left" >汉沽区</p>
+						<p  align="right" >六里桥</p>
+					</td>
+					<td valign="top" width="24%" >
+						<p align="center" >30元（座）</p>
+					</td>
+					<td valign="top" width="26%" >
+					    <p align="left">11:00</p>
+						<p align="right">13:20</p>	
+					</td>
+				</tr>
+				
+				<tr id="9">
+					<td valign="top" width="20%" >
+						<p id="9_s"  align="left" >天津</p>
+						<p id="9_e"  align="right">北京</p>
+					</td>
+					<td valign="top" width="30%" >
+						<p align="left" >武清区</p>
+						<p align="right" >六里桥</p>
+					</td>
+					<td valign="top" width="24%" >
+						<p align="center" >30元（座）</p>
+					</td>
+					<td valign="top" width="26%" >
+					    <p align="left">11:00</p>
+						<p align="right">13:40</p>	
+					</td>
+				</tr>
+				
+					<tr id="10">
+					<td valign="top" width="20%" >
+						<p id="10_s" align="left" >天津</p>
+						<p id="10_e" align="right">北京</p>
+					</td>
+					<td valign="top" width="30%" >
+						<p align="left" >汉沽区</p>
+						<p align="right" >六里桥</p>
+					</td>
+					<td valign="top" width="24%" >
+						<p align="center" >30元（座）</p>
+					</td>
+					<td valign="top" width="26%" >
+					    <p align="left">15:30</p>
+						<p align="right">17:00</p>	
+					</td>
+				</tr>
+				
+				<tr id="11">
+					<td valign="top" width="20%" >
+						<p id="11_s"  align="left" >天津</p>
+						<p id="11_e"  align="right">北京</p>
+					</td>
+					<td valign="top" width="30%" >
+						<p align="left" >武清区</p>
+						<p align="right" >六里桥</p>
+					</td>
+					<td valign="top" width="24%" >
+						<p align="center" >30元（座）</p>
+					</td>
+					<td valign="top" width="26%" >
+					    <p align="left">15:30</p>
+						<p align="right">17:00</p>
+					</td>
+				</tr>
+				
+				<tr id="12">
+					<td valign="top" width="20%" >
+						<p id="12_s" align="left" >北京</p>
+						<p id="12_e" align="right">石家庄</p>
+					</td>
+					<td valign="top" width="30%" >
+						<p align="left" >六里桥</p>
+						<p align="right" >石家庄</p>
+					</td>
+					<td valign="top" width="24%" >
+						<p align="center" >60元（座）</p>
+					</td>
+					<td valign="top" width="26%" >
+					    <p align="left">10:00</p>
+						<p align="right">14:00</p>
+					</td>
+				</tr>
+				
+				<tr id="13">
+					<td valign="top" width="20%" >
+						<p id="13_s" align="left" >北京</p>
+						<p id="13_e" align="right">石家庄</p>
+					</td>
+					<td valign="top" width="30%" >
+						<p align="left" >六里桥</p>
+						<p align="right" >石家庄</p>
+					</td>
+					<td valign="top" width="24%" >
+						<p align="center" >80元（卧）</p>
+					</td>
+					<td valign="top" width="26%" >
+					    <p align="left">10:20</p>
+						<p align="right">14:20</p>
+					</td>
+				</tr>
+				
+				<tr id="14">
+					<td valign="top" width="20%" >
+						<p id="14_s" align="left" >石家庄</p>
+						<p id="14_e" align="right">北京</p>
+					</td>
+					<td valign="top" width="30%" >
+						<p align="left" >石家庄</p>
+						<p align="right" >六里桥</p>
+					</td>
+					<td valign="top" width="24%" >
+						<p align="center" >80元（卧）</p>
+					</td>
+					<td valign="top" width="26%" >
+					    <p align="left">14:40</p>
+						<p align="right">17:40</p>
+					</td>
+				</tr>
+				
+				<tr id="15">
+					<td valign="top" width="20%" >
+						<p id="15_s" align="left" >天津</p>
+						<p id="15_e" align="right">石家庄</p>
+					</td>
+					<td valign="top" width="30%" >
+						<p align="left" >汉沽区</p>
+						<p align="right" >石家庄</p>
+					</td>
+					<td valign="top" width="24%" >
+						<p align="center" >80元（卧）</p>
+					</td>
+					<td valign="top" width="26%" >
+					    <p align="left">10:20</p>
+						<p align="right">14:20</p>
+					</td>
+				</tr>
+				
+				<tr id="16">
+					<td valign="top" width="20%" >
+						<p id="16_s" align="left" >天津</p>
+						<p id="16_e" align="right">石家庄</p>
+					</td>
+					<td valign="top" width="30%" >
+						<p align="left" >汉沽区</p>
+						<p align="right" >石家庄</p>
+					</td>
+					<td valign="top" width="24%" >
+						<p align="center" >80元（卧）</p>
+					</td>
+					<td valign="top" width="26%" >
+					    <p align="left">14:40</p>
+						<p align="right">17:40</p>
+					</td>
+				</tr>
+				
+				
+				<tr id="17">
+					<td valign="top" width="20%" >
+						<p id="17_s" align="left" >石家庄</p>
+						<p id="17_e" align="right">天津</p>
+					</td>
+					<td valign="top" width="30%" >
+						<p align="left" >六里桥</p>
+						<p align="right" >石家庄</p>
+					</td>
+					<td valign="top" width="24%" >
+						<p align="center" >80元（卧）</p>
+					</td>
+					<td valign="top" width="26%" >
+					    <p align="left">10:20</p>
+						<p align="right">14:20</p>
+					</td>
+				</tr>
+				
+				<tr id="18">
+					<td valign="top" width="20%" >
+						<p id="18_s" align="left" >石家庄</p>
+						<p id="18_e" align="right">天津</p>
+					</td>
+					<td valign="top" width="30%" >
+						<p align="left" >石家庄</p>
+						<p align="right" >六里桥</p>
+					</td>
+					<td valign="top" width="24%" >
+						<p align="center" >80元（卧）</p>
+					</td>
+					<td valign="top" width="26%" >
+					    <p align="left">14:40</p>
+						<p align="right">17:40</p>
+					</td>
+				</tr>
+				
+				<tr id="19">
+					<td valign="top" width="20%" >
+						<p id="19_s" align="left" >石家庄</p>
+						<p id="19_e" align="right">北京</p>
+					</td>
+					<td valign="top" width="30%" >
+						<p align="left" >六里桥</p>
+						<p align="right" >石家庄</p>
+					</td>
+					<td valign="top" width="24%" >
+						<p align="center" >80元（卧）</p>
+					</td>
+					<td valign="top" width="26%" >
+					    <p align="left">10:20</p>
+						<p align="right">14:20</p>
+					</td>
+				</tr>
+				
+				<tr id="20">
+					<td valign="top" width="20%" >
+						<p id="20_s" align="left" >石家庄</p>
+						<p id="20_e" align="right">北京</p>
+					</td>
+					<td valign="top" width="30%" >
+						<p align="left" >石家庄</p>
+						<p align="right" >六里桥</p>
+					</td>
+					<td valign="top" width="24%" >
+						<p align="center" >80元（卧）</p>
+					</td>
+					<td valign="top" width="26%" >
+					    <p align="left">14:40</p>
+						<p align="right">17:40</p>
+					</td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				</tbody></table>
             </div>
 	</div>	
   </div>
-  </div>
+  
+  <script>
+  function myFilter(){
+	  start_city = $("#select-start").find("option:selected").text();
+	  end_city = $("#select-end").find("option:selected").text();
+	  //alert( start_city +"   "+end_city);
+		
+	  for(i=1; i<21; i++){
+	  //alert( $("#"+i+"_s").text() );
+		  if( ($("#"+i+"_s").text()==start_city || start_city=="不限") && ($("#"+i+"_e").text()==end_city || end_city=="不限") ){
+			  $("#"+i).show();
+		  }else{
+			  $("#"+i).hide();
+		  }
+	  }
+  }
+  
+$("#select-start").change(function () {
+	myFilter()
+});
+
+$("#select-end").change(function () {
+	myFilter()
+});
+
+</script>
+
 </body>
 </html>
