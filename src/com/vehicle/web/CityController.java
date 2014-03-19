@@ -66,4 +66,16 @@ public class CityController extends BaseController {
 		System.out.println("-----------carrental----------");
 		return "forward:/library/test/carrental.htm";
 	}
+
+	@RequestMapping(value = "/listApps")
+	public String showApps() {
+		System.out.println("-----------listApps----------");
+		return "forward:/library/test/listApps.htm";
+	}
+
+	@RequestMapping(value = "/goshopping")
+	public String showShop() {
+		System.out.println("-----------goshopping----------");
+		return "forward:/library/test/goshopping.htm";
+	}
 }

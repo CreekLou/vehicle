@@ -43,12 +43,22 @@ public class BoardManageController extends BaseController {
 	 */
 	@RequestMapping(value = "/board/listBoardTopics-{boardId}", method = RequestMethod.GET)
 	public ModelAndView listBoardTopics(@PathVariable Integer boardId,@RequestParam(value = "pageNo", required = false) Integer pageNo) {
-		/*
-		 * String countId = null; switch (boardId) { case 1: countId =
-		 * "fengjing"; break; case 2: countId = "techan"; break; case 3: countId
-		 * = "jiudian"; break; case 4: countId = "meishi"; break; }
-		 * vehicleService.updateCountNum(countId);
-		 */
+		String countId = null;
+		switch (boardId) {
+		case 1:
+			countId = "fengjing";
+			break;
+		case 2:
+			countId = "techan";
+			break;
+		case 3:
+			countId = "jiudian";
+			break;
+		case 4:
+			countId = "meishi";
+			break;
+		}
+		vehicleService.updateCountNum(countId);
 		ModelAndView view =new ModelAndView();
 		Board board = vehicleService.getBoardById(boardId);
 		pageNo = pageNo==null?1:pageNo;

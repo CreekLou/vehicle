@@ -34,7 +34,8 @@ public class ForumManageController extends BaseController {
 	private UserService userService;
 
 	/**
-	 * 列出所有的论坛模块
+	 * 列出所有的模块
+	 * 
 	 * @param request
 	 * @param response
 	 * @return
@@ -60,12 +61,6 @@ public class ForumManageController extends BaseController {
 	@RequestMapping(value = "/library/test/success")
 	public String iosRedirect() {
 		System.out.println("-----------跳转的页面进来了 走了----------");
-		/*
-		 * ModelAndView view = new ModelAndView(); List<Board> boards =
-		 * vehicleService.getAllBoards(); view.addObject("boards", boards);
-		 * view.setViewName("/listAllBoards");
-		 */
-		// String targetUrl = "/index";
 		return "forward:/library/test/success.htm";
 	}
 }

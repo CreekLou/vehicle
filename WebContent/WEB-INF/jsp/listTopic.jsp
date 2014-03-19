@@ -49,6 +49,43 @@
 </style>
 <!-- Load the flexslider -->
 <script type="text/javascript" charset="utf-8">
+//根据选择的数量计算总价，并显示出来
+function setTotal(){
+		var t = $("#num");
+		var tmp = document.getElementById("totalPrice");//需要修改的总价位置1
+		var tmp1 = document.getElementById("totalPrice1");//需要修改的总价位置2
+		if(/\D/.test(t.val())){//检查用户输入的值是否是数字
+		alert("请您输入正确的数量！");
+		t.val(1);
+		tmp.innerHTML = "2488元";
+		tmp1.innerHTML = "2488元";
+		}
+		else{//如果输入合法			
+	           if(t.val() > 10){
+			     confirm("您真的准备一次购买这么多？");
+			     tmp.innerHTML = t.val()*2488 +"元";
+			     tmp1.innerHTML = t.val()*2488 +"元";
+	            }
+		}
+}
+ 
+$(function(){ //这里是加减按钮都启用的情况
+	var t = $("#num"); 
+	$("#add").click(function(){		
+		t.val(parseInt(t.val())+1)
+		setTotal();
+	})
+	$("#min").click(function(){
+		if(t.val()>1){
+		t.val(parseInt(t.val())-1);
+		}
+		else{
+		alert("至少购买一件哦！");
+		}
+		setTotal();
+	})
+});
+$('#add').attr('disabled',"true");  
             function listview_onclick(index){
                 //alert(index);
                 $('#field_'+index).toggle();
@@ -156,9 +193,96 @@ function toggleDot(curSlide){
 			    	<li data-icon="false"><a><img src="<c:url value="/public/images/icon/title/rank.png"/>" class="ui-li-icon">${topic.rank}</a></li>
 			    </c:if>
                 	<li><a href="#my_summary" data-transition="slide"><img src="<c:url value="/public/images/icon/title/summary.png"/>" class="ui-li-icon ui-corner-none">简介</a></li>
+               <c:if test="${topic.boardId==3}">
+                <li data-icon="arrow-d" id="li_1" onclick="listview_onclick(1)"><a href="#"><img src="<c:url value="/public/images/icon/title/ticket.png"/>" class="ui-li-icon">在线订购</a></li>
+                	<li>
+                	<div>
+                	<table>
+	                	<tr>
+	                		<td>协议价:</td><td>￥580.00</td>
+	                	</tr>
+	                	<tr>
+	                		<td>原价：</td><td>￥680.00</td>
+	                	</tr>
+	                	<tr><td>已销售：</td><td>105</td></tr>
+	                	</table>
+	                	
+	                	<table style="margin-bottom: -10px;">
+	                	<tr>
+	                	<td>
+	                	<table><tr>
+	                	<td><input id="min" name="" type="button" value="-" ></td>
+						<td><input id="num" name="num" type="text" value="1" readonly="true" onchange="setTotal();" ></td>
+						<td><input id="add" name="" type="button" value="+" ></td>
+						</tr>
+						</table>
+						</td>
+						<td><input type="button" value="立刻购买" ></td> 
+						</tr> 
+                	</table>
+                	</div>
+                	</li>
+    			</c:if>
                 <c:if test="${topic.boardId==1}">
                 	<li data-icon="arrow-d" id="li_1" onclick="listview_onclick(1)"><a href="#"><img src="<c:url value="/public/images/icon/title/ticket.png"/>" class="ui-li-icon">门票</a></li>
-                	<li id="field_1" style="display:none; font-weight:normal"> <c:out value="${topic.ticket}" escapeXml="false"/></li>
+                <!-- 	<li id="field_1" style="display:none; font-weight:normal"> <c:out value="${topic.ticket}" escapeXml="false"/></li> -->
+                	<li>
+                	<div>
+                	<table>
+	                	<tr>
+	                		<td>协议价:</td><td>￥30.00 (夏季)</td>
+	                	</tr>
+	                	<tr>
+	                		<td>原价：</td><td>￥50.00 (夏季)</td>
+	                	</tr>
+	                	<tr><td>已销售：</td><td>326</td></tr>
+	                	</table>
+	                	
+	                	<table style="margin-bottom: -10px;">
+	                	<tr>
+	                	<td>
+	                	<table><tr>
+	                	<td><input id="min" name="" type="button" value="-" ></td>
+						<td><input id="num" name="num" type="text" value="1" readonly="true" onchange="setTotal();" ></td>
+						<td><input id="add" name="" type="button" value="+" ></td>
+						</tr>
+						</table>
+						</td>
+						
+						<td><input type="button" value="立刻购买" ></td> 
+						
+						</tr> 
+								
+                	</table>
+                	<hr>
+                	
+                	<p style="text-align:center;font-size:20px; margin-top: 10px;">索道</p>
+                	<table>
+	                	<tr>
+	                		<td>协议价:</td><td>￥45.00 (双程)</td>
+	                	</tr>
+	                	<tr>
+	                		<td>原价：</td><td>￥50.00 (双程)</td>
+	                	</tr>
+	                	<tr><td>已销售：</td><td>76</td></tr>
+	                </table>
+	                <table>
+	                	<tr>
+	                	<td>
+	                	<table><tr>
+	                	<td><input id="min" name="" type="button" value="-" ></td>
+						<td><input id="num" name="num" type="text" value="1" readonly="true" onchange="setTotal();" ></td>
+						<td><input id="add" name="" type="button" value="+" ></td>
+						</tr>
+						</table>
+						</td>
+						
+						<td><input type="button" value="立刻购买" ></td> 
+						
+						</tr> 
+                	</table>
+                	</div>
+                	</li>
     			</c:if>
     			<c:if test="${topic.boardId==4}">
     				<li data-icon="false"><a><img src="<c:url value="/public/images/icon/title/recommend.png"/>" class="ui-li-icon">推荐菜:${topic.recommend}</a></li>
@@ -180,6 +304,7 @@ function toggleDot(curSlide){
                 <li id="field_2" style="display:none; font-weight:normal"> <c:out value="${topic.route}" escapeXml="false"/></li>
         		</c:if>
         		</c:if>
+        		<li data-icon="false"><a href="/goshopping.html" rel="external"><img src="<c:url value="/public/images/icon/title/rank.png"/>" class="ui-li-icon">去订购</a></li>
          </ul>
          <!-- 评论部分的注销 -->
          <!--  

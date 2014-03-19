@@ -78,6 +78,10 @@
 								src="<c:url value="/public/images/icon/games.png"/>">
 								<h1>游戏室</h1>
 						</a></li>
+						<li><a href="/listApps.html" rel="external"> <img
+								src="<c:url value="/public/images/icon/app.png"/>">
+								<h1>应用下载</h1>
+						</a></li>
 					</ul>
 			</div>
 		</div>

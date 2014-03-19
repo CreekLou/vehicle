@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.vehicle.domain.Video;
 import com.vehicle.domain.Voice;
+import com.vehicle.service.VehicleService;
 import com.vehicle.service.VideoService;
 import com.vehicle.service.VoiceService;
 
@@ -20,9 +21,13 @@ public class VideoController extends BaseController {
 	private VideoService videoService;
 	@Autowired
 	private VoiceService voiceService;
+	@Autowired
+	private VehicleService vehicleService;
 	@RequestMapping(value = "/video-{type}", method = RequestMethod.GET)
 	public ModelAndView listVideoTopics(@PathVariable String type) {
 		System.out.println("进来了 type=" + type);
+		String countId = "video";
+		vehicleService.updateCountNum(countId);
 		ModelAndView view = new ModelAndView();
 		List<Video> videos = videoService.getAllVideoByType(type);
 		for (Video v : videos) {
@@ -37,6 +42,8 @@ public class VideoController extends BaseController {
 	@RequestMapping(value = "/video2-{type}", method = RequestMethod.GET)
 	public ModelAndView listVideo2Topics(@PathVariable String type) {
 		System.out.println("进来了 type=" + type);
+		String countId = "video";
+		vehicleService.updateCountNum(countId);
 		ModelAndView view = new ModelAndView();
 		List<Video> videos = videoService.getAllVideoByType(type);
 		for (Video v : videos) {
@@ -50,6 +57,8 @@ public class VideoController extends BaseController {
 	@RequestMapping(value = "/voice-{type}", method = RequestMethod.GET)
 	public ModelAndView listVoiceTopics(@PathVariable String type) {
 		System.out.println("进来了 type=" + type);
+		String countId = "voice";
+		vehicleService.updateCountNum(countId);
 		ModelAndView view = new ModelAndView();
 		List<Voice> voices = voiceService.getAllVoiceByType(type);
 		for (Voice v : voices) {
