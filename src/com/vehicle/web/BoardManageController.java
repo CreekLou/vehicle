@@ -206,6 +206,8 @@ public class BoardManageController extends BaseController {
 	@RequestMapping(value = "/company")
 	public String introCompany() {
 		System.out.println("-----------introduceCompany----------");
+		String countId = "company";
+		vehicleService.updateCountNum(countId);
 		return "forward:/library/test/company.htm";
 	}
 

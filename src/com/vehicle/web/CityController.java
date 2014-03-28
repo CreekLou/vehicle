@@ -31,7 +31,8 @@ public class CityController extends BaseController {
 		System.out.println("City=" + city + "模块 =" + boardId + " 第" + pageNo
 				+ "页");
 		ModelAndView view = new ModelAndView();
-
+		// String countId = city;
+		vehicleService.updateCountNum(city);
 		Board board = vehicleService.getBoardById(boardId);
 		pageNo = pageNo == null ? 1 : pageNo;
 		Page pagedTopic = vehicleService.getPageTopicsByCity(boardId, city,
