@@ -40,15 +40,19 @@ public class ForumManageController extends BaseController {
 	 * @param response
 	 * @return
 	 */
-	@RequestMapping(value = "/index", method = RequestMethod.GET)
-	public ModelAndView listAllBoards() {
-		ModelAndView view =new ModelAndView();
-		List<Board> boards = vehicleService.getAllBoards();
-		view.addObject("boards", boards);
-		view.setViewName("/listAllBoards");
-		return view;
-	}
+	// @RequestMapping(value = "/index", method = RequestMethod.GET)
+	// public ModelAndView listAllBoards() {
+	// ModelAndView view =new ModelAndView();
+	// List<Board> boards = vehicleService.getAllBoards();
+	// view.addObject("boards", boards);
+	// view.setViewName("/listAllBoards");
+	// return view;
+	// }
 
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	public String listAds() {
+		return "forward:/library/tule/tuleads.htm";
+	}
 	@RequestMapping(value = "/vehicle/index", method = RequestMethod.GET)
 	public ModelAndView listIndex() {
 		ModelAndView view = new ModelAndView();
