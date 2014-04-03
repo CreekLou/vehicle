@@ -50,7 +50,9 @@
 	<div data-role="page" data-theme="a" id="demo-page">
 		<div id="header" data-role="header" data-position="fixed" data-tap-toggle="false">
 			<%@ include file="menu.jsp" %> 
-			<h1 style="margin-top: 10px; margin-bottom: -5px">乐途<img src="/public/images/true.png" /></h1>
+			<h1 style="margin-top: 10px; margin-bottom: -5px">
+			<img src="/public/images/title.png"  style="margin-top: -5;"/>
+			</h1>
 		</div>
 		<div data-role="content" class="my-page">
 		<div class="flexslider">
@@ -63,18 +65,13 @@
 		
 			<div id="city" class="ui-grid-solo" style="position: relative;">
 					<ul data-role="listview" data-inset="true">
-						<li ><a id="company" href="/company.html"  > <img
+						<li><a id="company" href="/company.html" rel="external"> <img
 							src="<c:url value="/public/images/icon/company.png"/>">
 							<h1>公司简介</h1>
 						</a></li>
-				
-						<li><a href="/showCity-beijing-1-1.html" rel="external"> <img
+						<li><a href="/listCitys.html" rel="external"> <img
 								src="<c:url value="/public/images/icon/beijing.png"/>">
-								<h1>北京</h1>
-						</a></li>
-						<li><a href="/showCity-tianjin-1-1.html" rel="external"> <img
-								src="<c:url value="/public/images/icon/tianjin.png"/>">
-								<h1>天津</h1>
+								<h1>途经城市</h1>
 						</a></li>		
 						<li id="li"><a href="/video-funny.html" rel="external"> <img
 								src="<c:url value="/public/images/icon/video.png"/>">

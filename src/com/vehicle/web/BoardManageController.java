@@ -203,6 +203,13 @@ public class BoardManageController extends BaseController {
 		return "redirect:"+targetUrl;
 	}
 
+	@RequestMapping(value = "/listCitys")
+	public ModelAndView listCitysService() {
+		System.out.println("-----------listCitysService----------");
+		ModelAndView view = new ModelAndView();
+		view.setViewName("/listCitys");
+		return view;
+	}
 	@RequestMapping(value = "/company")
 	public String introCompany() {
 		System.out.println("-----------introduceCompany----------");
