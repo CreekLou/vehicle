@@ -27,7 +27,7 @@ public class VideoController extends BaseController {
 	public ModelAndView listVideoTopics(@PathVariable String type) {
 		System.out.println("进来了 type=" + type);
 		String countId = "video";
-		vehicleService.updateCountNum(countId);
+		// vehicleService.updateCountNum(countId);
 		ModelAndView view = new ModelAndView();
 		List<Video> videos = videoService.getAllVideoByType(type);
 		for (Video v : videos) {
@@ -43,7 +43,7 @@ public class VideoController extends BaseController {
 	public ModelAndView listVideo2Topics(@PathVariable String type) {
 		System.out.println("进来了 type=" + type);
 		String countId = "video";
-		vehicleService.updateCountNum(countId);
+		// vehicleService.updateCountNum(countId);
 		ModelAndView view = new ModelAndView();
 		List<Video> videos = videoService.getAllVideoByType(type);
 		for (Video v : videos) {
@@ -58,7 +58,7 @@ public class VideoController extends BaseController {
 	public ModelAndView listVoiceTopics(@PathVariable String type) {
 		System.out.println("进来了 type=" + type);
 		String countId = "voice";
-		vehicleService.updateCountNum(countId);
+		// vehicleService.updateCountNum(countId);
 		ModelAndView view = new ModelAndView();
 		List<Voice> voices = voiceService.getAllVoiceByType(type);
 		for (Voice v : voices) {

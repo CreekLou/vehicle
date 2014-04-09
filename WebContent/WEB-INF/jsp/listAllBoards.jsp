@@ -41,6 +41,7 @@
 		<div id="header" data-role="header" data-position="fixed" data-tap-toggle="false">
 			<%@ include file="menu.jsp" %> 
 			<h1 style="margin-top: 10px; margin-bottom: -5px">乐途网</h1>
+			<a href="#" data-icon="grid" class="ui-btn-right">互联网</a>
 		</div>
 		<div data-role="content" class="my-page">
 		<div class="flexslider">

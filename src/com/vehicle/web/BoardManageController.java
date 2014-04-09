@@ -58,7 +58,7 @@ public class BoardManageController extends BaseController {
 			countId = "meishi";
 			break;
 		}
-		vehicleService.updateCountNum(countId);
+		// vehicleService.updateCountNum(countId);
 		ModelAndView view =new ModelAndView();
 		Board board = vehicleService.getBoardById(boardId);
 		pageNo = pageNo==null?1:pageNo;

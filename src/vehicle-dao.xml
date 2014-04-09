@@ -53,7 +53,7 @@
 				<prop key="com.vehicle.domain.Board">nonstrict-read-write,fixedRegion</prop>
 				<prop key="com.vehicle.domain.User">nonstrict-read-write,freqChangeRegion</prop>
 				<prop key="com.vehicle.domain.Topic">read-write,freqChangeRegion</prop>
-				<prop key="com.vehicle.domain.Count">read-write,freqChangeRegion</prop>
+			<!--	<prop key="com.vehicle.domain.Count">read-write,freqChangeRegion</prop>-->
 				<!-- <prop key="com.vehicle.domain.Comment">read-write,freqChangeRegion</prop> -->
 				<prop key="com.vehicle.domain.Descr">read-write,freqChangeRegion</prop>
 			</props>

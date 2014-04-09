@@ -7,14 +7,12 @@ import org.springframework.stereotype.Service;
 
 import com.vehicle.dao.BoardDao;
 import com.vehicle.dao.CommentDao;
-import com.vehicle.dao.CountDao;
 import com.vehicle.dao.DescrDao;
 import com.vehicle.dao.Page;
 import com.vehicle.dao.TopicDao;
 import com.vehicle.dao.UserDao;
 import com.vehicle.domain.Board;
 import com.vehicle.domain.Comment;
-import com.vehicle.domain.Count;
 import com.vehicle.domain.Descr;
 import com.vehicle.domain.Topic;
 
@@ -30,19 +28,20 @@ public class VehicleService {
 	private CommentDao commentDao;
 	@Autowired
 	private DescrDao descrDao;
-	@Autowired
-	private CountDao countDao;
+
+	// @Autowired
+	// private CountDao countDao;
 
 	/**
 	 * 增加网页被访问次数
 	 * 
 	 * @param countId
 	 */
-	public void updateCountNum(String countId) {
-		Count count = countDao.get(countId);
-		count.setCountNum(count.getCountNum() + 1);
-		countDao.update(count);
-	}
+	/*
+	 * public void updateCountNum(String countId) { Count count =
+	 * countDao.get(countId); count.setCountNum(count.getCountNum() + 1);
+	 * countDao.update(count); }
+	 */
 
 	/**
 	 * 添加一个回复帖子
