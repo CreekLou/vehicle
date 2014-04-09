@@ -1,5 +1,7 @@
 package com.vehicle.web;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.vehicle.cons.CommonConstant;
 import com.vehicle.dao.Page;
 import com.vehicle.domain.Board;
+import com.vehicle.domain.City;
 import com.vehicle.service.VehicleService;
 
 @Controller
@@ -17,6 +20,20 @@ public class CityController extends BaseController {
 	@Autowired
 	private VehicleService vehicleService;
 
+	@RequestMapping(value = "/listCitys", method = RequestMethod.GET)
+	public ModelAndView listCitysService() {
+		System.out.println("-----------listCitysService----------");
+		ModelAndView view = new ModelAndView();
+		List<City> citys = vehicleService.getAllCitys();
+		System.out.println("城市：" + citys.size());
+		for (City c : citys) {
+			System.out.println("=========" + c.getCityName() + "=="
+					+ c.getIntro());
+		}
+		view.addObject("citys", citys);
+		view.setViewName("/listCitys");
+		return view;
+	}
 	/**
 	 * 根据城市和类别列出信息
 	 * 
@@ -32,11 +49,19 @@ public class CityController extends BaseController {
 				+ "页");
 		ModelAndView view = new ModelAndView();
 		// String countId = city;
-		vehicleService.updateCountNum(city);
+		List<City> citys = vehicleService.getAllCitys();
 		Board board = vehicleService.getBoardById(boardId);
 		pageNo = pageNo == null ? 1 : pageNo;
-		Page pagedTopic = vehicleService.getPageTopicsByCity(boardId, city,
-				pageNo, CommonConstant.PAGE_SIZE);
+		Page pagedTopic = null;
+		for (City c : citys) {
+			System.out.println("城市：" + c.getNickName());
+			if (c.getNickName().equals(city)) {
+				System.out.println("这个城市是存在的");
+				pagedTopic = vehicleService.getPageTopicsByCity(boardId, city,
+					pageNo, CommonConstant.PAGE_SIZE);
+
+			}
+		}
 		view.addObject("city", city);
 		view.addObject("board", board);
 		view.addObject("pagedTopic", pagedTopic);

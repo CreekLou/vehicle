@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.vehicle.dao.BoardDao;
+import com.vehicle.dao.CityDao;
 import com.vehicle.dao.CommentDao;
 import com.vehicle.dao.CountDao;
 import com.vehicle.dao.DescrDao;
@@ -13,6 +14,7 @@ import com.vehicle.dao.Page;
 import com.vehicle.dao.TopicDao;
 import com.vehicle.dao.UserDao;
 import com.vehicle.domain.Board;
+import com.vehicle.domain.City;
 import com.vehicle.domain.Comment;
 import com.vehicle.domain.Count;
 import com.vehicle.domain.Descr;
@@ -32,7 +34,8 @@ public class VehicleService {
 	private DescrDao descrDao;
 	@Autowired
 	private CountDao countDao;
-
+	@Autowired
+	private CityDao cityDao;
 	/**
 	 * 增加网页被访问次数
 	 * 
@@ -89,7 +92,7 @@ public class VehicleService {
 	}
 
 	/**
-	 * 获取所有的论坛版块
+	 * 获取所有的版块
 	 * 
 	 * @return
 	 */
@@ -97,6 +100,15 @@ public class VehicleService {
 		return boardDao.loadAll();
 	}
 
+	/**
+	 * 获取所有的城市
+	 * 
+	 * @return
+	 */
+
+	public List<City> getAllCitys() {
+		return cityDao.loadAll();
+	}
 	/**
 	 * 获取论坛版块某一页主题帖
 	 * 
@@ -167,6 +179,15 @@ public class VehicleService {
 	public Board getBoardById(int boardId) {
 		return boardDao.get(boardId);
 	}
+	
+	/**
+	 * 根据cityId获取City对象
+	 * 
+	 * @param cityId
+	 */
+	public City getCityById(int cityId) {
+		return cityDao.get(cityId);
+	}
 
 	/**
 	 * 根据topicId获取Topic对象
@@ -181,7 +202,7 @@ public class VehicleService {
 	/**
 	 * 获取回复的对象
 	 * 
-	 * @param postId
+	 * @param commentId
 	 * @return 回复的对象
 	 */
 	public Comment getCommentByCommentId(int commentId) {
@@ -191,7 +212,7 @@ public class VehicleService {
 	/**
 	 * 获取主题图片解释对象
 	 * 
-	 * @param postId
+	 * @param descrId
 	 * @return 回复的对象
 	 */
 	public Descr getDescrByDescrId(int descrId) {
@@ -210,7 +231,7 @@ public class VehicleService {
 	/**
 	 * 更改回复的内容
 	 * 
-	 * @param post
+	 * @param comment
 	 */
 	public void updateComment(Comment comment) {
 		commentDao.update(comment);
