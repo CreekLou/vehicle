@@ -33,16 +33,6 @@
 	$(window).load(function() {
 		$('.flexslider').flexslider();
 	});
-	$(document).ready(function(){
-		
-		  $("#company").click(function(){
-			  console.log("我勒个去");
-			//  alert(" dddxx");
-			 // $.ajax({url:"/company.html",async:true});
-			  console.log("我勒个去 quququququ");
-		  });
-		
-		}); 
 </script>
 </head>
 
@@ -53,6 +43,7 @@
 			<h1 style="margin-top: 10px; margin-bottom: -5px">
 			<img src="/public/images/title.png"  style="margin-top: -5;"/>
 			</h1>
+			<a href="/internet_wsn_encianngc.html" data-icon="grid" class="ui-btn-right" rel="external">互联网</a> 
 		</div>
 		<div data-role="content" class="my-page">
 		<div class="flexslider">
@@ -85,11 +76,18 @@
 								src="<c:url value="/public/images/icon/games.png"/>">
 								<h1>游戏室</h1>
 						</a></li>
-						<li><a href="/listApps.html" rel="external"> <img
+						<!--<li><a href="/listApps.html" rel="external"> <img
 								src="<c:url value="/public/images/icon/app.png"/>">
 								<h1>应用下载</h1>
-						</a></li>
+						</a></li>  -->
+						<li><a href="#popupBasic"  data-rel="popup"> <img
+								src="<c:url value="/public/images/icon/app.png"/>">
+								<h1>应用下载</h1>
+						</a></li> 
 					</ul>
+			</div>
+			<div data-role="popup" id="popupBasic">
+				<p>服务暂缓开通<p>
 			</div>
 		</div>
 	</div>
