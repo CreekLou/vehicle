@@ -22,6 +22,7 @@
 	height:6px;
 	}
 </style>
+
 </head>
 <body>
 
@@ -60,39 +61,43 @@
 			</ul>
       	</div>
 		</div>
-    <div data-role="content">
-		<div>
-		<table cellspacing="0" cellpadding="0" width="80%" align="center"  class="aa">
-		<tr>
-			<td width="100px" align="center" >
-			始发城市
+    <div data-role="content">     
+        
+                <div>
+		<table cellspacing="0" cellpadding="0" width="95%" align="center" class="aa">
+                    <tr>
+                        <td align="left" style="padding-left:5px">
+                            始发城市
 			</td>
-			<td>
-			<select name="select-start" id="select-start" >
-		     <option value="buxian">不限</option>
-		      <option value="beijing">北京</option>
-		      <option value="tianjin">天津</option>
-		      <option value="shijiazhuang">石家庄</option>
-		      </select>
+                        
+                        <td align="right" style="padding-right:5px">
+                            到达城市
 			</td>
+                    </tr>
 		
-		</tr>
-		
-		<tr>
-			<td width="100px" align="center" >
-			到达城市
+                    <tr>
+			<td align="left">
+                            <div style="width:90%">
+                            <select name="select-end" id="select-start">
+                                <option value="buxian">不限</option>
+                                <option value="beijing">北京</option>
+                                <option value="tianjin">天津</option>
+                                <option value="shijiazhuang">石家庄</option>
+                            </select>
+                            </div>
 			</td>
-			<td>
-			<select name="select-end" id="select-end" >
-		     <option value="buxian">不限</option>
-		      <option value="beijing">北京</option>
-		      <option value="tianjin">天津</option>
-		      <option value="shijiazhuang">石家庄</option>
-		      </select>
+                        
+                        <td align="right">
+                            <div style="width:90%">
+                            <select name="select-start" id="select-end" >
+                                <option value="buxian">不限</option>
+                                <option value="beijing">北京</option>
+                                <option value="tianjin">天津</option>
+                                <option value="shijiazhuang">石家庄</option>
+                            </select>
+                            </div>
 			</td>
-		
-		</tr>
-		
+                    </tr>
 		</table>
 		</div>
 		
@@ -100,18 +105,18 @@
             	<table cellspacing="0" cellpadding="0" width="100%" align="center" border="1" class="aa" >
 				<tbody >
 				<tr>
-					<td valign="top" width="20%">
-					<p align="center">线 路</p></td>
-					<td valign="top" width="30%">
+                                    <td valign="middle" width="20%">
+                                        <p align="center">线 路</p></td>
+                                    <td valign="top" width="30%">
 					<p align="center">发/到站</p></td>
-					<td valign="top" width="24%">
+                                    <td valign="top" width="24%">
 					<p align="center">票价</p></td>
-					<td valign="top" width="26%">
+                                    <td valign="top" width="26%">
 					<p align="center">发/到时间</p></td>
 				</tr>
 				
 				<tr id="1">
-					<td valign="top" width="20%" >
+					<td valign="middle" width="20%" >
 						<p id="1_s" align="left" >北京</p>
 						<p id="1_e" align="right">天津</p>
 					</td>

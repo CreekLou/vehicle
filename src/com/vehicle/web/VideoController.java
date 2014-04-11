@@ -30,9 +30,6 @@ public class VideoController extends BaseController {
 		// vehicleService.updateCountNum(countId);
 		ModelAndView view = new ModelAndView();
 		List<Video> videos = videoService.getAllVideoByType(type);
-		for (Video v : videos) {
-			System.out.println("V------V=" + v.getName());
-		}
 		view.addObject("videos", videos);
 		view.addObject("type", type);
 		view.setViewName("/listVideo");
@@ -46,9 +43,6 @@ public class VideoController extends BaseController {
 		// vehicleService.updateCountNum(countId);
 		ModelAndView view = new ModelAndView();
 		List<Video> videos = videoService.getAllVideoByType(type);
-		for (Video v : videos) {
-			System.out.println("V------V=" + v.getName());
-		}
 		view.addObject("videos", videos);
 		view.addObject("type", type);
 		view.setViewName("/listVideo");
@@ -61,9 +55,6 @@ public class VideoController extends BaseController {
 		// vehicleService.updateCountNum(countId);
 		ModelAndView view = new ModelAndView();
 		List<Voice> voices = voiceService.getAllVoiceByType(type);
-		for (Voice v : voices) {
-			System.out.println("V------V=" + v.getName());
-		}
 		view.addObject("voices", voices);
 		view.addObject("type", type);
 		view.setViewName("/listVoice");

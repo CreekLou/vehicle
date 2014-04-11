@@ -18,7 +18,7 @@
 <script src="<c:url value="/public/js/jquery.json-2.4.js"/>" type="text/javascript"> </script>
 <script type="text/javascript">
 $(document).ready(function(){
-	console.log("类型"+'${board.boardId}');
+	console.log("类型"+"${board.boardId}");
 	if('${board.boardId}'<5){
 		$('#${board.boardId}').attr("class","ui-btn-active ui-btn ui-btn-up-a ui-btn-inline");
 	}else{
@@ -26,13 +26,11 @@ $(document).ready(function(){
 	}
 	$(function(){
 		var j =1;//初始页号
-		console.log("城市："+"${city}");
+		console.log("城市："+'${city}');
 		$("#more").click(function(){
 	        var id =${board.boardId};
-	      //  var info2= $("#select-choice-1").find("option:selected").val();
 	        var info3=$("#more").val();
 	        console.log("more 的值="+info3);
-	     //   var infor=JSON.stringify({boardId:id,city:info2});
 	        var pageNo = ${pagedTopic.currentPageNo}+j;
 	        jQuery.ajax({
 	        	type: 'POST',
@@ -41,11 +39,11 @@ $(document).ready(function(){
 	            dataType: 'json',           
 	            success: function(data){
 	            	j=j+1;
-	            	console.log("第二次ajax时j的大小 = "+j);
+	            	console.log("第二次ajax时j的大小 ="+j);
 	                var mode = data.pagedTopic.result;
 	                console.log("mode的大小="+mode.length);
-	                console.log("totalPagedCount的大小="+data.pagedTopic.totalPageCount);
-	                console.log("pagedTopic.currentPageNo的大小="+data.pagedTopic.currentPageNo);
+	                console.log("totalPagedCount="+data.pagedTopic.totalPageCount);
+	                console.log("pagedTopic.currentPageNo="+data.pagedTopic.currentPageNo);
 	                if(data.pagedTopic.currentPageNo>=data.pagedTopic.totalPageCount){
 	                	//$("#more").val("没有更多了");
 	                	//$("#more").prev().text("没有更多了");
@@ -66,7 +64,7 @@ $(document).ready(function(){
 	    	            );
 	                });
 	                $("#ul_info").listview("refresh");
-		    },
+	            },
 	            error: function(){
 	                alert("error");
 	            }

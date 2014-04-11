@@ -7,12 +7,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>车载系统</title>
+<title>途经城市</title>
 <link rel="stylesheet"
 	href="<c:url value="/public/css/jquery.mobile-1.3.2.css"/>"
 	type="text/css">
-<link rel="stylesheet"
-	href="<c:url value="/public/css/grid-listview.css"/>" type="text/css">
 <link rel="stylesheet" href="<c:url value="/public/css/menu.css" />"
 	type="text/css">
 <link rel="stylesheet"
@@ -33,6 +31,16 @@
 	$(window).load(function() {
 		$('.flexslider').flexslider();
 	});
+	$(document).ready(function(){
+		
+		  $("#company").click(function(){
+			  console.log("我勒个去");
+			//  alert(" dddxx");
+			 // $.ajax({url:"/company.html",async:true});
+			  console.log("我勒个去 quququququ");
+		  });
+		
+		}); 
 </script>
 </head>
 
@@ -40,10 +48,8 @@
 	<div data-role="page" data-theme="a" id="demo-page">
 		<div id="header" data-role="header" data-position="fixed" data-tap-toggle="false">
 			<%@ include file="menu.jsp" %> 
-			<h1 style="margin-top: 10px; margin-bottom: -5px">
-			<img src="/public/images/title.png"  style="margin-top: -5;"/>
-			</h1>
-			<a href="/internet_wsn_encianngc.html" data-icon="grid" class="ui-btn-right" rel="external">互联网</a> 
+			<h1 style="margin-top: 10px; margin-bottom: -5px">途经城市</h1>
+			<a href="/vehicle/index.html" data-icon="home" rel="external" data-role="button" class="ui-btn-right">首页</a>
 		</div>
 		<div data-role="content" class="my-page">
 		<div class="flexslider">
@@ -54,40 +60,37 @@
 				</ul>
 		</div>
 		
-			<div id="city" class="ui-grid-solo" style="position: relative;">
-					<ul data-role="listview" data-inset="true">
-						<li><a id="company" href="/company.html" rel="external"> <img
-							src="<c:url value="/public/images/icon/company.png"/>">
-							<h1>公司简介</h1>
+			<div class="ui-grid-solo" style="position: relative;">
+				<ul data-role="listview" id="ul_info" data-inset="true">
+					<c:forEach var="city" items="${citys}">
+						<li><a data-ajax="false"
+							href="/showCity-${city.nickName}-1-1.html" rel="external"> <img
+								src="<c:url value="/public/images/icon/${city.nickName}.png"/>">
+								<h1>${city.cityName}</h1>
+								<p>
+									<c:out value="${city.intro}" escapeXml="false" />
+								</p>
 						</a></li>
-						<li><a href="/listCitys.html" rel="external"> <img
+					</c:forEach>
+				</ul>
+				<!--  <ul data-role="listview" data-inset="true">
+						<li><a href="/showCity-beijing-1-1.html" rel="external"> <img
 								src="<c:url value="/public/images/icon/beijing.png"/>">
-								<h1>途经城市</h1>
-						</a></li>		
-						<li id="li"><a href="/video-funny.html" rel="external"> <img
-								src="<c:url value="/public/images/icon/video.png"/>">
-								<h1>视频</h1>
+								<h1>北京</h1>
 						</a></li>
-						<li><a href="/voice-comic.html" rel="external"> <img
-								src="<c:url value="/public/images/icon/voice.png"/>">
-								<h1>音乐</h1>
-						</a></li>
-						<li><a href="http://www.letu.com:3001" rel="external"> <img
-								src="<c:url value="/public/images/icon/games.png"/>">
-								<h1>游戏室</h1>
-						</a></li>
-						<!--<li><a href="/listApps.html" rel="external"> <img
-								src="<c:url value="/public/images/icon/app.png"/>">
-								<h1>应用下载</h1>
-						</a></li>  -->
-						<li><a href="#popupBasic"  data-rel="popup"> <img
-								src="<c:url value="/public/images/icon/app.png"/>">
-								<h1>应用下载</h1>
-						</a></li> 
-					</ul>
-			</div>
-			<div data-role="popup" id="popupBasic">
-				<p>服务暂缓开通<p>
+						<li><a href="/showCity-tianjin-1-1.html" rel="external"> <img
+								src="<c:url value="/public/images/icon/tianjin.png"/>">
+								<h1>天津</h1>
+						</a></li>	
+						<li><a href="/showCity-tianjin-1-1.html" rel="external"> <img
+								src="<c:url value="/public/images/icon/tianjin.png"/>">
+								<h1>海口</h1>
+						</a></li>	
+						<li><a href="/showCity-tianjin-1-1.html" rel="external"> <img
+								src="<c:url value="/public/images/icon/tianjin.png"/>">
+								<h1>三亚</h1>
+						</a></li>	
+					</ul>-->
 			</div>
 		</div>
 	</div>

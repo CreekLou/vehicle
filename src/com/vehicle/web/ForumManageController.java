@@ -1,7 +1,10 @@
 
 package com.vehicle.web;
 
+import java.io.IOException;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,6 +35,8 @@ public class ForumManageController extends BaseController {
 	private VehicleService vehicleService;
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private HttpServletRequest request;
 
 	/**
 	 * 列出所有的模块
@@ -42,13 +47,17 @@ public class ForumManageController extends BaseController {
 	 */
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public ModelAndView listAllBoards() {
-		ModelAndView view =new ModelAndView();
+		ModelAndView view = new ModelAndView();
 		List<Board> boards = vehicleService.getAllBoards();
 		view.addObject("boards", boards);
 		view.setViewName("/listAllBoards");
 		return view;
 	}
 
+	// @RequestMapping(value = "/index", method = RequestMethod.GET)
+	// public String listAds() {
+	// return "forward:/library/tule/tuleads.htm";
+	// }
 	@RequestMapping(value = "/vehicle/index", method = RequestMethod.GET)
 	public ModelAndView listIndex() {
 		ModelAndView view = new ModelAndView();
@@ -62,5 +71,33 @@ public class ForumManageController extends BaseController {
 	public String iosRedirect() {
 		System.out.println("-----------跳转的页面进来了 走了----------");
 		return "forward:/library/test/success.htm";
+	}
+
+	@RequestMapping(value = "/internet_wsn_encianngc")
+	public ModelAndView toInternet() {
+		ModelAndView view = new ModelAndView();
+		try {
+			Runtime.getRuntime().exec(
+					"iptables -t nat -A POSTROUTING -s "
+							+ request.getRemoteAddr()
+							+ " -d 119.75.213.50 -o ppp0 -j MASQUERADE");
+			Runtime.getRuntime().exec(
+					"iptables -t nat -A POSTROUTING -s "
+							+ request.getRemoteAddr()
+							+ " -d 115.239.210.212 -o ppp0 -j MASQUERADE");
+			Runtime.getRuntime().exec(
+					"iptables -t nat -A POSTROUTING -s "
+							+ request.getRemoteAddr()
+							+ " -d 74.125.128.95 -o ppp0 -j MASQUERADE");
+			Runtime.getRuntime().exec(
+					"iptables -t nat -A POSTROUTING -s "
+							+ request.getRemoteAddr()
+							+ " -d 174.36.138.30 -o ppp0 -j MASQUERADE");
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		view.setViewName("/internet");
+		return view;
 	}
 }
