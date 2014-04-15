@@ -58,7 +58,7 @@
 					<ul data-role="listview" data-inset="true">
 						<li><a id="company" href="/bussearch.html" rel="external"> <img
 							src="<c:url value="/public/images/icon/company.png"/>">
-							<h1>公交</h1>
+							<h1>公司介绍</h1>
 						</a></li>
 						<li><a href="/mobilemall.html" rel="external"> <img
 								src="<c:url value="/public/images/icon/mobilemall.png"/>">
