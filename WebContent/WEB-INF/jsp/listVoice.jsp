@@ -12,7 +12,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-<title>车载系统</title>
+<title>乐途网</title>
 <link rel="stylesheet" href="<c:url value="/public/css/jquery.mobile-1.3.2.css"/>" type="text/css">
 <link rel="stylesheet" href="<c:url value="/public/css/menu.css" />" type="text/css">
 <link rel="stylesheet" href="<c:url value="/public/css/jplayer_voice_skin.css" />" type="text/css">
@@ -34,9 +34,9 @@ $(document).ready(function(){
 <body>
   <div data-role="page" data-theme="a" id="demo-page" class="my-page" >
   <div id="header" data-role="header" data-position="fixed" data-tap-toggle="false">
-		<%@ include file="menu.jsp" %>   
-			<h1 style="margin-top: 10px;margin-bottom:-5px">音频</h1>
-			<a href="/vehicle/index.html" data-icon="home" rel="external" data-role="button" class="ui-btn-right">首页</a>
+			<h1>音频</h1>
+			<a href="/vehicle/index.html" data-icon="home" rel="external" data-role="button" class="ui-btn-left">首页</a>
+		<a href="/leto_portal.html" data-icon="internet-icon" class="ui-btn-right" rel="external">上网</a> 
 		<div data-role="navbar" data-id="foo1">
 			<ul>
 				<li><a href="/voice-comic.html" rel="external" id="comic">相声小品</a></li>

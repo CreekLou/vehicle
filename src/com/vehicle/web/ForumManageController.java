@@ -45,19 +45,19 @@ public class ForumManageController extends BaseController {
 	 * @param response
 	 * @return
 	 */
-	@RequestMapping(value = "/index", method = RequestMethod.GET)
-	public ModelAndView listAllBoards() {
-		ModelAndView view = new ModelAndView();
-		List<Board> boards = vehicleService.getAllBoards();
-		view.addObject("boards", boards);
-		view.setViewName("/listAllBoards");
-		return view;
-	}
-
 	// @RequestMapping(value = "/index", method = RequestMethod.GET)
-	// public String listAds() {
-	// return "forward:/library/tule/tuleads.htm";
+	// public ModelAndView listAllBoards() {
+	// ModelAndView view = new ModelAndView();
+	// List<Board> boards = vehicleService.getAllBoards();
+	// view.addObject("boards", boards);
+	// view.setViewName("/listAllBoards");
+	// return view;
 	// }
+
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	public String listAds() {
+		return "forward:/library/tule/tuleads.htm";
+	}
 	@RequestMapping(value = "/vehicle/index", method = RequestMethod.GET)
 	public ModelAndView listIndex() {
 		ModelAndView view = new ModelAndView();
@@ -73,9 +73,8 @@ public class ForumManageController extends BaseController {
 		return "forward:/library/test/success.htm";
 	}
 
-	@RequestMapping(value = "/internet_wsn_encianngc")
-	public ModelAndView toInternet() {
-		ModelAndView view = new ModelAndView();
+	@RequestMapping(value = "/leto_portal")
+	public String toInternet0() {
 		try {
 			Runtime.getRuntime().exec(
 					"iptables -t nat -A POSTROUTING -s "
@@ -97,7 +96,12 @@ public class ForumManageController extends BaseController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		view.setViewName("/internet");
-		return view;
+
+		return "forward:/library/test/leto123.htm";
+	}
+
+	@RequestMapping(value = "/letoportal")
+	public String toInternet1() {
+		return "forward:/library/test/letoportal.htm";
 	}
 }

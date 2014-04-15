@@ -104,4 +104,28 @@ public class CityController extends BaseController {
 		System.out.println("-----------goshopping----------");
 		return "forward:/library/test/goshopping.htm";
 	}
+
+	@RequestMapping(value = "/mobilemall")
+	public String showMobileMall() {
+		System.out.println("-----------mobilemall----------");
+		return "forward:/library/test/mobilemall.htm";
+	}
+
+	@RequestMapping(value = "/hotproducts")
+	public String showHotProducts() {
+		System.out.println("-----------hotproducts----------");
+		return "forward:/library/test/hotproducts.htm";
+	}
+
+	@RequestMapping(value = "/bussearch")
+	public String showBusSearch() {
+		System.out.println("-----------bussearch----------");
+		return "forward:/library/test/bussearch.htm";
+	}
+
+	@RequestMapping(value = "/thebus")
+	public String showTheBus() {
+		System.out.println("-----------thebus----------");
+		return "forward:/library/test/thebus.htm";
+	}
 }

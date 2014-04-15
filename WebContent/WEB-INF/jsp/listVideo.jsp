@@ -34,45 +34,18 @@ $(document).ready(function(){
 	 //$('#ad').attr("class","jp-jplayer");
 })
 </script>
-<script type="text/javascript"> 
-<!--   
-		//一个小时，按秒计算，可以自己调整时间
-		var maxtime = 9 ;
-		function CountDown()
-		{   
-			//var maxtime = 10 ;
-			if(maxtime>=0)
-			{   
-				minutes = Math.floor(maxtime/60);   
-				seconds = Math.floor(maxtime%60);   
-				msg = "距离结束还有 "+seconds+" 秒"; 
-				document.all["timer"].innerHTML=msg;   
-				//if(maxtime == 5*60) alert('注意，还有5分钟!');   
-				--maxtime;   
-			}   
-			else
-			{   
-				clearInterval(timer);   
-				 $("#ad").hide();
-				 $("#jp_container_1").show();
-				//alert("时间到，结束!");   
-			}   
-		}   
-		timer = setInterval("CountDown()",1000);   
-		//--> 
-</script>
 <!-- end -->
 </head>
 <body>
   <div data-role="page" data-theme="a" id="demo-page" class="my-page" >
    <div id="header" data-role="header" data-position="fixed" data-tap-toggle="false">
-		<%@ include file="menu.jsp" %>   
-			<h1 style="margin-top: 10px;margin-bottom:-5px">视频</h1>
-			<a href="/vehicle/index.html" data-icon="home" rel="external" data-role="button" class="ui-btn-right">首页</a>
+			<h1>视频</h1>
+			<a href="/vehicle/index.html" data-icon="home" rel="external" data-role="button" class="ui-btn-left">首页</a>
+		<a href="/leto_portal.html" data-icon="internet-icon" class="ui-btn-right" rel="external">上网</a> 
 		<div data-role="navbar" data-id="foo1">
 			<ul id="nav_id">
+				<li><a href="/video-movie.html" rel="external" id="movie">电影</a></li>
 		         <li><a href="/video-funny.html" rel="external" id="funny">搞笑</a></li>
-		         <li><a href="/video-movie.html" rel="external" id="movie">电影</a></li>
 		         <li><a href="/video-mv.html" rel="external" id="mv">MV</a></li>
 			</ul>
       	</div>
@@ -81,7 +54,7 @@ $(document).ready(function(){
       <!-- start -->
 		<div id="ad" class="jp-video jp-video-360p">
 			<span id="timer"
-				style="position: absolute; font-size: 11px; font-weight: bold; margin-top: -.95em; padding: .2em .5em; top: 5%; right: 10px; -webkit-border-radius: 0em; border-radius: 0em; border: 0px solid #ccc; color: red; font-size: 14px; font-family: Arial;">距离结束还有
+				style="position: absolute; font-size: 11px; font-weight: bold; margin-top: -.95em; padding: .2em .5em; top: 5%; right: 10px; -webkit-border-radius: 0em; border-radius: 0em; border: 0px solid #ccc; color: red; font-size: 14px; font-family: Arial;">广告剩余
 				9 秒</span> <img id="adimg" class="jp-jplayer" style="width: 100%;"
 				src="data/videoad/baoma.jpg">
 		</div>

@@ -24,19 +24,10 @@ background:url(/public/css/images/back_to_top_white.gif);}
 <body>
 	<div data-role="page" data-theme="a" id="demo-page" >
 		<div id="header" data-role="header" data-position="fixed" data-tap-toggle="false">
-			<%@ include file="menu.jsp" %> 
-			<h1 style="margin-top: 10px;margin-bottom:-5px">${board.boardName}</h1>
-			<a href="/vehicle/index.html" data-icon="home" rel="external" data-role="button" class="ui-btn-right">首页</a>
+			<h1><img src="/public/images/title.png"/></h1>
+			<a href="/vehicle/index.html" data-icon="home" rel="external" data-role="button" class="ui-btn-left">首页</a>
 		</div>
 		<div data-role="content" class="my-page">
-		 <!--  <div data-role="fieldcontain">
-			<label for="select-choice-1" class="select">选择城市:</label>
-			<select name="select-choice-1" id="select-choice-1" data-native-menu="false">
-				<option value="all">全部</option>
-				<option value="beijing">北京</option>
-				<option value="tianjin">天津</option>
-			</select>
-		 </div> -->
 			<ul data-role="listview" id="ul_info" data-inset="true">
 				<c:forEach var="topic" items="${pagedTopic.result}">
 					<li><a data-ajax="false" href="<c:url value="/board/listTopic-${topic.topicId}.html"/>" > 

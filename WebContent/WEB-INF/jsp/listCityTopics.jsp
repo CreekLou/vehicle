@@ -81,14 +81,14 @@ background:url(/public/css/images/back_to_top_white.gif);}
 <body>
 	<div data-role="page" data-theme="a" id="demo-page" >
 		<div id="header" data-role="header" data-position="fixed" data-tap-toggle="false">
-			<%@ include file="menu.jsp" %> 
 			<c:if test="${city=='beijing'}">
 			<h1 style="margin-top: 10px;margin-bottom:-5px">北京</h1>
 			 </c:if>
 			 <c:if test="${city=='tianjin'}">
 			<h1 style="margin-top: 10px;margin-bottom:-5px">天津</h1>
 			 </c:if>
-			<a href="/vehicle/index.html" data-icon="home" rel="external" data-role="button" class="ui-btn-right">首页</a>
+			<a href="/vehicle/index.html" data-icon="home" rel="external" data-role="button" class="ui-btn-left">首页</a>
+			 <a href="/leto_portal.html" data-icon="internet-icon" class="ui-btn-right" rel="external">上网</a> 
 			 <div data-role="navbar">
 		        <ul>
 		            <li><a href="/showCity-${city}-1-1.html" id="1" rel="external">风景</a></li>

@@ -204,7 +204,7 @@ function CountDownS()
 		minutes = Math.floor(maxtimes/60);   
 		seconds = Math.floor(maxtimes%60);   
 		//msg = "距离结束还有 "+minutes+" 分 "+seconds+" 秒";   
-		msg = "距离广告结束还有 "+seconds+" 秒"; 
+		msg = "广告剩余 "+seconds+" 秒"; 
 		document.all["timer"].innerHTML=msg;   
 		//if(maxtime == 5*60) alert('注意，还有5分钟!');   
 		--maxtimes;   

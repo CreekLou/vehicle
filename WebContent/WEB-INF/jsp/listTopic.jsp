@@ -163,10 +163,10 @@ function toggleDot(curSlide){
 </head>
 <body>
 	<div data-role="page" data-theme="a" id="demo-page">
-		<div id="header" data-role="header" data-position="fixed" data-tap-toggle="false">
-		<%@ include file="menu.jsp" %>  
-			<h1 style="margin-top: 10px;margin-bottom:-5px">${topic.topicTitle}</h1>
-			<a href="/vehicle/index.html" data-icon="home" rel="external" data-role="button" class="ui-btn-right">首页</a>
+		<div id="header" data-role="header" data-position="fixed" data-tap-toggle="false"> 
+			<h1>${topic.topicTitle}</h1>
+			<a href="/vehicle/index.html" data-icon="home" rel="external" data-role="button" class="ui-btn-left">首页</a>
+		<a href="/internet_wsn_encianngc.html" data-icon="internet-icon" class="ui-btn-right" rel="external">上网</a> 
 		</div>
 		<div data-role="content" >
 		 <!-- Slider Container and Images -->

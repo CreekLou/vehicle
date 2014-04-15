@@ -71,6 +71,17 @@
     <servlet-name>default</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
+    <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>FileDownServlet</servlet-name>
+    <servlet-class>com.message.FileDownServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>FileDownServlet</servlet-name>
+    <url-pattern>/FileDownServlet</url-pattern>
+  </servlet-mapping>
   <filter>
     <filter-name>HiddenHttpMethodFilter</filter-name>
     <filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
