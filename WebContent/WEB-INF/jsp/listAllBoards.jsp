@@ -47,9 +47,9 @@
 		<div data-role="content" class="my-page">
 		<div class="flexslider">
 				<ul class="slides">
-					<li><img src="/data/images/post/1_1.jpg" /></li>
-					<li><img src="/data/images/post/1_2.jpg" /></li>
-					<li><img src="/data/images/post/1_3.jpg" /></li>
+					<li><img src="/data/images/post/home_ad_1.jpg" /></li>
+					<li><img src="/data/images/post/home_ad_2.jpg" /></li>
+					<li><img src="/data/images/post/home_ad_3.jpg" /></li>
 				</ul>
 		</div>
 		
@@ -57,7 +57,7 @@
 					<ul data-role="listview" data-inset="true">
 						<li><a id="company" href="/company.html" rel="external"> <img
 							src="<c:url value="/public/images/icon/company.png"/>">
-							<h1>公司介绍</h1>
+							<h1>站务信息</h1>
 						</a></li>
 						<li><a href="/listCitys.html" rel="external"> <img
 								src="<c:url value="/public/images/icon/route.png"/>">

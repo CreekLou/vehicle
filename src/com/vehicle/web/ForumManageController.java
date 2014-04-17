@@ -56,7 +56,7 @@ public class ForumManageController extends BaseController {
 
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String listAds() {
-		return "forward:/library/tule/tuleads.htm";
+		return "forward:/library/letu/letuads.htm";
 	}
 	@RequestMapping(value = "/vehicle/index", method = RequestMethod.GET)
 	public ModelAndView listIndex() {
