@@ -36,7 +36,6 @@ $(document).ready(function(){
   <div id="header" data-role="header" data-position="fixed" data-tap-toggle="false">
 			<h1>音频</h1>
 			<a href="/vehicle/index.html" data-icon="home" rel="external" data-role="button" class="ui-btn-left">首页</a>
-		<a href="/leto_portal.html" data-icon="internet-icon" class="ui-btn-right" rel="external">上网</a> 
 		<div data-role="navbar" data-id="foo1">
 			<ul>
 				<li><a href="/voice-comic.html" rel="external" id="comic">相声小品</a></li>

@@ -49,7 +49,6 @@
 		<div id="header" data-role="header" data-position="fixed" data-tap-toggle="false">
 			<h1 style="margin-top: 2px"><img src="/public/images/title.png"/></h1>
 			<a href="/vehicle/index.html" data-icon="home" rel="external" data-role="button" class="ui-btn-left">首页</a>
-			<a href="/leto_portal.html" data-icon="internet-icon" class="ui-btn-right" rel="external">上网</a> 
 		</div>
 		<div data-role="content" class="my-page">
 		<div class="flexslider">

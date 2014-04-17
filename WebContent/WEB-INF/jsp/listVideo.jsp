@@ -41,7 +41,6 @@ $(document).ready(function(){
    <div id="header" data-role="header" data-position="fixed" data-tap-toggle="false">
 			<h1>视频</h1>
 			<a href="/vehicle/index.html" data-icon="home" rel="external" data-role="button" class="ui-btn-left">首页</a>
-		<a href="/leto_portal.html" data-icon="internet-icon" class="ui-btn-right" rel="external">上网</a> 
 		<div data-role="navbar" data-id="foo1">
 			<ul id="nav_id">
 				<li><a href="/video-movie.html" rel="external" id="movie">电影</a></li>

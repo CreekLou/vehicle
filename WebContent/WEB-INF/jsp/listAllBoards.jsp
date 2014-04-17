@@ -43,7 +43,6 @@
 			<img src="/public/images/title.png"/>
 			</h1>
 			<a href="/vehicle/index.html" data-icon="home" rel="external" data-role="button" class="ui-btn-left">首页</a>
-			<a href="/leto_portal.html" data-icon="internet-icon" class="ui-btn-right" rel="external">上网</a> 
 		</div>
 		<div data-role="content" class="my-page">
 		<div class="flexslider">
@@ -56,12 +55,12 @@
 		
 			<div id="city" class="ui-grid-solo" style="position: relative;">
 					<ul data-role="listview" data-inset="true">
-						<li><a id="company" href="/bussearch.html" rel="external"> <img
+						<li><a id="company" href="/company.html" rel="external"> <img
 							src="<c:url value="/public/images/icon/company.png"/>">
 							<h1>公司介绍</h1>
 						</a></li>
 						<li><a href="/listCitys.html" rel="external"> <img
-								src="<c:url value="/public/images/icon/mobilemall.png"/>">
+								src="<c:url value="/public/images/icon/route.png"/>">
 								<h1>途经城市</h1>
 						</a></li>		
 						<li id="li"><a href="/video-movie.html" rel="external"> <img

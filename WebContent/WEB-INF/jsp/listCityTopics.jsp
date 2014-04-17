@@ -88,7 +88,6 @@ background:url(/public/css/images/back_to_top_white.gif);}
 			<h1 style="margin-top: 10px;margin-bottom:-5px">天津</h1>
 			 </c:if>
 			<a href="/vehicle/index.html" data-icon="home" rel="external" data-role="button" class="ui-btn-left">首页</a>
-			 <a href="/leto_portal.html" data-icon="internet-icon" class="ui-btn-right" rel="external">上网</a> 
 			 <div data-role="navbar">
 		        <ul>
 		            <li><a href="/showCity-${city}-1-1.html" id="1" rel="external">风景</a></li>
@@ -96,10 +95,10 @@ background:url(/public/css/images/back_to_top_white.gif);}
 		            <li><a href="/showCity-${city}-3-1.html" id="3" rel="external">酒店</a></li>
 		          <!-- <li><a href="/showCity-${city}-4-1.html" id="4" rel="external">美食</a></li>-->
 		          <c:if test="${city=='beijing'}">
-		           <li><a href="/routetopicbj.html" id="5" rel="external">线路推荐</a></li>
+		           <li><a href="/routetopicbj.html" id="5" rel="external">旅游线路</a></li>
 				  </c:if>
 				  <c:if test="${city=='tianjin'}">
-				  <li><a href="/routetopictj.html" id="5" rel="external">线路推荐</a></li>
+				  <li><a href="/routetopictj.html" id="5" rel="external">旅游线路</a></li>
 				  </c:if>
 		        </ul>
     		</div><!-- /navbar -->

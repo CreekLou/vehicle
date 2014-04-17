@@ -166,7 +166,6 @@ function toggleDot(curSlide){
 		<div id="header" data-role="header" data-position="fixed" data-tap-toggle="false"> 
 			<h1>${topic.topicTitle}</h1>
 			<a href="/vehicle/index.html" data-icon="home" rel="external" data-role="button" class="ui-btn-left">首页</a>
-		<a href="/internet_wsn_encianngc.html" data-icon="internet-icon" class="ui-btn-right" rel="external">上网</a> 
 		</div>
 		<div data-role="content" >
 		 <!-- Slider Container and Images -->

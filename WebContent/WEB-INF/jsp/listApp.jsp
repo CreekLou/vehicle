@@ -37,7 +37,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				  </h1>
 				<a href="/vehicle/index.html" data-icon="home" rel="external"
 					data-role="button" class="ui-btn-left">首页</a>
-				<a href="/leto_portal.html" data-icon="internet-icon" class="ui-btn-right" rel="external">上网</a> 
 				<div data-role="navbar">
 					<ul>
 						<li>
