@@ -75,6 +75,40 @@ public class CityController extends BaseController {
 		return "forward:/library/test/routetopicbj.htm";
 	}
 
+	@RequestMapping(value = "/routetopic_haikou")
+	public String haiKouRecommend() {
+		System.out.println("-----------routetopic_haikou----------");
+		return "forward:/library/letu/routetopic_haikou.htm";
+	}
+
+	@RequestMapping(value = "/routetopic_sanya")
+	public String sanYaRecommend() {
+		System.out.println("-----------routetopic_sanya----------");
+		return "forward:/library/letu/routetopic_sanya.htm";
+	}
+
+	@RequestMapping(value = "/haikou2day")
+	public String haikou2day() {
+		System.out.println("-----------haikou2day----------");
+		return "forward:/library/letu/haikou2day.htm";
+	}
+
+	@RequestMapping(value = "/haikou3day")
+	public String haikou3day() {
+		System.out.println("-----------haikou3day----------");
+		return "forward:/library/letu/haikou3day.htm";
+	}
+
+	@RequestMapping(value = "/sanya2day")
+	public String sanya2day() {
+		System.out.println("-----------sanya2day----------");
+		return "forward:/library/letu/sanya2day.htm";
+	}
+
+	@RequestMapping(value = "/sanya3day")
+	public String sanya3day() {
+		return "forward:/library/letu/sanya3day.htm";
+	}
 	@RequestMapping(value = "/routetopictj")
 	public String tjRecommend() {
 		System.out.println("-----------routetopictj----------");

@@ -87,6 +87,12 @@ background:url(/public/css/images/back_to_top_white.gif);}
 			 <c:if test="${city=='tianjin'}">
 			<h1 style="margin-top: 10px;margin-bottom:-5px">天津</h1>
 			 </c:if>
+			 <c:if test="${city=='haikou'}">
+			<h1 style="margin-top: 10px;margin-bottom:-5px">海口</h1>
+			 </c:if>
+			 <c:if test="${city=='sanya'}">
+			<h1 style="margin-top: 10px;margin-bottom:-5px">三亚</h1>
+			 </c:if>
 			<a href="/vehicle/index.html" data-icon="home" rel="external" data-role="button" class="ui-btn-left">首页</a>
 			 <div data-role="navbar">
 		        <ul>
@@ -99,6 +105,12 @@ background:url(/public/css/images/back_to_top_white.gif);}
 				  </c:if>
 				  <c:if test="${city=='tianjin'}">
 				  <li><a href="/routetopictj.html" id="5" rel="external">旅游线路</a></li>
+				  </c:if>
+				  <c:if test="${city=='haikou'}">
+				  <li><a href="/routetopic_haikou.html" id="5" rel="external">旅游线路</a></li>
+				  </c:if>
+				  <c:if test="${city=='sanya'}">
+				  <li><a href="/routetopic_sanya.html" id="5" rel="external">旅游线路</a></li>
 				  </c:if>
 		        </ul>
     		</div><!-- /navbar -->
