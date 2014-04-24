@@ -33,12 +33,12 @@ public class FileDownServlet extends HttpServlet {
 		String apptype = request.getParameter("apptype");
 		String filename = request.getParameter("filename");
 		System.out.println("**********Filename*******:" + filename);
-		// String filePath = "D:\\sdcard\\app\\" + apptype + "\\" + appname +
-		// "\\" + filename;
+		// String filePath = "D:\\workspace\\vehicle\\WebContent\\public\\app\\"
+		// + apptype + "\\" + appname + "\\" + filename;
 		String filePath = "/usr/local/apache-tomcat/webapps/ROOT/data/app/"
 				+ apptype + "/" + appname + "/" + filename;
-		System.out.println("################## FilePath %%%%%%%%%%:::"
-				+ filePath);
+		// System.out.println("################## FilePath %%%%%%%%%%:::"
+		// + filePath);
 		// 创建file对象
 		File file = new File(filePath);
 		// 设置response的编码方式---应用下载

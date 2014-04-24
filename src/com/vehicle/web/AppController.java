@@ -1,5 +1,6 @@
 package com.vehicle.web;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,13 +12,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.vehicle.domain.App;
 import com.vehicle.service.AppService;
+
 @Controller
 public class AppController {
 	@Autowired
 	private AppService appService;
+
 	@RequestMapping(value = "/app-{type}", method = RequestMethod.GET)
 	public ModelAndView listAppTopics(@PathVariable String type) {
-		System.out.println("进来了 type=好地方哈撒地方哈");
+		System.out.println("*******进来了 type=撒地方啊******" + type);
 		ModelAndView view = new ModelAndView();
 		List<App> apps = appService.getAllAppByType(type);
 		for (App v : apps) {
@@ -28,16 +31,23 @@ public class AppController {
 		view.setViewName("/listApp");
 		return view;
 	}
+
 	@RequestMapping(value = "/appDetail-{id}", method = RequestMethod.GET)
 	public ModelAndView listAppTopics(@PathVariable Integer id) {
-		System.out.println("进来了 ccccc id ="+id);
+		System.out.println("&&&&&&&&&&&进来了 ccccc id ************ :" + id);
 		ModelAndView view = new ModelAndView();
 		App app = appService.getAppById(id);
+		List<String> posters = new ArrayList<String>();
+		for(int i = 1;i <= app.getPoster_num();i++){
+			String s = "poster_" + i;
+			posters.add(s);
+		}
+		view.addObject("posters",posters);
 		view.addObject("app", app);
 		view.setViewName("/appDetail");
 		return view;
 	}
-	
+
 	@RequestMapping(value = "/mediasss/addClicks-{type}-{id}", method = RequestMethod.POST)
 	public String listBoardCityTopics(@PathVariable String type,
 			@PathVariable Integer id) {
@@ -49,7 +59,7 @@ public class AppController {
 			System.out.println("------App------");
 			targetUrl = "/app-" + type + ".html";
 		}
-		
+
 		return "redirect:" + targetUrl;
 	}
 }
