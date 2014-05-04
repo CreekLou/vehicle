@@ -47,7 +47,7 @@
 				<div>
 					<ul data-role="listview" style="margin-bottom: 5px">
 						<li data-icon="false">
-							<img src="/public/app/${app.type}/${app.name}/icon.png"
+							<img src="/data/app/${app.type}/${app.name}/icon.png"
 								style="margin-left: 14px;" />
 							<h2 style="margin-top: 4px; margin-left: 8px;">
 								${app.name}
@@ -75,14 +75,14 @@
 							<td>
 								<a href="#expand_${poster}" data-rel="popup" data-position-to="window"
 									data-transition="fade"><img class="popphoto"
-										src="/public/app/${app.type}/${app.name}/${poster}.png" alt="App image"
+										src="/data/app/${app.type}/${app.name}/${poster}.png" alt="App image"
 										height="250" style="margin-right:8px;">
 								</a>
 							</td>
 							<div data-role="popup" id="expand_${poster}" data-overlay-theme="a"
 						         data-theme="d" data-corners="false">						
 						       <a href="#" data-rel="back" >
-						       <img class="popphoto" src="/public/app/${app.type}/${app.name}/${poster}.png"
+						       <img class="popphoto" src="/data/app/${app.type}/${app.name}/${poster}.png"
 							   style="max-height: 512px;" alt="App image"></a>
 					        </div>
 						  </c:forEach>						  

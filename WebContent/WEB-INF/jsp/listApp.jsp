@@ -118,7 +118,7 @@
 						<li data-icon="false">
 							<a data-ajax="false" href="/appDetail-${app.id}.html"
 								rel="external"> <img
-									src="<c:url value="/public/app/${app.type}/${app.name}/icon.png"/>">
+									src="<c:url value="/data/app/${app.type}/${app.name}/icon.png"/>">
 								<h2>
 									${app.name}
 								</h2>
