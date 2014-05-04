@@ -4,6 +4,9 @@ import org.springframework.stereotype.Repository;
 
 import com.vehicle.domain.Count;
 
+/**
+ * @author louxuezheng
+ */
 @Repository
 public class CountDao extends BaseDao<Count> {
 	/*

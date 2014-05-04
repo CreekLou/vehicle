@@ -17,6 +17,9 @@ import org.springframework.util.Assert;
 /**
  * DAO基类，其它DAO可以直接继承这个DAO，不但可以复用共用的方法，还可以获得泛型的好处。
  */
+/**
+ * @author louxuezheng
+ */
 public class BaseDao<T>{
 	private final Class<T> entityClass;
 	@Autowired

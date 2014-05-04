@@ -29,6 +29,9 @@ import com.vehicle.domain.Topic;
 import com.vehicle.domain.Users;
 import com.vehicle.service.VehicleService;
 
+/**
+ * @author louxuezheng
+ */
 @Controller
 public class BoardManageController extends BaseController {
 	@Autowired

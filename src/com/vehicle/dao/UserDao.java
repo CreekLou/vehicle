@@ -7,6 +7,9 @@ import com.vehicle.domain.User;
 /**
  * User对象Dao
  */
+/**
+ * @author louxuezheng
+ */
 @Repository
 public class UserDao extends BaseDao<User> {
 	private final String GET_USER_BY_USERNAME = "from User u where u.userName = ?";

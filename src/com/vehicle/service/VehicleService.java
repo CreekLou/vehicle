@@ -19,6 +19,13 @@ import com.vehicle.domain.Comment;
 import com.vehicle.domain.Descr;
 import com.vehicle.domain.Topic;
 
+/**
+ * 城市内容管理服务，负责查询等操作
+ *
+ */
+/**
+ * @author louxuezheng
+ */
 @Service
 public class VehicleService {
 	@Autowired
@@ -48,7 +55,7 @@ public class VehicleService {
 	 */
 
 	/**
-	 * 添加一个回复帖子
+	 * 添加一个回复
 	 * 
 	 * @param comment
 	 */
@@ -109,8 +116,9 @@ public class VehicleService {
 	public List<City> getAllCitys() {
 		return cityDao.loadAll();
 	}
+	
 	/**
-	 * 获取论坛版块某一页主题帖
+	 * 获取 版块某一页主题
 	 * 
 	 * @param boardId
 	 * @return

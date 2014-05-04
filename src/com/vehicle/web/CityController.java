@@ -15,6 +15,9 @@ import com.vehicle.domain.Board;
 import com.vehicle.domain.City;
 import com.vehicle.service.VehicleService;
 
+/**
+ * @author louxuezheng
+ */
 @Controller
 public class CityController extends BaseController {
 	@Autowired

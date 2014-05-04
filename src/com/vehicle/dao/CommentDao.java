@@ -8,6 +8,9 @@ import com.vehicle.domain.Comment;
  * Comment的DAO类
  * 
  */
+/**
+ * @author louxuezheng
+ */
 @Repository
 public class CommentDao extends BaseDao<Comment> {
 	

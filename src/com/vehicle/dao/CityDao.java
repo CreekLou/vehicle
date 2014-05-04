@@ -7,6 +7,9 @@ import org.springframework.stereotype.Repository;
 
 import com.vehicle.domain.City;
 
+/**
+ * @author louxuezheng
+ */
 @Repository
 public class CityDao extends BaseDao<City> {
 	protected final String GET_CITY_NUM = "select count(f.cityId) from City f";

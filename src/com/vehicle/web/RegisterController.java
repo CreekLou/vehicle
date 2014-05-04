@@ -25,6 +25,10 @@ import com.vehicle.service.UserService;
  * @see
  * @since
  */
+
+/**
+ * @author louxuezheng
+ */
 @Controller                   
 public class RegisterController extends BaseController {
 	/**

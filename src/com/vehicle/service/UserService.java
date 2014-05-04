@@ -16,6 +16,10 @@ import com.vehicle.exception.UserExistException;
  * 用户管理服务器，负责查询用户、注册用户、锁定用户等操作
  *
  */
+
+/**
+ * @author louxuezheng
+ */
 @Service
 public class UserService {
 	

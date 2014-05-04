@@ -19,6 +19,10 @@ import com.vehicle.domain.User;
  * @see
  * @since
  */
+
+/**
+ * @author louxuezheng
+ */
 public class BaseController {
 	protected static final String ERROR_MSG_KEY = "errorMsg";
 

@@ -7,6 +7,9 @@ package com.vehicle.cons;
  *@see
  *@since
  */
+/**
+ * @author louxuezheng
+ */
 public class CommonConstant
 {
    /**
@@ -23,4 +26,12 @@ public class CommonConstant
     * 每页的记录数
     */
    public static final int PAGE_SIZE = 3;
+	public static final String VIDEO_CONTENTS = "视频";
+	public static final String VOICE_CONTENTS = "悦听";
+	public static final String VIDEO_SUFFIX = "mp4";
+	public static final String VOICE_SUFFIX = "mp3";
+	public static final String ICON = "icon.jpg";
+	public static final String POSTER = "poster.jpg";
+	public static final String DEFAULT_ICON = "";
+	public static final String DEFAULT_POSTER = "";
 }

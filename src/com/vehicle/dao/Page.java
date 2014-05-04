@@ -8,6 +8,9 @@ import java.util.List;
  * 分页对象. 包含当前页数据及分页信息如总记录数.
  *
  */
+/**
+ * @author louxuezheng
+ */
 public class Page implements Serializable {
 
 	private static int DEFAULT_PAGE_SIZE = 20;

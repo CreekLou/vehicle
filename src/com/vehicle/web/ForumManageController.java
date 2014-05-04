@@ -22,12 +22,15 @@ import com.vehicle.service.VehicleService;
  * <b>类描述:</b>
  * 
  * <pre>
- *   论坛管理，这部分功能由论坛管理员操作，包括：创建论坛版块、指定论坛版块管理员、
- * 用户锁定/解锁。
+ *   主页管理，这部分功能由论坛管理员操作
  *</pre>
  * 
  * @see
  *@since
+ */
+
+/**
+ * @author louxuezheng
  */
 @Controller
 public class ForumManageController extends BaseController {

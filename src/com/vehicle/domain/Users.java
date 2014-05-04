@@ -1,6 +1,9 @@
 package com.vehicle.domain;
 
 
+/**
+ * @author louxuezheng
+ */
 public class Users {
 	private String name;
 	private int age;

@@ -10,6 +10,9 @@ import com.vehicle.domain.Descr;
  * Descr的DAO类
  * 
  */
+/**
+ * @author louxuezheng
+ */
 @Repository
 public class DescrDao extends BaseDao<Descr> {
 	

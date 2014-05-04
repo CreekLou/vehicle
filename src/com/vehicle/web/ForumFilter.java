@@ -17,6 +17,9 @@ import org.apache.commons.lang.StringUtils;
 
 import com.vehicle.domain.User;
 
+/**
+ * @author louxuezheng
+ */
 public class ForumFilter implements Filter {
 	private static final String FILTERED_REQUEST = "@@session_context_filtered_request";
 

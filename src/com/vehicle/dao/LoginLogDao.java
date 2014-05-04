@@ -8,6 +8,9 @@ import com.vehicle.domain.LoginLog;
  * Post的DAO类
  *
  */
+/**
+ * @author louxuezheng
+ */
 @Repository
 public class LoginLogDao extends BaseDao<LoginLog> {
 	@Override

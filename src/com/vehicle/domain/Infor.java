@@ -1,5 +1,8 @@
 package com.vehicle.domain;
 
+/**
+ * @author louxuezheng
+ */
 public class Infor {
 	private int boardId;
 	private String city;
