@@ -1,102 +1,179 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.vehicle.domain;
 
+import java.io.Serializable;
+
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-
+/**
+ *
+ * @author liu.huazhou <khzliu@163.com>
+ */
 @Entity
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-@Table(name = "t_voice")
-public class Voice extends BaseDomain {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
-	private Long id; // 视频id
-	private String route;// 文件路径
-	private String type; // 视频类型
-	private String name; // 视频名称
-	private String duration; // 视频时长
-	private String date; // 视频日期
-	private Integer clicks; // 视频点击数
-	@Column(name = "description")
-	private String des; // 视频描述
-	private String actor; // 演员
+@Table(name = "voice")
+@XmlRootElement
+@NamedQueries({
+    @NamedQuery(name = "Voice.findAll", query = "SELECT v FROM Voice v"),
+    @NamedQuery(name = "Voice.findById", query = "SELECT v FROM Voice v WHERE v.id = :id"),
+    @NamedQuery(name = "Voice.findByType", query = "SELECT v FROM Voice v WHERE v.type = :type"),
+    @NamedQuery(name = "Voice.findByName", query = "SELECT v FROM Voice v WHERE v.name = :name"),
+    @NamedQuery(name = "Voice.findByDuration", query = "SELECT v FROM Voice v WHERE v.duration = :duration"),
+    @NamedQuery(name = "Voice.findByClicks", query = "SELECT v FROM Voice v WHERE v.clicks = :clicks"),
+    @NamedQuery(name = "Voice.findByDescription", query = "SELECT v FROM Voice v WHERE v.description = :description"),
+    @NamedQuery(name = "Voice.findByActor", query = "SELECT v FROM Voice v WHERE v.actor = :actor"),
+    @NamedQuery(name = "Voice.findByPriase", query = "SELECT v FROM Voice v WHERE v.priase = :priase"),
+    @NamedQuery(name = "Voice.findByIsfile", query = "SELECT v FROM Voice v WHERE v.isfile = :isfile")})
+public class Voice implements Serializable {
+    private static final long serialVersionUID = 1L;
+    @Id
+    @Basic(optional = false)
+    @Column(name = "id")
+    private Long id;
+    @Basic(optional = false)
+    @Column(name = "type")
+    private String type;
+    @Basic(optional = false)
+    @Column(name = "name")
+    private String name;
+    @Basic(optional = false)
+    @Column(name = "duration")
+    private String duration;
+    @Basic(optional = false)
+    @Column(name = "clicks")
+    private long clicks;
+    @Column(name = "description")
+    private String description;
+    @Column(name = "actor")
+    private String actor;
+    @Basic(optional = false)
+    @Column(name = "priase")
+    private long priase;
+    @Basic(optional = false)
+    @Column(name = "isfile")
+    private long isfile;
 
-	public Long getId() {
-		return id;
-	}
+    public Voice() {
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public Voice(Long id) {
+        this.id = id;
+    }
 
-	public String getRoute() {
-		return route;
-	}
+    public Voice(Long id, String type, String name, String duration, long clicks, long priase, long isfile) {
+        this.id = id;
+        this.type = type;
+        this.name = name;
+        this.duration = duration;
+        this.clicks = clicks;
+        this.priase = priase;
+        this.isfile = isfile;
+    }
 
-	public void setRoute(String route) {
-		this.route = route;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public String getType() {
-		return type;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public void setType(String type) {
-		this.type = type;
-	}
+    public String getType() {
+        return type;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public void setType(String type) {
+        this.type = type;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public String getDuration() {
-		return duration;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setDuration(String duration) {
-		this.duration = duration;
-	}
+    public String getDuration() {
+        return duration;
+    }
 
-	public String getDate() {
-		return date;
-	}
+    public void setDuration(String duration) {
+        this.duration = duration;
+    }
 
-	public void setDate(String date) {
-		this.date = date;
-	}
+    public long getClicks() {
+        return clicks;
+    }
 
-	public Integer getClicks() {
-		return clicks;
-	}
+    public void setClicks(long clicks) {
+        this.clicks = clicks;
+    }
 
-	public void setClicks(Integer clicks) {
-		this.clicks = clicks;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	public String getDes() {
-		return des;
-	}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	public void setDes(String des) {
-		this.des = des;
-	}
+    public String getActor() {
+        return actor;
+    }
 
-	public String getActor() {
-		return actor;
-	}
+    public void setActor(String actor) {
+        this.actor = actor;
+    }
 
-	public void setActor(String actor) {
-		this.actor = actor;
-	}
+    public long getPriase() {
+        return priase;
+    }
+
+    public void setPriase(long priase) {
+        this.priase = priase;
+    }
+
+    public long getIsfile() {
+        return isfile;
+    }
+
+    public void setIsfile(long isfile) {
+        this.isfile = isfile;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (id != null ? id.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Voice)) {
+            return false;
+        }
+        Voice other = (Voice) object;
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "entity.Voice[ id=" + id + " ]";
+    }
+    
 }

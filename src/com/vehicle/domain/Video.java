@@ -1,147 +1,205 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.vehicle.domain;
 
+import java.io.Serializable;
+
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-
+/**
+ *
+ * @author liu.huazhou <khzliu@163.com>
+ */
 @Entity
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-@Table(name = "t_videos")
-public class Video extends BaseDomain {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
-	private Long id; // 视频id
-	private String type; // 视频类型
-	private String name; // 视频名称
-	private String duration; // 视频时长
-	private String date; // 视频日期
-	private Integer clicks; // 视频点击数
-	@Column(name = "description")
-	private String des; // 视频描述
-	private Float scale_x; // 视频x宽
-	private Float scale_y; // 视频y高
-	private String director; // 导演
-	private String actor; // 演员
-	private String singer; // 歌手
-	private String album; // 专辑
-	private String route;// 文件路径
+@Table(name = "video")
+@XmlRootElement
+@NamedQueries({
+    @NamedQuery(name = "Video.findAll", query = "SELECT v FROM Video v"),
+    @NamedQuery(name = "Video.findById", query = "SELECT v FROM Video v WHERE v.id = :id"),
+    @NamedQuery(name = "Video.findByType", query = "SELECT v FROM Video v WHERE v.type = :type"),
+    @NamedQuery(name = "Video.findByName", query = "SELECT v FROM Video v WHERE v.name = :name"),
+    @NamedQuery(name = "Video.findByDuration", query = "SELECT v FROM Video v WHERE v.duration = :duration"),
+    @NamedQuery(name = "Video.findByClicks", query = "SELECT v FROM Video v WHERE v.clicks = :clicks"),
+    @NamedQuery(name = "Video.findByDescription", query = "SELECT v FROM Video v WHERE v.description = :description"),
+    @NamedQuery(name = "Video.findByActor", query = "SELECT v FROM Video v WHERE v.actor = :actor"),
+    @NamedQuery(name = "Video.findByPriase", query = "SELECT v FROM Video v WHERE v.priase = :priase"),
+    @NamedQuery(name = "Video.findByIsfile", query = "SELECT v FROM Video v WHERE v.isfile = :isfile"),
+    @NamedQuery(name = "Video.findByScaleX", query = "SELECT v FROM Video v WHERE v.scaleX = :scaleX"),
+    @NamedQuery(name = "Video.findByScaleY", query = "SELECT v FROM Video v WHERE v.scaleY = :scaleY")})
+public class Video implements Serializable {
+    private static final long serialVersionUID = 1L;
+    @Id
+    @Basic(optional = false)
+    @Column(name = "id")
+    private Long id;
+    @Basic(optional = false)
+    @Column(name = "type")
+    private String type;
+    @Basic(optional = false)
+    @Column(name = "name")
+    private String name;
+    @Basic(optional = false)
+    @Column(name = "duration")
+    private String duration;
+    @Basic(optional = false)
+    @Column(name = "clicks")
+    private long clicks;
+    @Column(name = "description")
+    private String description;
+    @Column(name = "actor")
+    private String actor;
+    @Basic(optional = false)
+    @Column(name = "priase")
+    private long priase;
+    @Basic(optional = false)
+    @Column(name = "isfile")
+    private long isfile;
+    @Basic(optional = false)
+    @Column(name = "scale_x")
+    private long scaleX;
+    @Basic(optional = false)
+    @Column(name = "scale_y")
+    private long scaleY;
 
-	public String getRoute() {
-		return route;
-	}
+    public Video() {
+    }
 
-	public void setRoute(String route) {
-		this.route = route;
-	}
-	public String getType() {
-		return type;
-	}
+    public Video(Long id) {
+        this.id = id;
+    }
 
-	public void setType(String type) {
-		this.type = type;
-	}
+    public Video(Long id, String type, String name, String duration, long clicks, long priase, long isfile, long scaleX, long scaleY) {
+        this.id = id;
+        this.type = type;
+        this.name = name;
+        this.duration = duration;
+        this.clicks = clicks;
+        this.priase = priase;
+        this.isfile = isfile;
+        this.scaleX = scaleX;
+        this.scaleY = scaleY;
+    }
 
-	public Float getScale_x() {
-		return scale_x;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setScale_x(Float scale_x) {
-		this.scale_x = scale_x;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public Float getScale_y() {
-		return scale_y;
-	}
+    public String getType() {
+        return type;
+    }
 
-	public void setScale_y(Float scale_y) {
-		this.scale_y = scale_y;
-	}
+    public void setType(String type) {
+        this.type = type;
+    }
 
-	public String getDirector() {
-		return director;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setDirector(String director) {
-		this.director = director;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public String getActor() {
-		return actor;
-	}
+    public String getDuration() {
+        return duration;
+    }
 
-	public void setActor(String actor) {
-		this.actor = actor;
-	}
+    public void setDuration(String duration) {
+        this.duration = duration;
+    }
 
-	public String getSinger() {
-		return singer;
-	}
+    public long getClicks() {
+        return clicks;
+    }
 
-	public void setSinger(String singer) {
-		this.singer = singer;
-	}
+    public void setClicks(long clicks) {
+        this.clicks = clicks;
+    }
 
-	public String getAlbum() {
-		return album;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	public void setAlbum(String album) {
-		this.album = album;
-	}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	public Long getId() {
-		return id;
-	}
+    public String getActor() {
+        return actor;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public void setActor(String actor) {
+        this.actor = actor;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public long getPriase() {
+        return priase;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setPriase(long priase) {
+        this.priase = priase;
+    }
 
-	public String getDuration() {
-		return duration;
-	}
+    public long getIsfile() {
+        return isfile;
+    }
 
-	public void setDuration(String duration) {
-		this.duration = duration;
-	}
+    public void setIsfile(long isfile) {
+        this.isfile = isfile;
+    }
 
-	public String getDate() {
-		return date;
-	}
+    public long getScaleX() {
+        return scaleX;
+    }
 
-	public void setDate(String date) {
-		this.date = date;
-	}
+    public void setScaleX(long scaleX) {
+        this.scaleX = scaleX;
+    }
 
-	public Integer getClicks() {
-		return clicks;
-	}
+    public long getScaleY() {
+        return scaleY;
+    }
 
-	public void setClicks(Integer clicks) {
-		this.clicks = clicks;
-	}
+    public void setScaleY(long scaleY) {
+        this.scaleY = scaleY;
+    }
 
-	public String getDes() {
-		return des;
-	}
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (id != null ? id.hashCode() : 0);
+        return hash;
+    }
 
-	public void setDes(String des) {
-		this.des = des;
-	}
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Video)) {
+            return false;
+        }
+        Video other = (Video) object;
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+            return false;
+        }
+        return true;
+    }
 
+    @Override
+    public String toString() {
+        return "entity.Video[ id=" + id + " ]";
+    }
+    
 }
