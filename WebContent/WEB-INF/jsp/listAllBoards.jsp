@@ -61,13 +61,13 @@
 						</a></li>
 						<li><a href="/listCitys.html" rel="external"> <img
 								src="<c:url value="/public/images/icon/route.png"/>">
-								<h1>途经城市</h1>
+								<h1>旅游资讯</h1>
 						</a></li>		
-						<li id="li"><a href="/video-movie.html" rel="external"> <img
+						<li id="li"><a href="/video.html" rel="external"> <img
 								src="<c:url value="/public/images/icon/video.png"/>">
 								<h1>视频</h1>
 						</a></li>
-						<li><a href="/voice-comic.html" rel="external"> <img
+						<li><a href="/voice.html" rel="external"> <img
 								src="<c:url value="/public/images/icon/voice.png"/>">
 								<h1>音频</h1>
 						</a></li>

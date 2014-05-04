@@ -52,6 +52,6 @@
   
 
 <script>
-window.location.href="http://www.letu.com";
+window.location.href="http://www.letu.com/index.html";
 </script>
 

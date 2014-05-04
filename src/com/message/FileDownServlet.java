@@ -33,7 +33,7 @@ public class FileDownServlet extends HttpServlet {
 		String apptype = request.getParameter("apptype");
 		String filename = request.getParameter("filename");
 		System.out.println("**********Filename*******:" + filename);
-		// String filePath = "D:\\workspace\\vehicle\\WebContent\\public\\app\\"
+		// String filePath = "D:\\workspace\\vehicle\\WebContent\\data\\app\\"
 		// + apptype + "\\" + appname + "\\" + filename;
 		String filePath = "/usr/local/apache-tomcat/webapps/ROOT/data/app/"
 				+ apptype + "/" + appname + "/" + filename;
