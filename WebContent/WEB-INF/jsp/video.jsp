@@ -12,7 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <title>视频</title>
-        <link rel="stylesheet" href="<c:url value="/public/css/jquery.mobile-1.3.2.min.css"/>">
+        <link rel="stylesheet" href="<c:url value="/public/css/jquery.mobile-1.3.2.css"/>">
         <link rel="stylesheet" href="<c:url value="/public/css/grid-listview.css"/>">
         <link rel="stylesheet" href="<c:url value="/public/css/flexslider.css"/>"> 
         <script src="<c:url value="/public/js/jquery-1.9.1.min.js"/>"></script>

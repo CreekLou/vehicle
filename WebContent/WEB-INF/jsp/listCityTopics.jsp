@@ -8,7 +8,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<%@taglib prefix="vehicle" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="vehicle" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -17,12 +17,17 @@
 <title>车载系统</title>
 <link rel="stylesheet" href="<c:url value="/public/css/jquery.mobile-1.3.2.css"/>" type="text/css">
 <link rel="stylesheet" href="<c:url value="/public/css/menu.css" />" type="text/css">
+<link rel="stylesheet" href="<c:url value="/public/css/flexslider.css" />" type="text/css">
 <script src="<c:url value="/public/js/jquery.js"/>" type="text/javascript"> </script>
 <script src="<c:url value="/public/js/menu.js"/>" type="text/javascript"> </script>
 <script src="<c:url value="/public/js/jquery.mobile-1.3.2.js"/>" type="text/javascript"> </script>
 <script src="<c:url value="/public/js/jquery.json-2.4.js"/>" type="text/javascript"> </script>
+<script src="<c:url value="/public/js/jquery.flexslider.js"/>"></script>
 <script type="text/javascript">
 $(document).ready(function(){
+	$(window).load(function() {
+		$('.flexslider').flexslider();
+	});
 	console.log("类型"+"${board.boardId}");
 	if('${board.boardId}'<5){
 		$('#${board.boardId}').attr("class","ui-btn-active ui-btn ui-btn-up-a ui-btn-inline");
@@ -121,6 +126,13 @@ background:url(/public/css/images/back_to_top_white.gif);}
     		</div><!-- /navbar -->
 		</div>
 		<div data-role="content" class="my-page">
+		<div class="flexslider">
+				<ul class="slides">
+					<li><img src="/data/images/ad/home_ad_1.jpg" /></li>
+					<li><img src="/data/images/ad/home_ad_2.jpg" /></li>
+					<li><img src="/data/images/ad/home_ad_3.jpg" /></li>
+				</ul>
+		</div>
 			<ul data-role="listview" id="ul_info" data-inset="true">
 				<c:forEach var="topic" items="${pagedTopic.result}">
 					<li><a data-ajax="false" href="<c:url value="/board/listTopic-${topic.topicId}.html"/>" > 
