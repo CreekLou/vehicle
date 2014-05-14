@@ -27,7 +27,7 @@ public class CommonConstant
     */
    public static final int PAGE_SIZE = 3;
 	public static final String VIDEO_CONTENTS = "视频";
-	public static final String VOICE_CONTENTS = "悦听";
+	public static final String VOICE_CONTENTS = "音频";
 	public static final String VIDEO_SUFFIX = "mp4";
 	public static final String VOICE_SUFFIX = "mp3";
 	public static final String ICON = "icon.jpg";
