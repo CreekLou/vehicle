@@ -23,6 +23,7 @@ import com.vehicle.domain.Videotype;
 import com.vehicle.domain.Voicetype;
 import com.vehicle.service.VideoService;
 import com.vehicle.service.VoiceService;
+import com.vehicle.util.AsyncAdClickCountClient;
 /**
  *
  * @author liu.huazhou <khzliu@163.com>
@@ -110,6 +111,11 @@ public class MultiMediaController{
 		return modelMap;
 	}
     
+	@RequestMapping(value = "/videoAdClicks", method = RequestMethod.POST)
+	public void adAddClicks() {
+		AsyncAdClickCountClient.Aysncgo(2);
+		System.out.println("视频广告次数增加");
+	}
     @RequestMapping(value = "/addClicks-{type}-{id}.html", method = RequestMethod.POST)
 	public String addClicks(@PathVariable String type,@PathVariable Long id) {
                 String targetUrl = null;

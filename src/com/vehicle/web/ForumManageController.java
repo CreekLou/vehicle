@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.vehicle.domain.Board;
 import com.vehicle.service.UserService;
 import com.vehicle.service.VehicleService;
+import com.vehicle.util.AsyncAdClickCountClient;
 
 /**
  * 
@@ -41,28 +42,14 @@ public class ForumManageController extends BaseController {
 	@Autowired
 	private HttpServletRequest request;
 
-	/**
-	 * 列出所有的模块
-	 * 
-	 * @param request
-	 * @param response
-	 * @return
-	 */
-	// @RequestMapping(value = "/index", method = RequestMethod.GET)
-	// public ModelAndView listAllBoards() {
-	// ModelAndView view = new ModelAndView();
-	// List<Board> boards = vehicleService.getAllBoards();
-	// view.addObject("boards", boards);
-	// view.setViewName("/listAllBoards");
-	// return view;
-	// }
-
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String listAds() {
+		AsyncAdClickCountClient.Aysncgo(0);
 		return "forward:/library/letu/letuads.htm";
 	}
 	@RequestMapping(value = "/vehicle/index", method = RequestMethod.GET)
 	public ModelAndView listIndex() {
+		AsyncAdClickCountClient.Aysncgo(1);
 		ModelAndView view = new ModelAndView();
 		List<Board> boards = vehicleService.getAllBoards();
 		view.addObject("boards", boards);
@@ -107,4 +94,20 @@ public class ForumManageController extends BaseController {
 	public String toInternet1() {
 		return "forward:/library/test/letoportal.htm";
 	}
+
+	// @RequestMapping(value = "/adClickCount")
+	// public void adClickCount() {
+	// System.out.println("广告 次数更新----deviceid = "
+	// + request.getParameter("deviceid"));
+	// String para = null;
+	// @SuppressWarnings("unchecked")
+	// Enumeration<String> e = request.getParameterNames();
+	// while (e.hasMoreElements()) {
+	// para = e.nextElement();
+	// if (para != null) {
+	// System.out.println("参数：" + para + " : "
+	// + request.getParameter(para));
+	// }
+	// }
+	// }
 }
