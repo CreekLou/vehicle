@@ -14,6 +14,7 @@ import com.vehicle.dao.Page;
 import com.vehicle.domain.Board;
 import com.vehicle.domain.City;
 import com.vehicle.service.VehicleService;
+import com.vehicle.util.AsyncAdClickCountClient;
 
 /**
  * @author louxuezheng
@@ -26,13 +27,9 @@ public class CityController extends BaseController {
 	@RequestMapping(value = "/listCitys", method = RequestMethod.GET)
 	public ModelAndView listCitysService() {
 		System.out.println("-----------listCitysService----------");
+		new AsyncAdClickCountClient(1).start();
 		ModelAndView view = new ModelAndView();
 		List<City> citys = vehicleService.getAllCitys();
-		System.out.println("城市：" + citys.size());
-		for (City c : citys) {
-			System.out.println("=========" + c.getCityName() + "=="
-					+ c.getIntro());
-		}
 		view.addObject("citys", citys);
 		view.setViewName("/listCitys");
 		return view;
@@ -50,6 +47,7 @@ public class CityController extends BaseController {
 			@PathVariable Integer boardId, @PathVariable Integer pageNo) {
 		System.out.println("City=" + city + "模块 =" + boardId + " 第" + pageNo
 				+ "页");
+		new AsyncAdClickCountClient(1).start();
 		ModelAndView view = new ModelAndView();
 		// String countId = city;
 		List<City> citys = vehicleService.getAllCitys();
@@ -59,10 +57,8 @@ public class CityController extends BaseController {
 		for (City c : citys) {
 			System.out.println("城市：" + c.getNickName());
 			if (c.getNickName().equals(city)) {
-				System.out.println("这个城市是存在的");
 				pagedTopic = vehicleService.getPageTopicsByCity(boardId, city,
 					pageNo, CommonConstant.PAGE_SIZE);
-
 			}
 		}
 		view.addObject("city", city);

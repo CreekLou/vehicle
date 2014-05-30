@@ -46,6 +46,7 @@ public class MultiMediaController{
     
     @RequestMapping(value = "/video.html")
     public ModelAndView video() {
+		new AsyncAdClickCountClient(1).start();
         videoTypeList = videoService.getAllVideoType();
         ModelAndView modelAndView = new ModelAndView("video");
         modelAndView.addObject("typeList", videoTypeList);
@@ -60,6 +61,7 @@ public class MultiMediaController{
     }
     @RequestMapping(value = "/voice.html")
     public ModelAndView voice() {
+		new AsyncAdClickCountClient(1).start();
         voiceTypeList = voiceService.getAllVoiceType();
         ModelAndView modelAndView = new ModelAndView("voice");
         modelAndView.addObject("typeList", voiceTypeList);
@@ -113,7 +115,7 @@ public class MultiMediaController{
     
 	@RequestMapping(value = "/videoAdClicks", method = RequestMethod.POST)
 	public void adAddClicks() {
-		AsyncAdClickCountClient.Aysncgo(2);
+		new AsyncAdClickCountClient(2).start();
 		System.out.println("视频广告次数增加");
 	}
     @RequestMapping(value = "/addClicks-{type}-{id}.html", method = RequestMethod.POST)
@@ -125,7 +127,8 @@ public class MultiMediaController{
 		}
 		if (type.equals(CommonConstant.VOICE_CONTENTS)) {
 			voiceService.addClicks(id);
-                        targetUrl = "/voiceplayer.html";
+			targetUrl = "/voiceplayer.html";
+			System.out.println("id voice add-----------------" + id);
 		}
                 return "redirect:" + targetUrl;
 	}

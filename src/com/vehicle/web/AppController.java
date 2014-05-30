@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.vehicle.domain.App;
 import com.vehicle.service.AppService;
+import com.vehicle.util.AsyncAdClickCountClient;
 
 @Controller
 public class AppController {
@@ -20,12 +21,9 @@ public class AppController {
 
 	@RequestMapping(value = "/app-{type}", method = RequestMethod.GET)
 	public ModelAndView listAppTopics(@PathVariable String type) {
-		System.out.println("*******进来了 type=撒地方啊******" + type);
+		new AsyncAdClickCountClient(1).start();
 		ModelAndView view = new ModelAndView();
 		List<App> apps = appService.getAllAppByType(type);
-		for (App v : apps) {
-			System.out.println("App------App=" + v.getName());
-		}
 		view.addObject("apps", apps);
 		view.addObject("type", type);
 		view.setViewName("/listApp");

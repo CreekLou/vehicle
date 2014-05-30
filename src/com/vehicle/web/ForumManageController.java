@@ -44,12 +44,15 @@ public class ForumManageController extends BaseController {
 
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String listAds() {
-		AsyncAdClickCountClient.Aysncgo(0);
+
+		new AsyncAdClickCountClient(0).start();
+		// System.out.println(" listads");
+
 		return "forward:/library/letu/letuads.htm";
 	}
 	@RequestMapping(value = "/vehicle/index", method = RequestMethod.GET)
 	public ModelAndView listIndex() {
-		AsyncAdClickCountClient.Aysncgo(1);
+		new AsyncAdClickCountClient(1).start();
 		ModelAndView view = new ModelAndView();
 		List<Board> boards = vehicleService.getAllBoards();
 		view.addObject("boards", boards);

@@ -1,80 +1,104 @@
 package com.vehicle.util;
 
+import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
+import java.io.InputStreamReader;
 import java.util.Properties;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpUriRequest;
-import org.apache.http.client.utils.URIUtils;
-import org.apache.http.impl.nio.client.CloseableHttpAsyncClient;
-import org.apache.http.impl.nio.client.HttpAsyncClients;
+import org.apache.commons.httpclient.HttpClient;
+import org.apache.commons.httpclient.HttpMethod;
+import org.apache.commons.httpclient.HttpStatus;
+import org.apache.commons.httpclient.URIException;
+import org.apache.commons.httpclient.methods.GetMethod;
+import org.apache.commons.httpclient.util.URIUtil;
+import org.apache.commons.lang.StringUtils;
 
-public class AsyncAdClickCountClient {
+public class AsyncAdClickCountClient extends Thread {
 	/**
 	 * 
 	 * @param adid 广告id
 	 */
-	public static void Aysncgo(int adid) {
-		System.out.println("进入Aysncgo 广告id:" + adid);
-		CloseableHttpAsyncClient httpclient = HttpAsyncClients.createDefault();
-		httpclient.start();
-		try {
-			HttpUriRequest request;
-			HttpResponse response;
-			try {
-				Properties prop = new Properties();
-				// prop.load(new FileInputStream(
-				// "D:/workspace/vehicle/config/config.properties"));
-				prop.load(new FileInputStream(
-						"/root/leto_software/config.properties"));
-				String deviceid = prop.getProperty("deviceid");
-				String serverip = prop.getProperty("serverip");
-				String param = "adid=" + adid + "&deviceid=" + deviceid;
-				@SuppressWarnings("deprecation")
-				URI uri = URIUtils.createURI("http", serverip, -1,
-						"/letoo/adClickCount.jsp", param, null);
-				request = new HttpGet(uri);
-				System.out.println(request.getURI());
-				Future<HttpResponse> future = httpclient.execute(request, null);
-				response = future.get();
-				// 打印请求信息
-				System.out.println(request.getRequestLine());
-				System.out.println("Response: " + response.getStatusLine());
-				System.out.println("Response: " + response.toString());
-			} catch (URISyntaxException e) {
-				e.printStackTrace();
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			} catch (ExecutionException e) {
-				e.printStackTrace();
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			System.out.println("Shutting down");
-		} finally {
-			try {
-				httpclient.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+	// private final String url =
+	// "http://159.226.94.32:8080/letoo/adClickCount.jsp";
+	private final String queryString;
+	private static String url = null;
+	private static String deviceid = null;
+	public AsyncAdClickCountClient(int adid) {
+		if (null == url) {
+			getUrl();
 		}
-		System.out.println("Done");
+		queryString = "adid=" + adid + "&deviceid=" + deviceid;
+	}
+
+	public void getUrl() {
+		Properties prop = new Properties();
+		try {
+			Properties p = System.getProperties();
+			if (p.getProperty("sun.desktop").equals("windows")) {
+				prop.load(new FileInputStream(
+						"D:/workspace/vehicle/config/config.properties"));
+			} else {
+			prop.load(new FileInputStream(
+					"/root/leto_software/config.properties"));
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		deviceid = prop.getProperty("deviceid");
+		url = "http://" + prop.getProperty("serverip")
+				+ "/letoo/adClickCount.jsp";
+	}
+	@Override
+	public void run() {
+		// Aysncgo(adid);
+		System.out.println("----------\n"
+				+ doGet(url, queryString, "utf-8", true) + "\n--------------");
+	}
+
+	public static String doGet(String url, String queryString, String charset,
+			boolean pretty) {
+		StringBuffer response = new StringBuffer();
+		HttpClient client = new HttpClient();
+		HttpMethod method = new GetMethod(url);
+		try {
+			if (StringUtils.isNotBlank(queryString))
+				// 对get请求参数做了http请求默认编码，好像没有任何问题，汉字编码后，就成为%式样的字符串
+				method.setQueryString(URIUtil.encodeQuery(queryString));
+			client.executeMethod(method);
+			if (method.getStatusCode() == HttpStatus.SC_OK) {
+				BufferedReader reader = new BufferedReader(
+						new InputStreamReader(method.getResponseBodyAsStream(),
+								charset));
+				String line;
+				while ((line = reader.readLine()) != null) {
+					if (pretty)
+						response.append(line).append(
+								System.getProperty("line.separator"));
+					else
+						response.append(line);
+				}
+				reader.close();
+			}
+		} catch (URIException e) {
+			// log.error("执行HTTP Get请求时，编码查询字符串“" + queryString + "”发生异常！", e);
+			System.out.println("执行HTTP Get请求时，编码查询字符串“" + queryString
+					+ "”发生异常！\n" + e);
+		} catch (IOException e) {
+			// log.error("执行HTTP Get请求" + url + "时，发生异常！", e);
+			System.out.println("执行HTTP Get请求" + url + "时，发生异常！\n" + e);
+		} finally {
+			method.releaseConnection();
+		}
+		return response.toString();
 	}
 
 	public void Aysncgo1(int adid) {
 		System.out.println("Aysncgo1");
 	}
-	// public static void main(final String[] args) {
-	// int adid = 0;
-	// new AsyncAdClickCountClient().Aysncgo(adid);
-	// }
+
 }
