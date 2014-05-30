@@ -1,4 +1,4 @@
-package com.message;
+package com.vehicle.message;
 
 public class MessageBean {
 	private String Message;

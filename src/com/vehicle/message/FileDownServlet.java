@@ -1,4 +1,4 @@
-package com.message;
+package com.vehicle.message;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;

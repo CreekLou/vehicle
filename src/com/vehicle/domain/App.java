@@ -26,7 +26,7 @@ public class App extends BaseDomain{
 	private String short_des;
 	private String long_des;
 	private Integer poster_num;
-	private Integer clicks;
+	private Integer download_num;
 
 	// Constructors
 
@@ -36,7 +36,8 @@ public class App extends BaseDomain{
 
 	/** full constructor */
 	public App(Integer id, String type, String name, String size, 
-			String short_des, String long_des, Integer poster_num, Integer clicks) {
+			String short_des, String long_des, Integer poster_num,
+			Integer download_num) {
 		this.id = id;
 		this.type = type;
 		this.name = name;
@@ -44,7 +45,7 @@ public class App extends BaseDomain{
 		this.short_des = short_des;
 		this.long_des = long_des;
 		this.poster_num = poster_num;
-		this.clicks = clicks;
+		this.download_num = download_num;
 	}
 
 	// Property accessors
@@ -113,13 +114,13 @@ public class App extends BaseDomain{
 		this.poster_num = poster_num;
 	}
 	
-	@Column(name = "clicks")
-	public Integer getClicks(){
-		return this.clicks;
+	@Column(name = "download_num")
+	public Integer getDownload_num() {
+		return this.download_num;
 	}
 
-	public void setClicks(Integer clicks){
-		this.clicks = clicks;
+	public void setDownload_num(Integer download_num) {
+		this.download_num = download_num;
 	}
 	
 }

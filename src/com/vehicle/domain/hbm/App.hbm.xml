@@ -12,7 +12,7 @@
 		<property name="short_des" column="short_des"/>
 		<property name="long_des" column="long_des"/>
 		<property name="poster_num" column="poster_num"/>
-		<property name="clicks" column="clicks"/>
+		<property name="download_num" column="download_num"/>
 	</class>
 </hibernate-mapping>
 

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<%@ page language="java" import="java.util.*,com.message.*"
+<%@ page language="java" import="java.util.*,com.vehicle.message.*"
 	contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<jsp:directive.page import="com.message.MessageBean;" />
+<jsp:directive.page import="com.vehicle.message.MessageBean;" />
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%
