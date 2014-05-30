@@ -18,13 +18,16 @@ var j =1;//初始页号
 var videoPlayListId = 0;//初始播放id
 var scale_xy = 0.75;
 var timer = 3;
+var lightsining = 1; //控制闪光灯
 
 function changeSrc(index,videoId,videoTitle,x,y){
     playingId = videoId;//正在播放的视频id
     playingFlag = 0; //更改播放标记
+	playingTitle = videoTitle;
     $("ul#ul_info").find("li").removeClass("ui-btn-active"); ;
     $("li#"+playingId).addClass("ui-btn-active");
-    $("#playNowTitle").text("正在播放："+videoTitle);
+    $("#playNowTitle").text("即将播放："+videoTitle);
+	lightsining = 1;
     setPriase(playingId);
     myPlayer.pause();
     setPlayerSreen(x,y); 
@@ -38,7 +41,6 @@ function changeSrc(index,videoId,videoTitle,x,y){
     maxtimes = 3;
     timer = setInterval("CountDownS("+index+")",1000);
     //----start-----louxue----
-
 	videoAdClicks();
 	
 	
@@ -68,10 +70,11 @@ function CountDownS(index)
 	{   	
 		 clearInterval(timer);
 		 $("#ad").hide();
+		 lightsining = 0;
+		 $("#playNowTitle").text("正在播放："+playingTitle);
 		 $("#video_1").show();
 		 myPlayer.playList(index);
 		 $('.vjs-poster').css("display","block");
-         
 	}
 }  
 //----end-----louxue----
@@ -309,6 +312,13 @@ function getVideo(){
       });
 	  
 }
+function ct(){
+	var objert = document.getElementById("playNowTitle");
+	if(lightsining == 1){
+		objert.style.color = objert.style.color==""?"red":"";	
+	}
+	setTimeout("ct()",500);
+}
 function playlistInit(){
 	myPlayer.playList(videos, {
 		getVideoSource: function(vid, cb) {
@@ -318,7 +328,8 @@ function playlistInit(){
 	  playingFlag = 0; //更改播放标记
 	  $("ul#ul_info").find("li").removeClass("ui-btn-active"); ;
 	  $("li#"+playingId).addClass("ui-btn-active");
-	  $("#playNowTitle").text("正在播放："+playingTitle);
+	  $("#playNowTitle").text("即将播放："+playingTitle);
+	  lightsining = 1;
 	  $("#priaseNum").text(playingPriase);
 	  myPlayer.pause();
 	  myPlayer.currentTime(0);
@@ -334,7 +345,7 @@ function playlistInit(){
 	  maxtimes = 3;
 	  timer = setInterval("CountDownS(0)",1000);
 	  //----start-----louxue---- 
-
+	  
 	  videoAdClicks();
 }
 
@@ -373,6 +384,8 @@ $(document).ready(function(){
     });   
     //点击第一次加载
     $("#more").click();
+	//开启文字闪
+	ct();
     //点赞pop
     $( '#popupBasic' ).on({
       popupbeforeposition:function() {
@@ -392,4 +405,5 @@ $(document).ready(function(){
   setInterval(function(){
         $("#popupBasic").popup("close");
     }, 2000);//两秒后关闭
+	
 });

@@ -57,7 +57,7 @@
 					<ul data-role="listview" data-inset="true">
 						<li><a id="company" href="/company.html" rel="external"> <img
 							src="<c:url value="/public/images/icon/company.png"/>">
-							<h1>站务信息</h1>
+							<h1>海汽服务</h1>
 						</a></li>
 						<li><a href="/listCitys.html" rel="external"> <img
 								src="<c:url value="/public/images/icon/route.png"/>">

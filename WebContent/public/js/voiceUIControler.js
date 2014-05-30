@@ -6,7 +6,7 @@
 var myPlayer;
 var myVoicelist=[];
 var viewModel = 1;
-var mediaType = "悦听";
+var mediaType = "音频";
 var type = '';
 var playingId = -1; //正在播放记录 modified by khzliu 2014年2月17日14:07:52
 var playingFlag = 0; //记录播放状态 modified by khzliu 2014年2月17日14:07:52
@@ -131,18 +131,18 @@ function getVoice(){
                       var iconPath = '/public/images/yueting.png';
                       if(!(voice.isfile === 1)){
                           filePath = voice.type+"/"+voice.name+"/"+voice.name;
-                          iconPath = "/data/悦听/"+voice.type+"/"+voice.name+"/icon.jpg";
+                          iconPath = "/data/音频/"+voice.type+"/"+voice.name+"/icon.jpg";
                       }
                       myVoicelist.push({
-                                mp3:['/data/悦听/'+filePath+'.mp3'],
-                                title:voice.name
+								title:voice.name,
+                                mp3:"/data/音频/"+filePath+".mp3"
                             });
                       $("#ul_info").append(
                           '<li id='+voice.id+' title='+voice.priase+'><a title="0" onclick="setJPlayer('+voicePlayListId+',\''+voice.name+'\','+voice.id+')">'+
                               '<img src="'+iconPath+'">'+
-                              '<p class="clickNumbers"><strong><span id='+voice.id+'>'+voice.clicks+'<span></strong></p>'+
+                              '<p class="clickNumbers">播放：<strong><span id='+voice.id+'>'+voice.clicks+'<span></strong></p>'+
                               '<h2>'+voice.name+'</h2>'+
-                              '<p>'+voice.description+'</p></a>'+
+                              '<p>'+voice.description+'</p></a><div style="float:right;font-size:12px;position:absolute;right:50px;top:7px">'+voice.duration+'</div>'+
                           '</li>'
                       );
                       voicePlayListId++; //播放列表id自加1    
@@ -154,13 +154,13 @@ function getVoice(){
                           filePath = voice.type+"/"+voice.name+"/"+voice.name;
                       }
                       myVoicelist.push({
-                                mp3:['/data/悦听/'+filePath+'.mp3'],
-                                title:voice.name
+								title:voice.name,
+                                mp3:"/data/音频/"+filePath+".mp3"
                             });
                       $("#ul_info").append(
                           '<li id='+voice.id+' title='+voice.priase+'><a title="0" onclick="setJPlayer('+voicePlayListId+',\''+voice.name+'\','+voice.id+')">'+
                               '<h2>'+voice.name+'</h2>'+
-                              '<span id='+voice.id+' class="ui-li-count">'+voice.clicks+'</span></a>'+
+                              '<p class="clickNumbersSimple">播放：<strong><span id='+voice.id+'>'+voice.clicks+'<span></strong></p>'+
                           '</li>'
                       );
                       voicePlayListId++; //播放列表id自加1
@@ -169,14 +169,18 @@ function getVoice(){
               if(data.pagedVoice.currentPageNo>=data.pagedVoice.totalPageCount){
                       $("#more").hide();
               }
-              j=j+1;            
+              j=j+1;
+
+			   myPlaylist.setPlaylist(myVoicelist);//更新播放列表
+
               if(playingId == -1){
                   playingId = $("#ul_info li:first").find('span').attr('id'); //获取播放悦听id
                   var titleName = $("#ul_info li:first").find('h2').text();
-                  setJPlayer(0,titleName,playingId)//选中该悦听
-                  
+                  setJPlayerInit(0,titleName,playingId)//选中该悦听
+				 
               }
               $("#ul_info").listview("refresh");
+			  
           },
           error: function(){
               alert("error");
@@ -189,13 +193,33 @@ function setPrecessBar(){
         $("div.jp-progress").css("width",precessBarWidth+"px");
         $("div.jp-time-holder").css("width",precessBarWidth+"px");
 }
-
-function setJPlayer(id,vTitle,voiceId){
+function setJPlayerInit(id,vTitle,voiceId){
+	$.jPlayer.timeFormat.showHour = true;
     myPlaylist.select(id);
     //设置声音条码
     setPrecessBar();
     $(".jp-title li").text(vTitle);
     $(".jp-title").css("display","inline");
+	//$("#loadingStatus").css("display","none");
+     
+    //myPlaylist.play();
+    //增加点击次数 实现播放次数实时更新 modified by khzliu 2014年2月17日16:09:57
+    playingId = voiceId;
+    playingFlag = 0;
+    $("ul#ul_info").find("li").removeClass("ui-btn-active"); ;
+    $("li#"+playingId).addClass("ui-btn-active");
+    setPriase(playingId);
+	
+		
+}
+function setJPlayer(id,vTitle,voiceId){
+	$.jPlayer.timeFormat.showHour = true;
+    myPlaylist.select(id);
+    //设置声音条码
+    setPrecessBar();
+    $(".jp-title li").text(vTitle);
+    $(".jp-title").css("display","inline");
+    //$("#loadingStatus").css("display","block");
      
     myPlaylist.play();
     //增加点击次数 实现播放次数实时更新 modified by khzliu 2014年2月17日16:09:57
@@ -204,39 +228,40 @@ function setJPlayer(id,vTitle,voiceId){
     $("ul#ul_info").find("li").removeClass("ui-btn-active"); ;
     $("li#"+playingId).addClass("ui-btn-active");
     setPriase(playingId);
+	
+		
 }
-$(document).ready(function(){
-    
-    myPlaylist = new jPlayerPlaylist({
+function playerInit(){
+	myPlaylist = new jPlayerPlaylist({
         jPlayer: "#jquery_jplayer_1",
         cssSelectorAncestor: "#jp_container_1"
         }, myVoicelist, {
         playlistOptions: {
-        enableRemoveControls: true
+			loopOnPrevious:true,
+			enableRemoveControls: true
         },
         swfPath: "js",
         supplied: "mp3",
         free:true,
-        preload: "auto",
+        preload: "none",
         wmode: "window",
         smoothPlayBar: true,
         keyEnabled: true,
         audioFullScreen: true // Allows the audio poster to go full screen via keyboard
     });
     $.jPlayer.timeFormat.showHour = true;
-//    $(".jp-title li").text(myVoicelist.name);
-//    $(".jp-title").css("display","inline");
-//    myPlaylist.select(0); 
-//    $('#x-'+0).attr("class","ui-link-inherit ui-btn-active");
-//    setPrecessBar();
-    // Using ".jp-repeat" namespace so we can easily remove this event
-    // 增加监听状态，实现播放次数实时更新 modified by khzliu 2014年2月17日16:09:57
-    $("#jquery_jplayer_1").bind($.jPlayer.event.play, function(event) { 
-        updateClick();
-    }); 
+    $(".jp-title li").text(myVoicelist.name);
+    $(".jp-title").css("display","inline");
+}
+function ct(){
+	var obj = document.getElementById("loadingStatus");
+	obj.style.color = obj.style.color==""?"red":"";
+	setTimeout("ct()",500);
+}
+$(document).ready(function(){
+	
+	playerInit();
 
-
-    
     
     $("#more").bind("click",function(){
         getVoice();
@@ -245,7 +270,7 @@ $(document).ready(function(){
     //点击第一次加载
     $("#more").click();
 
-  
+	
  
   //点赞pop
   $( '#popupBasic' ).on({
@@ -255,15 +280,38 @@ $(document).ready(function(){
           if(flag === "1"){
               $("div#popupBasic").text("已赞");
           }else{
-              addPriase("悦听",playingId);
+              addPriase("音频",playingId);
               $(serleter).find("a").attr("title","1");
           }
     },popupafterclose:function() {
          $("div#popupBasic").text("赞+1");
     }
   });
+  
   //自动关闭pop
   setInterval(function(){
         $("#popupBasic").popup("close");
     }, 2000);//两秒后关闭
+    
+    
+	ct();
+
+    // Using ".jp-repeat" namespace so we can easily remove this event
+    // 增加监听状态，实现播放次数实时更新 modified by khzliu 2014年2月17日16:09:57
+    $("#jquery_jplayer_1").bind($.jPlayer.event.play, function(event) {
+		updateClick();
+    }); 
+    $("#jquery_jplayer_1").bind($.jPlayer.event.loadeddata, function(event) { 
+        window.setTimeout(function(){$("#loadingStatus").css("display","none");},1500);
+    });
+	$("#jquery_jplayer_1").bind($.jPlayer.event.loadstart, function(event) {
+		//if(event.jPlayer.status.waitForPlay)
+		//	$("#loadingStatus").css("display","block");
+		if(event.jPlayer.status.waitForLoad)
+			$("#loadingStatus").css("display","none");
+		else
+			$("#loadingStatus").css("display","block");
+    });
+	
+	
 });

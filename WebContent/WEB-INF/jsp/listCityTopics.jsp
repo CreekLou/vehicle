@@ -55,15 +55,12 @@ $(document).ready(function(){
 	                console.log("totalPagedCount="+data.pagedTopic.totalPageCount);
 	                console.log("pagedTopic.currentPageNo="+data.pagedTopic.currentPageNo);
 	                if(data.pagedTopic.currentPageNo>=data.pagedTopic.totalPageCount){
-	                	//$("#more").val("没有更多了");
-	                	//$("#more").prev().text("没有更多了");
-	                	//$("#more").attr("type","hidden");
-	                	$("#more").prev().hide();
-						$("#more").empty();
-	                }else{
-	                	$("#more").prev().show();
-
-	                }
+	                	 $("#more").hide();
+	                	//$("#more").prev().hide();
+						//$("#more").empty();
+	                }//else{
+	                	//$("#more").prev().show();
+	                //}
 	                $.each(mode,function(i,topic){
 	                	var tempsummary = topic.summary;
 	                	if(topic.summary.length>30){
@@ -150,7 +147,8 @@ background:url(/public/css/images/back_to_top_white.gif);}
 					</a></li>
 				</c:forEach>
 			</ul>
-			<input type="button" id="more" value="查看更多" />
+			<!-- <input type="button" id="more" value="查看更多" /> -->	
+			 <a href="#" id="more" data-role="button" data-theme="a">查看更多</a>
 		</div>
 	</div>
 	<div id="goTopBtn"></div>
