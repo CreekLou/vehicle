@@ -55,6 +55,7 @@ public class ForumManageController extends BaseController {
 		new AsyncAdClickCountClient(1).start();
 		ModelAndView view = new ModelAndView();
 		List<Board> boards = vehicleService.getAllBoards();
+		view.addObject("ad_url", "home_ad_2");
 		view.addObject("boards", boards);
 		view.setViewName("/listAllBoards");
 		return view;

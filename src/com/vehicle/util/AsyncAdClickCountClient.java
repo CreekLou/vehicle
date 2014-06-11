@@ -18,21 +18,23 @@ import org.apache.commons.lang.StringUtils;
 public class AsyncAdClickCountClient extends Thread {
 	/**
 	 * 
-	 * @param adid 广告id
+	 * @param adid
+	 *            广告id
 	 */
 	// private final String url =
 	// "http://159.226.94.32:8080/letoo/adClickCount.jsp";
 	private final String queryString;
 	private static String url = null;
 	private static String deviceid = null;
+
 	public AsyncAdClickCountClient(int adid) {
 		if (null == url) {
-			getUrl();
+			initUrl();
 		}
 		queryString = "adid=" + adid + "&deviceid=" + deviceid;
 	}
 
-	public void getUrl() {
+	public void initUrl() {
 		Properties prop = new Properties();
 		try {
 			Properties p = System.getProperties();
@@ -55,7 +57,6 @@ public class AsyncAdClickCountClient extends Thread {
 	}
 	@Override
 	public void run() {
-		// Aysncgo(adid);
 		System.out.println("----------\n"
 				+ doGet(url, queryString, "utf-8", true) + "\n--------------");
 	}
@@ -95,10 +96,6 @@ public class AsyncAdClickCountClient extends Thread {
 			method.releaseConnection();
 		}
 		return response.toString();
-	}
-
-	public void Aysncgo1(int adid) {
-		System.out.println("Aysncgo1");
 	}
 
 }

@@ -47,9 +47,9 @@
 		<div data-role="content" class="my-page">
 		<div class="flexslider">
 				<ul class="slides">
-					<li><img src="/data/images/ad/home_ad_1.jpg" /></li>
-					<li><img src="/data/images/ad/home_ad_2.jpg" /></li>
-					<li><img src="/data/images/ad/home_ad_3.jpg" /></li>
+					<li><img src="/data/images/ad/${ad_url}.jpg" /></li>
+					<!-- <li><img src="/data/images/ad/home_ad_2.jpg" /></li>
+					<li><img src="/data/images/ad/home_ad_3.jpg" /></li> -->
 				</ul>
 		</div>
 		
