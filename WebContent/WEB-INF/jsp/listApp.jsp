@@ -1,3 +1,8 @@
+<%-- 
+    Document   : App Page
+    Created on : 2014-4-10
+    Author     : KingWang
+--%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ page language="java" import="java.util.*,com.vehicle.message.*"
 	contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -55,11 +60,12 @@
 		<div data-role="page" data-theme="a" id="demo-page">
 			<div id="header" data-role="header" data-position="fixed"
 				data-tap-toggle="false">
+				<%@ include file="menu.jsp"%>
 				<h1 style="margin-top: 10px; margin-bottom: -5px">
 					应用下载
 				</h1>
 				<a href="/vehicle/index.html" data-icon="home" data-ajax="false"
-					rel="external" data-role="button" class="ui-btn-left">首页</a>
+					rel="external" data-role="button" class="ui-btn-right">首页</a>
 				<div data-role="navbar">
 					<ul>
 						<li>
@@ -82,36 +88,16 @@
 				<div class="flexslider">
 					<ul class="slides">
 						<li>
-							<img src="/data/images/ad/home_ad_1.jpg" />
+							<img src="/data/images/post/home_ad_1.jpg" />
 						</li>
 						<li>
-							<img src="/data/images/ad/home_ad_2.jpg" />
+							<img src="/data/images/post/home_ad_2.jpg" />
 						</li>
 						<li>
-							<img src="/data/images/ad/home_ad_3.jpg" />
+							<img src="/data/images/post/home_ad_3.jpg" />
 						</li>
 					</ul>
 				</div>
-				<!-- 
-				<ul data-role="listview" id="ul_info" data-inset="true">
-					<c:forEach var="app" items="${apps}">
-						<li>
-							<a data-ajax="false" 
-						      	href=FileDownServlet?appname=${app.name}&&apptype=${app.type}&&filename=${app.name}.apk						     
-								rel="external"> <img
-									src="<c:url value="/data/app/${app.type}/${app.name}/icon.jpg"/>">
-								<h1>
-									${app.name}  
-									<span style="font-size:13px;float:right;">
-									${app.size}MB</span>   
-								</h1>																
-								<p>
-									<c:out value="${app.short_des}" escapeXml="false" />
-								</p> </a>
-						</li>
-					</c:forEach>
-				</ul>
-				-->
 
 				<ul data-role="listview" id="ul_info" data-inset="true"   data-split-theme="a" data-split-icon="download-icon">
 					<c:forEach var="app" items="${apps}">
@@ -119,18 +105,21 @@
 							<a data-ajax="false" href="/appDetail-${app.id}.html"
 								rel="external"> <img
 									src="<c:url value="/data/app/${app.type}/${app.name}/icon.png"/>">
-								<h2>
+								<h2 style="margin-top:5px">
 									${app.name}
 								</h2>
-								<p>
+								<p style="margin-bottom:10px">
 									${app.short_des}
 								</p>
 								<p class="ui-li-aside">
 									${app.size}MB
 								</p>
+								<p style="float: right; margin-bottom:-20px">
+								 	已有 ${app.download_num} 人安装
+							    </p>								
 							</a>
 							  
-							<a href=FileDownServlet?appname=${app.name}&&apptype=${app.type}&&filename=${app.name}.apk
+							<a href=FileDownServlet?appname=${app.name}&&apptype=${app.type}
 								    rel="external">下载</a>
 							<!-- 	
 							<div data-role="popup" id="download_${app.id}" data-theme="d"

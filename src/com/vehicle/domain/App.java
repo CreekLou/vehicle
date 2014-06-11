@@ -10,9 +10,6 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
-/**
- * App entity. @author MyEclipse Persistence Tools
- */
 @Entity
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @Table(name = "t_app")
@@ -36,8 +33,7 @@ public class App extends BaseDomain{
 
 	/** full constructor */
 	public App(Integer id, String type, String name, String size, 
-			String short_des, String long_des, Integer poster_num,
-			Integer download_num) {
+			String short_des, String long_des, Integer poster_num, Integer download_num) {
 		this.id = id;
 		this.type = type;
 		this.name = name;
@@ -115,11 +111,11 @@ public class App extends BaseDomain{
 	}
 	
 	@Column(name = "download_num")
-	public Integer getDownload_num() {
+	public Integer getDownload_num(){
 		return this.download_num;
 	}
 
-	public void setDownload_num(Integer download_num) {
+	public void setDownload_num(Integer download_num){
 		this.download_num = download_num;
 	}
 	

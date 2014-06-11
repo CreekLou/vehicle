@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.vehicle.dao.AppDao;
 import com.vehicle.dao.Page;
+import com.vehicle.dao.AppDao;
 import com.vehicle.domain.App;
 
 @Service
@@ -19,7 +19,7 @@ public class AppService {
 	 * 
 	 * @param id
 	 */
-	public void addClicks(Integer id) {
+	public void addDownload_num(Integer id) {
 		App app = appDao.get(id);
 		app.setDownload_num(app.getDownload_num() + 1);
 		appDao.save(app);

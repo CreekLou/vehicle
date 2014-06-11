@@ -9,7 +9,7 @@ import com.vehicle.domain.App;
 @Repository
 public class AppDao extends BaseDao<App>{
 	protected final String GET_PAGED_APPS = "from App where type=?";
-	protected final String GET_APPS = "from App where type=?";
+	protected final String GET_APPS = "from App where type=? order by download_num desc";
 	protected final String GET_APP = "from App where id=?";
 	/**
 	 * 分页查询对象
