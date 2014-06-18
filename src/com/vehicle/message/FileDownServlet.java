@@ -13,6 +13,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.vehicle.util.AppDownCount;
+import com.vehicle.util.HttpRequester;
+import com.vehicle.util.HttpRespons;
+
 public class FileDownServlet extends HttpServlet {
 	private static final String CONTENT_TYPE = "text/html; charset=UTF-8";
 	private String home_path;
@@ -46,7 +50,7 @@ public class FileDownServlet extends HttpServlet {
 
 		// request.setCharacterEncoding("utf-8");
 		// 解决中文乱码问题
-
+		boolean isDown = true;
 		String appname = request.getParameter("appname");
 		String apptype = request.getParameter("apptype");
 		System.out.println("$$$$$$$******* appname &&&&&&&&&:" + appname);
@@ -68,6 +72,7 @@ public class FileDownServlet extends HttpServlet {
 				System.out.println("！！文件组织格式异常！！");
 			}
 		} catch (Exception e) {
+			isDown = false;
 			e.printStackTrace();
 		}
 
@@ -108,21 +113,48 @@ public class FileDownServlet extends HttpServlet {
 			}
 			bos.flush(); // 将写入到客户端的内存的数据,刷新到磁盘
 		} catch (IOException e) {
+			isDown = false;
 			e.printStackTrace();
 			System.out.println("--------发生IO异常:" + e);
 		}
-
+		if (isDown) {
+			AppDownCount appDownCount = new AppDownCount(appname,
+					request.getRemoteAddr());
+			appDownCount.start();
+			try {
+				appDownCount.join();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			int count = appDownCount.getCount();
+			System.out.println("servlet count = " + count);
+			doHttpRequest(appname, count);
+		}
 	}
 
-	// Process the HTTP Post request
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		doGet(request, response);
 	}
 
-	// Clean up resources
 	@Override
 	public void destroy() {
+	}
+
+	public void doHttpRequest(String name, int count) {
+		String urls = "http://localhost/appCount-" + name + "-" + count
+				+ ".html";
+		try {
+			HttpRequester request = new HttpRequester();
+			HttpRespons hr = request.sendGet(urls);
+			System.out.println(hr.getUrlString());
+			System.out.println(hr.getProtocol());
+			System.out.println(hr.getHost());
+			System.out.println(hr.getPort());
+			System.out.println(hr.getContent());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }
