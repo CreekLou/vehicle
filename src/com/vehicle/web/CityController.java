@@ -2,6 +2,8 @@ package com.vehicle.web;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,10 +13,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.vehicle.cons.CommonConstant;
 import com.vehicle.dao.Page;
+import com.vehicle.domain.Ad;
 import com.vehicle.domain.Board;
 import com.vehicle.domain.City;
+import com.vehicle.service.AdService;
 import com.vehicle.service.VehicleService;
-import com.vehicle.util.AsyncAdClickCountClient;
+import com.vehicle.util.AdClickCount;
 
 /**
  * @author louxuezheng
@@ -23,12 +27,18 @@ import com.vehicle.util.AsyncAdClickCountClient;
 public class CityController extends BaseController {
 	@Autowired
 	private VehicleService vehicleService;
-
+	@Autowired
+	private AdService adService;
 	@RequestMapping(value = "/listCitys", method = RequestMethod.GET)
-	public ModelAndView listCitysService() {
+	public ModelAndView listCitysService(HttpServletRequest request) {
 		System.out.println("-----------listCitysService----------");
-		new AsyncAdClickCountClient(1).start();
+
 		ModelAndView view = new ModelAndView();
+		Ad ad = adService.getRandomAd(0);
+		String ad_url = "home_ad_" + ad.getAdId() + "." + ad.getSufName();
+		new AdClickCount(ad.getAdId().intValue(), 1, request.getRemoteAddr())
+				.start();
+		view.addObject("ad_url", ad_url);
 		List<City> citys = vehicleService.getAllCitys();
 		view.addObject("citys", citys);
 		view.setViewName("/listCitys");
@@ -44,10 +54,11 @@ public class CityController extends BaseController {
 	 */
 	@RequestMapping(value = "/showCity-{city}-{boardId}-{pageNo}", method = RequestMethod.GET)
 	public ModelAndView listNewsTopics(@PathVariable String city,
-			@PathVariable Integer boardId, @PathVariable Integer pageNo) {
+			@PathVariable Integer boardId, @PathVariable Integer pageNo,
+			HttpServletRequest request) {
 		System.out.println("City=" + city + "模块 =" + boardId + " 第" + pageNo
 				+ "页");
-		new AsyncAdClickCountClient(1).start();
+		// new AsyncAdClickCountClient(1).start();
 		ModelAndView view = new ModelAndView();
 		// String countId = city;
 		List<City> citys = vehicleService.getAllCitys();
@@ -61,6 +72,11 @@ public class CityController extends BaseController {
 					pageNo, CommonConstant.PAGE_SIZE);
 			}
 		}
+		Ad ad = adService.getRandomAd(0);
+		String ad_url = "home_ad_" + ad.getAdId() + "." + ad.getSufName();
+		new AdClickCount(ad.getAdId().intValue(), 1, request.getRemoteAddr())
+				.start();
+		view.addObject("ad_url", ad_url);
 		view.addObject("city", city);
 		view.addObject("board", board);
 		view.addObject("pagedTopic", pagedTopic);

@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.vehicle.domain.Ad;
 import com.vehicle.domain.Board;
+import com.vehicle.service.AdService;
 import com.vehicle.service.UserService;
 import com.vehicle.service.VehicleService;
-import com.vehicle.util.AsyncAdClickCountClient;
+import com.vehicle.util.AdClickCount;
 
 /**
  * 
@@ -41,21 +43,36 @@ public class ForumManageController extends BaseController {
 	private UserService userService;
 	@Autowired
 	private HttpServletRequest request;
-
+	@Autowired
+	private AdService adService;
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
-	public String listAds() {
+	public String listAds(HttpServletRequest request) {
 
-		new AsyncAdClickCountClient(0).start();
+		// new AsyncAdClickCountClient(0).start();
 		// System.out.println(" listads");
-
-		return "forward:/library/letu/letuads.htm";
+		Thread t = new AdClickCount(1, 0, request.getRemoteAddr());
+		t.start();
+		try {
+			t.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		System.out.println(" listads");
+		String str = "forward:/library/letu/letuads.htm";
+		return str;
 	}
 	@RequestMapping(value = "/vehicle/index", method = RequestMethod.GET)
-	public ModelAndView listIndex() {
-		new AsyncAdClickCountClient(1).start();
+	public ModelAndView listIndex(HttpServletRequest request) {
+		// new AsyncAdClickCountClient(1).start();
+
 		ModelAndView view = new ModelAndView();
 		List<Board> boards = vehicleService.getAllBoards();
-		view.addObject("ad_url", "home_ad_2");
+		Ad ad = adService.getRandomAd(0);
+		System.out.println(" ad.adId = " + ad.getAdId());
+		String ad_url = "home_ad_" + ad.getAdId() + "." + ad.getSufName();
+		new AdClickCount(ad.getAdId().intValue(), 1, request.getRemoteAddr())
+				.start();
+		view.addObject("ad_url", ad_url);
 		view.addObject("boards", boards);
 		view.setViewName("/listAllBoards");
 		return view;

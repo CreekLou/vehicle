@@ -8,6 +8,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,12 +20,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.vehicle.cons.CommonConstant;
 import com.vehicle.dao.Page;
+import com.vehicle.domain.Ad;
 import com.vehicle.domain.Video;
 import com.vehicle.domain.Videotype;
 import com.vehicle.domain.Voicetype;
+import com.vehicle.service.AdService;
 import com.vehicle.service.VideoService;
 import com.vehicle.service.VoiceService;
-import com.vehicle.util.AsyncAdClickCountClient;
+import com.vehicle.util.AdClickCount;
 /**
  *
  * @author liu.huazhou <khzliu@163.com>
@@ -34,7 +38,8 @@ public class MultiMediaController{
     private VideoService videoService;
     @Autowired
     private VoiceService voiceService;
-    
+	@Autowired
+	private AdService adService;
     private Videotype videotype;
     private List<Videotype> videoTypeList;
     
@@ -45,10 +50,14 @@ public class MultiMediaController{
     private List<Video> videoList;
     
     @RequestMapping(value = "/video.html")
-    public ModelAndView video() {
-		new AsyncAdClickCountClient(1).start();
+	public ModelAndView video(HttpServletRequest request) {
         videoTypeList = videoService.getAllVideoType();
         ModelAndView modelAndView = new ModelAndView("video");
+		Ad ad = adService.getRandomAd(0);
+		String ad_url = "home_ad_" + ad.getAdId() + "." + ad.getSufName();
+		new AdClickCount(ad.getAdId().intValue(), 1, request.getRemoteAddr())
+				.start();
+		modelAndView.addObject("ad_url", ad_url);
         modelAndView.addObject("typeList", videoTypeList);
         return modelAndView;
     }
@@ -60,10 +69,14 @@ public class MultiMediaController{
         return modelAndView;
     }
     @RequestMapping(value = "/voice.html")
-    public ModelAndView voice() {
-		new AsyncAdClickCountClient(1).start();
+	public ModelAndView voice(HttpServletRequest request) {
         voiceTypeList = voiceService.getAllVoiceType();
         ModelAndView modelAndView = new ModelAndView("voice");
+		Ad ad = adService.getRandomAd(0);
+		String ad_url = "home_ad_" + ad.getAdId() + "." + ad.getSufName();
+		new AdClickCount(ad.getAdId().intValue(), 1, request.getRemoteAddr())
+				.start();
+		modelAndView.addObject("ad_url", ad_url);
         modelAndView.addObject("typeList", voiceTypeList);
         return modelAndView;
     }
@@ -114,8 +127,8 @@ public class MultiMediaController{
 	}
     
 	@RequestMapping(value = "/videoAdClicks", method = RequestMethod.POST)
-	public void adAddClicks() {
-		new AsyncAdClickCountClient(2).start();
+	public void adAddClicks(HttpServletRequest request) {
+		new AdClickCount(1, 1, request.getRemoteAddr()).start();
 		System.out.println("视频广告次数增加");
 	}
     @RequestMapping(value = "/addClicks-{type}-{id}.html", method = RequestMethod.POST)
