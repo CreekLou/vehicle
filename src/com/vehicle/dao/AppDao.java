@@ -11,6 +11,7 @@ public class AppDao extends BaseDao<App>{
 	protected final String GET_PAGED_APPS = "from App where type=?";
 	protected final String GET_APPS = "from App where type=? order by download_num desc";
 	protected final String GET_APP = "from App where id=?";
+	protected final String GET_APP_BYNAME = "from App where name=?";
 	/**
 	 * 分页查询对象
 	 * 
@@ -26,5 +27,9 @@ public class AppDao extends BaseDao<App>{
 	}
 	public App getAppById(int id) {
 		return (App)find(GET_APP, id).get(0);
+	}
+
+	public App getAppByName(String name) {
+		return (App) find(GET_APP_BYNAME, name).get(0);
 	}
 }

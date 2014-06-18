@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.vehicle.dao.Page;
 import com.vehicle.dao.AppDao;
+import com.vehicle.dao.Page;
 import com.vehicle.domain.App;
 
 @Service
@@ -22,6 +22,17 @@ public class AppService {
 	public void addDownload_num(Integer id) {
 		App app = appDao.get(id);
 		app.setDownload_num(app.getDownload_num() + 1);
+		appDao.save(app);
+	}
+	
+	/**
+	 * 修改app的下载次数
+	 * 
+	 * @param id
+	 */
+	public void updateDownload_num(String appName, int count) {
+		App app = appDao.getAppByName(appName);
+		app.setDownload_num(count);
 		appDao.save(app);
 	}
 
