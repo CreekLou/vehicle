@@ -18,12 +18,13 @@ public class MACAddress {
 	    Process p = Runtime.getRuntime().exec("arp -n");
             InputStreamReader ir = new InputStreamReader(p.getInputStream());
             LineNumberReader input = new LineNumberReader(ir);
-	    p.waitFor();
+			p.waitFor();
             boolean flag = true;
+			String ipStr = "(" + this.ip + ")";
             while(flag) {
                 String str = input.readLine();
                 if (str != null) {
-                    if (str.indexOf(this.ip) > 1) {
+					if (str.indexOf(ipStr) > 1) {
                         int temp = str.indexOf("at");
                         this.mac = str.substring(
                         temp + 3, temp + 20);
@@ -40,5 +41,4 @@ public class MACAddress {
     public void setIp(String ip){
         this.ip = ip;
     }
-
 }
