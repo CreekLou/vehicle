@@ -48,14 +48,16 @@ public class FileDownServlet extends HttpServlet {
 		loadConfig();
 		response.setContentType(CONTENT_TYPE);
 
-		// request.setCharacterEncoding("utf-8");
+		request.setCharacterEncoding("utf-8");
 		// 解决中文乱码问题
 		boolean isDown = true;
 		String appname = request.getParameter("appname");
 		String apptype = request.getParameter("apptype");
 		System.out.println("$$$$$$$******* appname &&&&&&&&&:" + appname);
 		System.out.println("&&&&&&&&&&&&&& apptype &&&&&&&&&:" + apptype);
+		String home_path = "D:/workspace/vehicle/WebContent/data/app/";
 		String tmpPath = home_path + apptype + "/" + appname;
+		System.out.println("tempPath = " + tmpPath);
 		try {
 			File f = new File(tmpPath);
 			if (f.isDirectory()) {
@@ -143,7 +145,11 @@ public class FileDownServlet extends HttpServlet {
 	}
 
 	public void doHttpRequest(String name, int count) {
-		String urls = "http://localhost/appCount-" + name + "-" + count
+		// 盒子
+		// String urls = "http://localhost/appCount-" + name + "-" + count +
+		// ".html";
+		// 本机
+		String urls = "http://localhost:8080/appCount-" + name + "-" + count
 				+ ".html";
 		try {
 			HttpRequester request = new HttpRequester();

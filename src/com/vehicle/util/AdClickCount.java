@@ -76,7 +76,7 @@ public class AdClickCount extends Thread {
 			System.out.println(hr.getPort());
 			System.out.println(hr.getContentEncoding());
 			System.out.println(hr.getMethod());
-			System.out.println(hr.getContent());
+			// System.out.println(hr.getContent());
 
 		} catch (Exception e) {
 			e.printStackTrace();

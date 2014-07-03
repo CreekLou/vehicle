@@ -319,6 +319,9 @@ function ct(){
 	}
 	setTimeout("ct()",500);
 }
+function nt(){
+	$("li#"+playingId).addClass("ui-btn-active");
+}
 function playlistInit(){
 	myPlayer.playList(videos, {
 		getVideoSource: function(vid, cb) {
@@ -326,8 +329,9 @@ function playlistInit(){
 		}
 	  });
 	  playingFlag = 0; //更改播放标记
-	  $("ul#ul_info").find("li").removeClass("ui-btn-active"); ;
-	  $("li#"+playingId).addClass("ui-btn-active");
+	  $("ul#ul_info").find("li").removeClass("ui-btn-active"); 
+	  setTimeout("nt()",200);
+	  
 	  $("#playNowTitle").text("即将播放："+playingTitle);
 	  lightsining = 1;
 	  $("#priaseNum").text(playingPriase);

@@ -46,20 +46,25 @@ public class ForumManageController extends BaseController {
 	@Autowired
 	private AdService adService;
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
-	public String listAds(HttpServletRequest request) {
+	public ModelAndView listAds(HttpServletRequest request) {
 
 		// new AsyncAdClickCountClient(0).start();
 		// System.out.println(" listads");
 		Thread t = new AdClickCount(1, 0, request.getRemoteAddr());
 		t.start();
-		try {
-			t.join();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
+		Ad ad = adService.getRandomAd(0);
+		System.out.println(" ad.adId = " + ad.getAdId());
+		String ad_url = ad.getAdId() + "." + ad.getSufName();
+		new AdClickCount(ad.getAdId().intValue(), 0, request.getRemoteAddr())
+				.start();
+		ModelAndView view = new ModelAndView();
+		if (ad.getAdId() == 0) {
+			view.addObject("ad_url", "default_0.jpg");
+		} else {
+			view.addObject("ad_url", ad_url);
 		}
-		System.out.println(" listads");
-		String str = "forward:/library/letu/letuads.htm";
-		return str;
+		view.setViewName("/letuads");
+		return view;
 	}
 	@RequestMapping(value = "/vehicle/index", method = RequestMethod.GET)
 	public ModelAndView listIndex(HttpServletRequest request) {
@@ -67,12 +72,16 @@ public class ForumManageController extends BaseController {
 
 		ModelAndView view = new ModelAndView();
 		List<Board> boards = vehicleService.getAllBoards();
-		Ad ad = adService.getRandomAd(0);
+		Ad ad = adService.getRandomAd(1);
 		System.out.println(" ad.adId = " + ad.getAdId());
-		String ad_url = "home_ad_" + ad.getAdId() + "." + ad.getSufName();
+		String ad_url = ad.getAdId() + "." + ad.getSufName();
 		new AdClickCount(ad.getAdId().intValue(), 1, request.getRemoteAddr())
 				.start();
-		view.addObject("ad_url", ad_url);
+		if (ad.getAdId() == 0) {
+			view.addObject("ad_url", "default_1.jpg");
+		} else {
+			view.addObject("ad_url", ad_url);
+		}
 		view.addObject("boards", boards);
 		view.setViewName("/listAllBoards");
 		return view;
@@ -116,19 +125,4 @@ public class ForumManageController extends BaseController {
 		return "forward:/library/test/letoportal.htm";
 	}
 
-	// @RequestMapping(value = "/adClickCount")
-	// public void adClickCount() {
-	// System.out.println("广告 次数更新----deviceid = "
-	// + request.getParameter("deviceid"));
-	// String para = null;
-	// @SuppressWarnings("unchecked")
-	// Enumeration<String> e = request.getParameterNames();
-	// while (e.hasMoreElements()) {
-	// para = e.nextElement();
-	// if (para != null) {
-	// System.out.println("参数：" + para + " : "
-	// + request.getParameter(para));
-	// }
-	// }
-	// }
 }

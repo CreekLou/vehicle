@@ -53,18 +53,32 @@ public class MultiMediaController{
 	public ModelAndView video(HttpServletRequest request) {
         videoTypeList = videoService.getAllVideoType();
         ModelAndView modelAndView = new ModelAndView("video");
-		Ad ad = adService.getRandomAd(0);
-		String ad_url = "home_ad_" + ad.getAdId() + "." + ad.getSufName();
+		Ad ad = adService.getRandomAd(1);
+		String ad_url = ad.getAdId() + "." + ad.getSufName();
 		new AdClickCount(ad.getAdId().intValue(), 1, request.getRemoteAddr())
 				.start();
-		modelAndView.addObject("ad_url", ad_url);
+		if (ad.getAdId() == 0) {
+			modelAndView.addObject("ad_url", "default_1.jpg");
+		} else {
+			modelAndView.addObject("ad_url", ad_url);
+		}
         modelAndView.addObject("typeList", videoTypeList);
         return modelAndView;
     }
     
     @RequestMapping(value = "/videoplayer.html")
-    public ModelAndView videoPlayer() {
+	public ModelAndView videoPlayer(HttpServletRequest request) {
         ModelAndView modelAndView = new ModelAndView("videoPlayer");
+		Ad ad = adService.getRandomAd(2);
+		String ad_url = ad.getAdId() + "." + ad.getSufName();
+		new AdClickCount(ad.getAdId().intValue(), 2, request.getRemoteAddr())
+				.start();
+		System.out.println("video ad.id = " + ad.getAdId());
+		if (ad.getAdId() == 0) {
+			modelAndView.addObject("ad_url", "default_2.jpg");
+		} else {
+			modelAndView.addObject("ad_url", ad_url);
+		}
         modelAndView.addObject("typeList");
         return modelAndView;
     }
@@ -72,11 +86,15 @@ public class MultiMediaController{
 	public ModelAndView voice(HttpServletRequest request) {
         voiceTypeList = voiceService.getAllVoiceType();
         ModelAndView modelAndView = new ModelAndView("voice");
-		Ad ad = adService.getRandomAd(0);
-		String ad_url = "home_ad_" + ad.getAdId() + "." + ad.getSufName();
+		Ad ad = adService.getRandomAd(1);
+		String ad_url = ad.getAdId() + "." + ad.getSufName();
 		new AdClickCount(ad.getAdId().intValue(), 1, request.getRemoteAddr())
 				.start();
-		modelAndView.addObject("ad_url", ad_url);
+		if (ad.getAdId() == 0) {
+			modelAndView.addObject("ad_url", "default_1.jpg");
+		} else {
+			modelAndView.addObject("ad_url", ad_url);
+		}
         modelAndView.addObject("typeList", voiceTypeList);
         return modelAndView;
     }
@@ -126,24 +144,24 @@ public class MultiMediaController{
 		return modelMap;
 	}
     
-	@RequestMapping(value = "/videoAdClicks", method = RequestMethod.POST)
-	public void adAddClicks(HttpServletRequest request) {
-		new AdClickCount(1, 1, request.getRemoteAddr()).start();
-		System.out.println("视频广告次数增加");
-	}
+	// @RequestMapping(value = "/videoAdClicks", method = RequestMethod.POST)
+	// public void adAddClicks(HttpServletRequest request) {
+	// new AdClickCount(1, 1, request.getRemoteAddr()).start();
+	// System.out.println("视频广告次数增加");
+	// }
     @RequestMapping(value = "/addClicks-{type}-{id}.html", method = RequestMethod.POST)
 	public String addClicks(@PathVariable String type,@PathVariable Long id) {
                 String targetUrl = null;
 		if (type.equals(CommonConstant.VIDEO_CONTENTS)) {
 			videoService.addClicks(id);
-                        targetUrl = "/videoplayer.html";
+			targetUrl = "/videoplayer.html";
 		}
 		if (type.equals(CommonConstant.VOICE_CONTENTS)) {
 			voiceService.addClicks(id);
 			targetUrl = "/voiceplayer.html";
 			System.out.println("id voice add-----------------" + id);
 		}
-                return "redirect:" + targetUrl;
+		return "redirect:" + targetUrl;
 	}
     @RequestMapping(value = "/addPriase-{type}-{id}.html", method = RequestMethod.POST)
 	public String addPriase(@PathVariable String type,@PathVariable Long id) {

@@ -34,11 +34,15 @@ public class CityController extends BaseController {
 		System.out.println("-----------listCitysService----------");
 
 		ModelAndView view = new ModelAndView();
-		Ad ad = adService.getRandomAd(0);
-		String ad_url = "home_ad_" + ad.getAdId() + "." + ad.getSufName();
+		Ad ad = adService.getRandomAd(1);
+		String ad_url = ad.getAdId() + "." + ad.getSufName();
 		new AdClickCount(ad.getAdId().intValue(), 1, request.getRemoteAddr())
 				.start();
-		view.addObject("ad_url", ad_url);
+		if (ad.getAdId() == 0) {
+			view.addObject("ad_url", "default_1.jpg");
+		} else {
+			view.addObject("ad_url", ad_url);
+		}
 		List<City> citys = vehicleService.getAllCitys();
 		view.addObject("citys", citys);
 		view.setViewName("/listCitys");
@@ -72,11 +76,15 @@ public class CityController extends BaseController {
 					pageNo, CommonConstant.PAGE_SIZE);
 			}
 		}
-		Ad ad = adService.getRandomAd(0);
-		String ad_url = "home_ad_" + ad.getAdId() + "." + ad.getSufName();
+		Ad ad = adService.getRandomAd(1);
+		String ad_url = ad.getAdId() + "." + ad.getSufName();
 		new AdClickCount(ad.getAdId().intValue(), 1, request.getRemoteAddr())
 				.start();
-		view.addObject("ad_url", ad_url);
+		if (ad.getAdId() == 0) {
+			view.addObject("ad_url", "default_1.jpg");
+		} else {
+			view.addObject("ad_url", ad_url);
+		}
 		view.addObject("city", city);
 		view.addObject("board", board);
 		view.addObject("pagedTopic", pagedTopic);

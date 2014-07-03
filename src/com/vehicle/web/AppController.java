@@ -33,12 +33,16 @@ public class AppController {
 		ModelAndView view = new ModelAndView();
 		List<App> apps = appService.getAllAppByType(type);
 
-		Ad ad = adService.getRandomAd(0);
+		Ad ad = adService.getRandomAd(1);
 		System.out.println(" ad.adId = " + ad.getAdId());
-		String ad_url = "home_ad_" + ad.getAdId() + "." + ad.getSufName();
+		String ad_url = ad.getAdId() + "." + ad.getSufName();
 		new AdClickCount(ad.getAdId().intValue(), 1, request.getRemoteAddr())
 				.start();
-		view.addObject("ad_url", ad_url);
+		if (ad.getAdId() == 0) {
+			view.addObject("ad_url", "default_1.jpg");
+		} else {
+			view.addObject("ad_url", ad_url);
+		}
 		view.addObject("apps", apps);
 		view.addObject("type", type);
 		view.setViewName("/listApp");

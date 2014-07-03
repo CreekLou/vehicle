@@ -15,9 +15,9 @@
         <script src="<c:url value="/public/js/video.js"/>"></script>
         <script src="<c:url value="/public/js/jquery-1.9.1.min.js"/>"></script>
         <script src="<c:url value="/public/js/jquery.mobile-1.3.2.js"/>"></script>
-        <script src="<c:url value="/public/js/menu.js"/>"></script>
+       <!--   <script src="<c:url value="/public/js/menu.js"/>"></script>-->
         <script src="<c:url value="/public/js/videoUIControler.js"/>"></script>
-        <script src="<c:url value="/public/js/videojs-playlists.min.js"/>"></script>
+        <script src="<c:url value="/public/js/videojs-playlists.js"/>"></script>
         <script>
           videojs.options.flash.swf = "<c:url value="/public/js/video-js.swf"/>";
         </script>
@@ -34,23 +34,24 @@
         <div data-role="page" data-theme="a">
             <div id="header" data-role="header" data-position="fixed" data-tap-toggle="false">
                 <h1><%= request.getParameter("type")%></h1>
-                <a href="vehicle/index.html" data-icon="home" rel="external" data-role="button" class="ui-btn-right">首页</a>
+                <a href="/vehicle/index.html" data-icon="home" rel="external" data-role="button" class="ui-btn-left">首页</a>
             </div>
 <!--              start -->
             <div id="ad" class="video-js vjs-default-skin">
-                    <span id="timer" >距离结束还有 9 秒</span> 
-                    <img id="adimg" class="video-js" style="width: 100%;" src="<c:url value="data/images/ad/video_ad.png" />">
+                    <span id="timer" >广告剩余 3 秒</span> 
+                    <img id="adimg" class="video-js" style="width: 100%;" src="<c:url value="data/images/ad/${ad_url}" />">
             </div>
 <!--             end -->
-            <video id="video_1" class="video-js vjs-default-skin" controls preload="auto" width="100%" height="240">
+            <video id="video_1" class="video-js vjs-default-skin" controls preload="auto" width="100%" height="240" src="" type="video/mp4">
             </video>
-            
-            <div data-role="content"> 
+            <div data-role="content" id="toolBar">
+                <p class="ui-li-aside" id="playNowTitle"></p>
                 <div data-role="popup" id="popupBasic"><p>赞+1</p></div>
                 <a href="#popupBasic" id="popIcon" data-rel="popup" data-transition="slidedown" data-position-to="window" data-transition="pop"></a>
                 <span id="priaseNum" class="ui-li-aside" >0</span>
+                
             </div>
-            <div data-role="content" >
+            <div data-role="content" id="menuList">
                 <ul data-role="listview" data-inset="true" data-icon="false" data-theme="a" data-count-theme="b" id="ul_info">
                     
                 </ul>

@@ -51,9 +51,6 @@ public class AppDownCount extends Thread {
 
 		deviceid = prop.getProperty("boxid");
 		System.out.println("boxid = " + deviceid);
-		// url = "http://" + prop.getProperty("serverip")+
-		// "/letoo/adClickCount.jsp";
-		// url = "http://www.letu321.com/adCount";
 	}
 
 	@Override
